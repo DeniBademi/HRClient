@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewEncapsulation } from "@angular/core";
 import { FormControl, FormGroup, Validators } from "@angular/forms";
-import { CountryISO, PhoneNumberFormat, SearchCountryField } from "ngx-intl-tel-input";
+// import { CountryISO, PhoneNumberFormat, SearchCountryField } from "ngx-intl-tel-input";
 import { ToastrService } from "ngx-toastr";
 import { Currency } from "src/app/_models/Currency";
 import { ProductModel } from "src/app/_models/ProductModel";
@@ -43,11 +43,11 @@ export class CartComponent implements OnInit {
 
 
   // PHONE NUMBER INPUT
-  separateDialCode = true;
-	SearchCountryField = SearchCountryField;
-	CountryISO = CountryISO;
-  PhoneNumberFormat = PhoneNumberFormat;
-	preferredCountries: CountryISO[] = [CountryISO.UnitedStates, CountryISO.UnitedKingdom];
+  // separateDialCode = true;
+	// SearchCountryField = SearchCountryField;
+	// CountryISO = CountryISO;
+  // PhoneNumberFormat = PhoneNumberFormat;
+	// preferredCountries: CountryISO[] = [CountryISO.UnitedStates, CountryISO.UnitedKingdom];
 
 
   cartItems: { product: any, quantity: number }[] = [];

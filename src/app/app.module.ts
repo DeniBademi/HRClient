@@ -49,7 +49,7 @@ import { MdbTabsModule } from 'mdb-angular-ui-kit/tabs';
 import { MdbTooltipModule } from 'mdb-angular-ui-kit/tooltip';
 import { MdbValidationModule } from 'mdb-angular-ui-kit/validation';
 import { CheckoutComponent } from './pages/checkout/checkout.component';
-import { NgxIntlTelInputModule } from 'ngx-intl-tel-input';
+// import { NgxIntlTelInputModule } from 'ngx-intl-tel-input';
 import { RouterModule } from '@angular/router';
 import { ShippingInformationComponent } from './shipping-information/shipping-information.component';
 import { CheckoutShippingAddressComponent } from './pages/checkout/checkout-shipping-address/checkout-shipping-address.component';
@@ -57,7 +57,7 @@ import { CheckoutShippingMethodComponent } from './pages/checkout/checkout-shipp
 import { CheckoutPaymentComponent } from './pages/checkout/checkout-payment/checkout-payment.component';
 import { CheckoutOrderOverviewComponent } from './pages/checkout/checkout-order-overview/checkout-order-overview.component';
 import { StripePaymentComponent } from './stripe-payment/stripe-payment.component';
-import { IntlInputPhoneModule } from 'intl-tel-input';
+// import { IntlInputPhoneModule } from 'intl-tel-input';
 
 @NgModule({
   declarations: [									
