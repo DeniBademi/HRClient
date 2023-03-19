@@ -127,7 +127,6 @@ import { StripePaymentComponent } from './stripe-payment/stripe-payment.componen
     MdbValidationModule,
     NoopAnimationsModule,
     ReactiveFormsModule,
-    NgxIntlTelInputModule,
     RouterModule,
     
   ],
