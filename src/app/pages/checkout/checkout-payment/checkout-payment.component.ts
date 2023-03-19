@@ -146,7 +146,7 @@ export class CheckoutPaymentComponent implements OnInit {
     const { error } = await this.stripe.confirmPayment({
       elements: this.elements,
       confirmParams: {
-        return_url: window.location.href + "checkout/"+this.checkoutID+"/payment",
+        return_url: window.location.href + "checkout/thank-you",
         receipt_email: "denis.zaharievv@gmail.com",
         shipping: {
           address: {
