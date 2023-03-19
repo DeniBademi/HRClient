@@ -1,0 +1,81 @@
+<div class="container" *ngIf="product!=undefined">
+
+    <div class="label">
+        <div class="single-product">
+            <div class="row">
+                <div class="col-7">
+                    <!-- <div class="product-image">
+                        <div class="product-image-main">
+                            <img [attr.src]="GlobalsService.productPhotosMediaURLs + product.photosJSON.thumbnail" alt="" id="product-main-image">
+                        </div>
+                        <div class="product-image-slider" >
+                            <img [attr.src]="GlobalsService.productPhotosMediaURLs + item" alt=""  class="image-list" *ngFor="let item of product.photosJSON['gallery']">
+                        </div>
+                    </div> -->
+                    <gallery [items]="photos" thumbPosition="right"></gallery>
+                </div>
+                <div class="col-1"></div>
+                <div class="col-4">
+                    <div class="breadcrumb">
+                        <span><a [routerLink]="['/']" routerLinkActive="active">Home</a></span>
+                        <span><a [routerLink]="['/catalog']" routerLinkActive="active" >Products</a></span>
+                        <span class="active">{{product.name}}</span>
+                    </div>
+
+                    <div class="product">
+                        <div class="product-title">
+                            <h2>{{product.name}}</h2>
+                        </div>
+                        <div class="product-price">
+                            <span class="offer-price">{{product.price}} {{product.currency.currencyCode}}</span>
+                            <!-- <span class="sale-price">$129.00</span> -->
+                        </div>
+                        <span class="divider"></span>
+                        <div class="product-details" *ngIf="product.description.length>0">
+                            <div style="font-size:small;" [innerHTML]="product.description"></div>
+                        </div>
+                    
+                        <!-- <div class="product-size">
+                            <h4>Size</h4>
+                            <div class="size-layout">
+                                <input type="radio" name="size" value="S" id="1" class="size-input">
+                                <label for="1" class="size">S</label>
+
+                                <input type="radio" name="size" value="M" id="2" class="size-input">
+                                <label for="2" class="size">M</label>
+
+                                <input type="radio" name="size" value="L" id="3" class="size-input">
+                                <label for="3" class="size">L</label>
+
+                                <input type="radio" name="size" value="XL" id="4" class="size-input">
+                                <label for="4" class="size">XL</label>
+
+                                <input type="radio" name="size" value="XXL" id="5" class="size-input">
+                                <label for="5" class="size">XXL</label>
+                            </div>
+                        </div> -->
+                        <!-- <div class="product-color">
+                            <h4>Color</h4>
+                            <div class="color-layout">
+                                <input type="radio" name="color"  value="black" class="color-input">
+                                <label for="black" class="black"></label>
+                                <input type="radio" name="color"  value="red" class="color-input">
+                                <label for="red" class="red"></label>
+
+                                <input type="radio" name="color"  value="blue" class="color-input">
+                                <label for="blue" class="blue"></label>
+                            </div>
+                        </div> -->
+                        <span class="divider"></span>
+
+                        <div class="product-btn-group">
+                            <div class="button buy-now"><i class='bx bxs-zap' ></i> Buy Now</div>
+                            <div class="button add-cart"><app-add-to-cart-btn (click)="CartService.addItem(product)"></app-add-to-cart-btn></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+  </div>

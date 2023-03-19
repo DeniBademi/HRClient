@@ -1,0 +1,35 @@
+<div class="info-container" *ngIf="checkout != undefined">
+  Order overview
+  <span class="type d-block mt-3 mb-1"></span>
+  <div class="product-list overflow-auto">
+    <div class="row align-items-center justify-content-between mt-3 p-2 item-row" *ngFor="let item of cartItems">
+      
+      <div class="col-sm-1 quantity-item">{{item.quantity}}</div>
+      <div class="col-sm-1"><i class="fas fa-times"></i></div>
+      <div class="col-sm-6">
+        <div class="items rounded align-items-center justify-content-center row">
+          <img class="col-sm-5 rounded" [attr.src]="this.GlobalsService.productPhotosMediaURLs + item.product.photosJSON.thumbnail" style="width: 5vh; padding: 0; float: left;">
+          <div class="ml-2 col-sm-6 item-desc"><span class="font-weight-bold d-block">{{item.product.name}}</span>
+            <span class="spec">{{item.product.productType.name}} | {{item.product.productModel.name}}</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-sm-1"><i class="fas fa-equals"></i></div>
+      <div class="col-sm-2 price-multi">
+          <!-- <span class="d-block">{{item.quantity}}</span> -->
+          <div class="d-block font-weight-bold price">{{item.product.price * item.quantity}} {{item.product.currency.currencyCode}}</div>
+      </div>
+
+
+    </div>
+  </div>
+<hr class="line">
+<div *ngIf="checkout.coupon != undefined">
+  <div class="d-flex justify-content-between information"><span>Subtotal</span><span>{{sum}} BGN</span></div>
+  <div class="d-flex justify-content-between information"><span>Discount</span><span>{{checkout.coupon.discount}} {{checkout.coupon.isPercentage == true ? "%" : cartItems[0].product.currency.currencyCode}} </span></div>
+  <div class="d-flex justify-content-between information"><span>Total</span><span>{{total}} BGN</span></div>
+</div>
+<div *ngIf="checkout.coupon == undefined">
+  <div class="d-flex justify-content-between information"><span>Total</span><span>{{sum}} BGN</span></div>
+</div>
+</div>

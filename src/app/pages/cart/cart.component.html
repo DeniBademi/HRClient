@@ -1,0 +1,132 @@
+ <div class="container mt-5 p-3 rounded cart" *ngIf="this.cartItemsLength>0">
+    <h1 style="font-weight: 500; font-size: 30px;">Cart</h1>
+    <div class="row no-gutters">
+        <div class="col-md-8 productlist">
+            <div class="product-details mr-2">
+                <div class="d-flex flex-row align-items-center go-back-btn" [routerLink]="['/catalog']" routerLinkActive="active">
+                    <i class="fa fa-long-arrow-left"></i><span class="ml-2">Continue Shopping</span>
+                </div>
+                <hr>
+                <!-- <h6 class="mb-0">Shopping cart</h6> -->
+                <div class="d-flex justify-content-between"><span>You have {{cartItemsLength}} items in your cart</span>
+                    <!-- <div class="d-flex flex-row align-items-center"><span class="text-black-50">Sort by:</span>
+                        <div class="price ml-2"><span class="mr-1">price</span><i class="fa fa-angle-down"></i></div>
+                    </div> -->
+                </div>
+                <div class="d-flex justify-content-between align-items-center mt-3 p-2 items rounded overflow-auto" *ngFor="let item of cartItems">
+                    <div class="d-flex flex-row"><img class="rounded" [attr.src]="this.GlobalsService.productPhotosMediaURLs + item.product.photosJSON.thumbnail" width="40">
+                        <div class="ml-2"><span class="font-weight-bold d-block">{{item.product.name}}</span>
+                            <span class="spec"><b>{{item.product.productType.name}} | {{item.product.productModel.name}}</b></span>
+                        </div>
+                    </div>
+                    <div class="d-flex flex-row align-items-center">
+                        <!-- <span class="d-block">{{item.quantity}}</span> -->
+                        <div class="quantity buttons_added">
+                            <input type="button" value="-" class="minus" (click)="removeItem(item.product)">
+                            <input type="number" step="1" min="1" max="" name="quantity" [(ngModel)]="item.quantity" title="Qty" class="input-text qty text" size="4" pattern="" inputmode="">
+                            <input type="button" value="+" class="plus" (click)="addItem(item.product)">
+                        </div>
+                        
+                        <!-- <div class="round-button">
+                            <div class="round-button-circle">
+                                
+                            </div>
+                        </div> -->
+                        <i class="fa-solid far fa-trash fa-lg ml-4" (click)="this.CartService.deleteItem(item.product)"></i>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+        <div class="col-md-4 ">
+            <div class="payment-info discountcontainer">
+                <div class="d-flex justify-content-between align-items-center">
+                    <span>DISCOUNT</span>
+                </div>
+                <label class="discount-code-label">Enter your discount code here</label>
+                <div class="discountform">
+                    
+                    <input type="text" class="form-control credit-inputs discountinput" [(ngModel)]="discountCode" placeholder="XXXXXX">
+                    <button class="applydiscountbtn" (click)="validateDiscountCode()">Apply</button>
+                    <!-- <div class="form">
+                        <input type="text" placeholder="Your email address" [(ngModel)]="email">
+                        <button class="normal" (click)="addSubscription()">Sign Up</button>
+                    </div> -->
+                </div>
+
+            </div>
+            <div class="payment-info">
+                <div class="d-flex justify-content-between align-items-center">
+                    <span>Personal details</span>
+                </div>
+                <span class="type d-block mt-3 mb-1"></span>
+
+
+                <form [formGroup]="PersonalDetailsForm" (ngSubmit)="checkout()">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label class="credit-card-label">First name *</label>
+                            <input required type="text" class="form-control credit-inputs" placeholder="John" formControlName="firstName">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="credit-card-label">Last name *</label>
+                            <input required type="text" class="form-control credit-inputs" placeholder="Smith" formControlName="lastName">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="credit-card-label">Email *</label>
+                        <input required type="email" class="form-control credit-inputs" placeholder="john.smith@example.com" formControlName="email">
+                    </div>
+                    <div>
+                        <label class="credit-card-label">Phone number *</label>
+                        <!-- <input type="email" class="form-control credit-inputs" placeholder="" formControlName="phoneNumber"> -->
+                        <div class="phoneContainer">
+                            <ngx-intl-tel-input
+                        [cssClass]="'form-control credit-inputs phoneInput'"
+                        [preferredCountries]="[]"
+                        [enableAutoCountrySelect]="false"
+                        [enablePlaceholder]="true"
+                        [searchCountryFlag]="true"
+                        [searchCountryField]="[SearchCountryField.Iso2, SearchCountryField.Name]"
+                        [selectFirstCountry]="false"
+                        [selectedCountryISO]="CountryISO.Bulgaria"
+                        [separateDialCode]="true"
+                        [maxLength]="15"
+                        [phoneValidation]="true"
+                        name="phone"
+                        formControlName="phoneNumber"
+                    ></ngx-intl-tel-input>
+                        </div>
+                        
+                    </div>  
+                    
+                    <hr class="line">
+                    <!-- <div class="d-flex justify-content-between information"><span>Subtotal</span><span>{{total}} BGN</span></div> -->
+                    <div class="d-flex justify-content-between information"><span>Taxes included. Shipping calculated at checkout.</span></div>
+                    <button class="btn btn-checkout btn-block d-flex justify-content-between mt-3" 
+                    type="submit" [disabled]="!PersonalDetailsForm.valid">
+                        <span *ngIf="total == sum">{{total}} BGN</span>
+                        <span *ngIf="total != sum"><s style="color:red; font-weight: 500;white-space: pre;">{{sum}}</s> {{total}} BGN</span>
+                        <span>Checkout<i class="fa fa-long-arrow-right ml-1"></i></span>
+                    </button>
+                </form>
+
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="container mt-5 p-3 rounded cart" *ngIf="this.cartItemsLength==0">
+    <div class="row no-gutters">
+        <div class="empty-cart-container">
+            <div class="empty-cart-content">
+                <h1 class="cart-empty-label">Your cart is empty.</h1>
+                <button class="go-shopping-btn" [routerLink]="['/catalog']" routerLinkActive="active" >Go Shopping</button>
+            </div>
+            
+        </div>
+    </div>
+</div>

@@ -1,0 +1,19 @@
+.selected {background:#008fb4}
+
+.clearFilters {
+    height: 53px;
+    width: 53px;
+    align-content: center; 
+    line-height: 20px;
+    margin-right: 10px
+}
+.productslist {
+  display: grid;
+  grid-template-columns: 20% 20% 20% 20% 20%;
+  grid-template-rows: auto;
+  border: 2px dashed rgba(114, 186, 94, 0.35);
+}
+.add-to-cart-button {
+  border: none;
+  border-radius: 5px;
+}

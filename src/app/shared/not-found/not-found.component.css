@@ -1,0 +1,26 @@
+.container {
+    width: 100vh;
+    height:45vh;
+    position: relative;
+}
+
+.label {
+    color: yellow;
+    font-size: 60px;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.subtitle {
+    color: rgba(255, 255, 255, 0.76);
+    font-size: 25px;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,60%);
+    text-align: center;
+}
