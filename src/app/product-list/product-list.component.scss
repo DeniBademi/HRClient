@@ -9,9 +9,7 @@
 }
 .productslist {
   display: grid;
-  grid-template-columns: 20% 20% 20% 20% 20%;
-  grid-template-rows: auto;
-  border: 2px dashed rgba(114, 186, 94, 0.35);
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 }
 .add-to-cart-button {
   border: none;

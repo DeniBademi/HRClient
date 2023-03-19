@@ -69,8 +69,7 @@ export class CheckoutShippingAddressComponent implements OnInit {
 
 
     nextStep(){
-      console.log('a')
-      this.Router.navigate(['/checkout/'+ this.checkout.id+ '/shipping-method']);
+      this.Router.navigate(['/checkout/'+ this.checkoutID + '/shipping-method']);
     }
 }
 // shippingInformation = new FormGroup({

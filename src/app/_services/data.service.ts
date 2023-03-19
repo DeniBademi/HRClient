@@ -74,4 +74,10 @@ export class DataService {
   sendMessage(data: any) {
     return this.http.post(this.GlobalsService.baseURL +'contactmessage/add', data);
   }
+
+  getStripeClientSecret(checkoutId: string) {
+    let data = {};
+    data['checkoutId'] = checkoutId;
+    return this.http.post(this.GlobalsService.baseURL +'stripe/create-payment-intent', data);
+  }
 }

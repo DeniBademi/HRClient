@@ -1,8 +1,9 @@
 .container {
-    width: 100vh;
+    width: 100vw;
     height:70vh;
     position: relative;
     background-color: #333;
+    overflow: hidden;
 }
 
 .label {
@@ -369,6 +370,59 @@
         flex-direction: column;
         gap: 10px;
     }
+
+    .label {
+        color: white;
+        font-size: 60px;
+        margin-top: 50px;
+        position:relative;
+        top: 0;
+        left: 0;
+        transform: none;
+    }
+
+    .gallery {
+        width: 100vw;
+        margin-top: 50px;
+    }
+    .container {
+        margin: 0;
+        padding: 0;
+        margin-top: 50px;
+    }
+
+    .product-price .offer-price{
+        font-size: 20px;
+        font-weight: 700;
+    }
+
+    .product {
+        margin: 3vw;
+        width: 100vw;
+    }
+
+    .product-details {
+        margin: 3vw;
+    }
+    .name-price {
+        display: flex;
+        justify-content: space-between;
+        width: 90vw;
+    }
+
+    .product-price, .product-title, .offer-price {
+        padding: 0;
+        margin: 0;
+        line-height: 1.6em;
+    }
+    .buy-now, .add-cart {
+        width: 80vw !important;
+        margin: auto;
+    }
+
+
+    
+    
 }
 
 /** Responsive Tablet **/

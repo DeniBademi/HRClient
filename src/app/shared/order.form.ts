@@ -21,7 +21,7 @@ const form = {
     ]),
     paymentMethod: new FormControl(undefined, [
         Validators.required
-    ]),
+    ])
   };
 
 @Injectable({ providedIn: 'root' })

@@ -42,4 +42,10 @@
     .line1 {
         margin-bottom: 30px;
     }
+
+    #container {
+        max-height: 300px;
+        min-height: 50vh;
+    }
 }
+

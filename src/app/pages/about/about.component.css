@@ -3,8 +3,7 @@
 .container {
     width: 100%;
     padding-top: 10vh;
-    height: 160vh;
-    position: relative;
+    font-family:"Spartan",serif;
 }
 
 .label {
@@ -12,6 +11,13 @@
     font-size: 60px;
     margin: 0;
     line-height: 3vh;
+    margin:0in;
+    font-size:20px;
+    color:white;
+    border:none;
+}
+
+.title {
 
 }
 
@@ -34,8 +40,12 @@
     margin-left: 40%;
 }
 
-    .borderhex {
-        background: yellow;
-        clip-path: polygon(0% 51%, 25% 95%, 75% 95%, 100% 51%, 75% 5%, 25% 5%);
-       /* 75% 5%, 25% 5% */
+
+@media (max-width:700px) {
+    .label {
+        font-size: 15px;
     }
+    .left, .right {
+        margin: 5vw
+    }
+}

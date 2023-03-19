@@ -3,8 +3,9 @@
 .card {
     border: none;
     cursor: pointer;
-    margin: 15px;
+    margin: auto;
     border-radius: 10px;
+    width: 250px;
 }
 
 .card-body {
@@ -16,10 +17,9 @@
 }
 
 .cardcontainer {
-    margin: px;
+    margin: auto;
     border-radius: 10px;
     padding-top: 10px;
-
 }
 
 .pricelabel {

@@ -50,7 +50,7 @@ export class CheckoutShippingMethodComponent implements OnInit {
   }
 
   nextStep() {
-    this.Router.navigate(['/checkout/'+ this.checkout.id+ '/payment']);
+    this.Router.navigate(['/checkout/'+ this.checkoutID + '/payment']);
   }
 
 }

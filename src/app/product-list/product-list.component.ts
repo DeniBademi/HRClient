@@ -8,6 +8,7 @@ import { Observable } from 'rxjs';
 import { ProductModel } from '../_models/ProductModel';
 import { ProductType } from '../_models/ProductType';
 import { Currency } from '../_models/Currency';
+import { GlobalsService } from '../_services/globals.service';
 
 @Component({
   selector: 'app-product-list',
@@ -17,7 +18,6 @@ import { Currency } from '../_models/Currency';
 })
 export class ProductListComponent implements OnInit {
 
-  baseUrl = "https://honeycombrollers.azurewebsites.net/";
   pageSize: any = "12";
   totalPages: any = "100";
   currentPage: any = "1";
@@ -39,7 +39,8 @@ export class ProductListComponent implements OnInit {
   
   constructor(private http: HttpClient, 
     public cartService: CartService,
-    public toastr: ToastrService) { 
+    public toastr: ToastrService,
+    private Globals: GlobalsService) { 
 
     
   
@@ -55,7 +56,7 @@ export class ProductListComponent implements OnInit {
   }
 
   getProducts() {
-    this.http.get(this.baseUrl+'product/getAll', 
+    this.http.get(this.Globals.baseURL+'product/getAll', 
     {
       observe: 'response',
       params: new HttpParams().set("pageNumber", this.currentPage)
@@ -91,7 +92,7 @@ export class ProductListComponent implements OnInit {
   }
 
   getTypes(){
-    this.http.get(this.baseUrl+'product/types/getAll').pipe(
+    this.http.get(this.Globals.baseURL+'product/types/getAll').pipe(
       map((response: any) => {
         const types = response;
         return types;
@@ -107,7 +108,7 @@ export class ProductListComponent implements OnInit {
   }
 
   getModels(){
-    this.http.get(this.baseUrl+'product/productmodel/getAll').pipe(
+    this.http.get(this.Globals.baseURL+'product/productmodel/getAll').pipe(
       map((response: any) => {
         const types = response;
         return types;

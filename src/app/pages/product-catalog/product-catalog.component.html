@@ -10,7 +10,7 @@
     </div> -->
     <div class="justify-content-center productlistel">
         <div class="row">
-            <div class="col-lg-2"><app-product-filters (ChangeFilters)="onChangeFilters($event)"></app-product-filters></div>
+            <div class="col-lg-2 filters"><app-product-filters (ChangeFilters)="onChangeFilters($event)"></app-product-filters></div>
             <div class="col-lg-10"><app-product-list [changeFilters]="changeFilters.asObservable()"></app-product-list></div>
         </div>
     </div>

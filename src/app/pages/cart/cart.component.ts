@@ -133,11 +133,13 @@ export class CartComponent implements OnInit {
     data.Email = this.PersonalDetailsForm.value.email;
     data.PhoneNumber = this.PersonalDetailsForm.value.phoneNumber//!["internationalNumber"];
 
-    if(this.PersonalDetailsForm.value.discountCode.length>0)
+    if(this.PersonalDetailsForm.value.discountCode.length>0){
+      console.log(data.DiscountCode)
       data.DiscountCode = this.PersonalDetailsForm.value.discountCode!;
-
-    console.log(data.DiscountCode)
+    }
+    
     this.DataService.checkout(data).subscribe( (value: any) => {
+      console.log(value)
       let checkoutID = value['id'];
       this.Router.navigate(['/checkout/'+ checkoutID+ '/shipping-address']);
       

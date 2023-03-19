@@ -50,6 +50,11 @@ export class ProductDetailsComponent implements OnInit {
 
   }
 
+  buyInstant() {
+    this.CartService.addItem(this.product)
+    this.router.navigate(["/cart"])
+  }
+
 
 
 
