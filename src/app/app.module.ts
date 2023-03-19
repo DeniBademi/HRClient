@@ -57,6 +57,7 @@ import { CheckoutShippingMethodComponent } from './pages/checkout/checkout-shipp
 import { CheckoutPaymentComponent } from './pages/checkout/checkout-payment/checkout-payment.component';
 import { CheckoutOrderOverviewComponent } from './pages/checkout/checkout-order-overview/checkout-order-overview.component';
 import { StripePaymentComponent } from './stripe-payment/stripe-payment.component';
+import { IntlInputPhoneModule } from 'intl-tel-input';
 
 @NgModule({
   declarations: [									
@@ -81,7 +82,8 @@ import { StripePaymentComponent } from './stripe-payment/stripe-payment.componen
       CheckoutShippingMethodComponent,
       CheckoutPaymentComponent,
       CheckoutOrderOverviewComponent,
-      StripePaymentComponent
+      StripePaymentComponent,
+      
    ],
   imports: [
     BrowserModule,
@@ -99,6 +101,7 @@ import { StripePaymentComponent } from './stripe-payment/stripe-payment.componen
     MatDialogModule,
     MatSelectModule,
     FormsModule,
+    
     
     HttpClientModule,
     NgParticlesModule,
@@ -125,7 +128,8 @@ import { StripePaymentComponent } from './stripe-payment/stripe-payment.componen
     NoopAnimationsModule,
     ReactiveFormsModule,
     NgxIntlTelInputModule,
-    RouterModule
+    RouterModule,
+    
   ],
   providers: [
     { provide: MatDialogRef, useValue: {} }

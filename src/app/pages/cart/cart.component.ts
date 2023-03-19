@@ -131,7 +131,7 @@ export class CartComponent implements OnInit {
     data.FirstName = this.PersonalDetailsForm.value.firstName;
     data.LastName = this.PersonalDetailsForm.value.lastName;
     data.Email = this.PersonalDetailsForm.value.email;
-    data.PhoneNumber = this.PersonalDetailsForm.value.phoneNumber!["internationalNumber"];
+    data.PhoneNumber = this.PersonalDetailsForm.value.phoneNumber//!["internationalNumber"];
 
     if(this.PersonalDetailsForm.value.discountCode.length>0)
       data.DiscountCode = this.PersonalDetailsForm.value.discountCode!;
