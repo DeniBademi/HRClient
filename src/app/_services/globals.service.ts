@@ -6,8 +6,8 @@ import { Product } from '../_models/Product';
 })
 export class GlobalsService {
 
-  baseURL = "https://honeycombrollers.azurewebsites.net/"
-  //baseURL = "http://213.124.166.84:5001/"
+  baseURL = "https://hrserver2.azurewebsites.net/"
+  //baseURL = "https://localhost:5001/"
   // clientBaseURL = "http://213.124.166.84:4200/"
 
   productPhotosMediaURLs = "https://res.cloudinary.com/dvkjlgu83/image/upload/v1677171170/product-photos/"

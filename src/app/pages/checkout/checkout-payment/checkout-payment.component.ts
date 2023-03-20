@@ -123,6 +123,7 @@ export class CheckoutPaymentComponent implements OnInit {
     data['postalCode'] = shippingInfo.get("postalCode").value
     data['country'] = shippingInfo.get("countryId").value
     data["paymentMethod"] = this.form.get('paymentMethod').value;
+    data["checkoutId"] = this.checkoutID;
 
     this.DataService.placeOrder(data).subscribe( (value) => {
         console.log(value)
