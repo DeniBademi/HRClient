@@ -55,6 +55,8 @@ export class CartComponent implements OnInit {
   discountCode: string ="";
   sum: number = 0;
   total: number = 0;
+  discount: number = 0;
+  discountType: string = "";
   
 
   constructor(public CartService: CartService, 
@@ -96,31 +98,46 @@ export class CartComponent implements OnInit {
    validateDiscountCode() {
     if(this.discountCode.length==0) {
       this.toastr.error("Coupon is missing!")
+      this.discountType = ""
+      this.discount = 0
       return
     }
     let answer = this.DataService.validateCouponCode(this.discountCode).subscribe(
       data => {
       this.toastr.success("Coupon applied successfuly!")
         this.PersonalDetailsForm.get('discountCode').setValue(this.discountCode)
+        this.discount = data.body["discount"]
         if(data.body["isPercentage"]) {
-          this.total = Math.round(this.sum * (100 - data.body["discount"]))/100
+          this.total = Math.round(this.sum * (100 - this.discount))/100
+          this.discountType = "p"
         } else {
-          this.total = this.sum - data.body["discount"];
+          this.total = this.sum - this.discount;
+          this.discountType = "a"
         }
     },
     error => this.toastr.error(error.error))
    }
 
+   
+   refreshTotal() {
+    this.sum = this.CartService.calculateTotal();
+    if(this.discountType=="p") {
+      this.total = Math.round(this.sum * (100 -this.discount))/100
+    } else if (this.discountType=="a") {
+      this.total = this.sum - this.discount;
+      
+    }
 
+   }
 
    addItem(item: Product) {
       this.CartService.addItem(item);
-      this.total = this.CartService.calculateTotal();
+      this.refreshTotal();
     }
 
    removeItem(item: Product) {
     this.CartService.removeItem(item);
-    this.total = this.CartService.calculateTotal();
+    this.refreshTotal();
    }
 
 

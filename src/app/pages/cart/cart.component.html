@@ -106,8 +106,8 @@
                     <div class="d-flex justify-content-between information"><span>Taxes included. Shipping calculated at checkout.</span></div>
                     <button class="btn btn-checkout btn-block d-flex justify-content-between mt-3" 
                     type="submit" [disabled]="!PersonalDetailsForm.valid">
-                        <span *ngIf="total == sum">{{total}} BGN</span>
-                        <span *ngIf="total != sum"><s style="color:red; font-weight: 500;white-space: pre;">{{sum}}</s> {{total}} BGN</span>
+                        <span *ngIf="this.discountType.length==0">{{sum}} BGN</span>
+                        <span *ngIf="this.discountType.length>0"><s style="color:red; font-weight: 500;white-space: pre;">{{sum}}</s> {{total}} BGN</span>
                         <span>Checkout<i class="fa fa-long-arrow-right ml-1"></i></span>
                     </button>
                 </form>
