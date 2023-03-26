@@ -45,6 +45,7 @@
     text-align: center;
     position: absolute;
     background: rgba(0, 0, 0, 0.5);
+    min-width: 200px;
 }
 .img-wrap {
     overflow: hidden;
@@ -58,4 +59,12 @@
 
 .applyfiltersbtn:hover {
     background-color: yellow;
+}
+
+.card {
+    min-width: 200px;
+}
+
+.model-item {
+    font-size: 12px;
 }

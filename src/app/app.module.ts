@@ -54,6 +54,13 @@ import { CheckoutShippingAddressComponent } from './pages/checkout/checkout-ship
 import { CheckoutShippingMethodComponent } from './pages/checkout/checkout-shipping-method/checkout-shipping-method.component';
 import { CheckoutPaymentComponent } from './pages/checkout/checkout-payment/checkout-payment.component';
 import { CheckoutOrderOverviewComponent } from './pages/checkout/checkout-order-overview/checkout-order-overview.component';
+import { RxTranslateModule } from "@rxweb/translate"
+import {LocalizeRouterModule} from '@gilsdav/ngx-translate-router';
+import {LocalizeRouterHttpLoader} from '@gilsdav/ngx-translate-router-http-loader';
+import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
+import {TranslateHttpLoader} from '@ngx-translate/http-loader';
+import {HttpClient} from '@angular/common/http';
+
 
 @NgModule({
   declarations: [									
@@ -119,7 +126,20 @@ import { CheckoutOrderOverviewComponent } from './pages/checkout/checkout-order-
     MdbValidationModule,
     NoopAnimationsModule,
     ReactiveFormsModule,
-    RouterModule
+    RouterModule,
+    
+    // RxTranslateModule.forRoot({filePath:'assets/i18n/{{language-code}}.json',isCache:true}),
+    HttpClientModule,
+        TranslateModule.forRoot({
+            loader: {
+                provide: TranslateLoader,
+                useFactory: HttpLoaderFactory,
+                deps: [HttpClient]
+            }
+        }),
+    LocalizeRouterModule
+
+        
   ],
   providers: [
     { provide: MatDialogRef, useValue: {} }
@@ -127,3 +147,7 @@ import { CheckoutOrderOverviewComponent } from './pages/checkout/checkout-order-
   bootstrap: [AppComponent]
 })
 export class AppModule { }
+
+export function HttpLoaderFactory(http: HttpClient): TranslateHttpLoader {
+  return new TranslateHttpLoader(http);
+}

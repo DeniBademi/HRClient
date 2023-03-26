@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 import { GalleryItem, ImageItem } from 'ng-gallery';
 import { CartService } from 'src/app/_services/cart.service';
 import { DataService } from 'src/app/_services/data.service';
@@ -17,7 +18,12 @@ export class ProductDetailsComponent implements OnInit {
   photos: GalleryItem[] = [];
   product: any // new Product(1,"Roller 250mm 5.40mm", 390, "USD", "", "../../asset/img/products/product2.jpg");
   
-  constructor(private route: ActivatedRoute, public CartService: CartService, public DataService: DataService, private router: Router, public GlobalsService: GlobalsService) { }
+  constructor(private route: ActivatedRoute, 
+    public CartService: CartService, 
+    public DataService: DataService,
+    private router: Router, 
+    public GlobalsService: GlobalsService,
+    private translate: TranslateService) { }
 
   ngOnInit() {
     this.route.paramMap.subscribe( paramMap => {
@@ -33,9 +39,10 @@ export class ProductDetailsComponent implements OnInit {
 
         
         this.photos.push(new ImageItem({
-          src: this.GlobalsService.productPhotosMediaURLs +this.product.photosJSON.thumbnail,
+          src: this.GlobalsService.productPhotosMediaURLs + this.product.photosJSON.thumbnail,
           thumb: this.GlobalsService.productPhotosMediaURLs + this.product.photosJSON.thumbnail
         }));
+        //https://res.cloudinary.com/dvkjlgu83/image/upload/v1679592200/product-photos/5.40mm-compressed/Top%20Roller/250mm_5.4mm_2023-Mar-15_12-40-34PM-000_CustomizedView9730449655_juzc56.jpg
         for(let i=0;i<this.product.photosJSON.gallery.length;i++){
           
           this.photos.push(new ImageItem({
@@ -43,6 +50,10 @@ export class ProductDetailsComponent implements OnInit {
               thumb: this.GlobalsService.productPhotosMediaURLs + this.product.photosJSON.gallery[i]
           }));
         }
+
+      //   this.translate.get('demo.greeting', {name: 'John'}).subscribe((res: string) => {
+      //     console.log(res);
+      // });
         
       })
   })

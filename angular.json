@@ -9,6 +9,15 @@
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
+      "i18n": {
+        "sourceLocale": "en-US",
+        "locales": {
+          "bg": {
+            "translation": "src/locale/messages.bg.xlf",
+            "baseHref": ""
+          }
+        }
+      },
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
@@ -55,6 +64,11 @@
               ],
               "outputHashing": "all"
             },
+            "bg": {
+              "localize": ["bg"],
+              "outputPath": "dist/home-bg/",
+              "i18nMissingTranslation": "error"
+            },
             "development": {
               "buildOptimizer": false,
               "optimization": false,
@@ -74,6 +88,9 @@
             },
             "development": {
               "browserTarget": "client:build:development"
+            },
+            "bg": {
+              "browserTarget": "client:build:bg"
             }
           },
           "defaultConfiguration": "development"

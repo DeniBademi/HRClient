@@ -1,36 +1,30 @@
-
-<!-- <div id="particles-js" style="background-color: yellow; height: 600px;">
-  <div style="display: block; position: absolute; font-size: 105px; margin-left: 6%;">
-    <h1 style="font-size: 105px;margin-bottom: 60px;"><b>Honneycomb</b></h1>
-    <h1 style="font-size: 105px; float: left;"><b>Rollers</b></h1>
-  </div>
-</div> -->
 <app-home-banner></app-home-banner>
 
 
-<!-- <div style="display: block; position: absolute; font-size: 105px; margin-left: 6%;">
-  <h1 style="font-size: 105px;margin-bottom: 60px;"><b>Honneycomb</b></h1>
-  <h1 style="font-size: 105px; float: left;"><b>Rollers</b></h1>
-</div> -->
-<!-- <div class="particle-background">
-  <Particles id="tsparticles" [options]="options" style="width:100%;height:100%;position:absolute;top: 0;left: 0">
-    <div style="display: block; position: absolute; font-size: 105px; margin-left: 6%;">
-      <h1 style="font-size: 105px;margin-bottom: 60px;"><b>Honneycomb</b></h1>
-      <h1 style="font-size: 105px; float: left;"><b>Rollers</b></h1>
-    </div>
-  </Particles> 
-</div> -->
 
 <section id="homeparagraph" class="section-p1">
-  <h2 style="font-size: 40px;">Foundation making for everyone.</h2>    
+  <h2 style="font-size: 40px;" i18n="Paragraph header|Title for the honeycomb rollers product@homeheader">Foundation making for everyone.</h2>    
   <div class="float-child">
-    <div class="green">Our specialty is 3D printed honeycomb rollers, designed to revolutionize the way you extract honey. With 3D printing, we have made this technology more affordable and accessible for beekeepers of all levels. Our 3D printed honeycomb rollers are not only cost-effective, but they also come with the added benefit of easy repair, as spare parts are readily available. Join us in embracing the future of beekeeping technology and make your honey extraction process easier, more efficient, and more sustainable with our 3D printed honeycomb rollers.</div>
+    <div class="green" i18n="Paragraph content|Text about the 3d printing technology and how great it is@homecontent">Our specialty is 3D printed honeycomb rollers, designed to revolutionize the way you extract honey. With 3D printing, we have made this technology more affordable and accessible for beekeepers of all levels. Our 3D printed honeycomb rollers are not only cost-effective, but they also come with the added benefit of easy repair, as spare parts are readily available. Join us in embracing the future of beekeeping technology and make your honey extraction process easier, more efficient, and more sustainable with our 3D printed honeycomb rollers.</div>
   </div>
 </section>
 
 
 <section id="banner" class="section-m1">
-  <h2>Check your <span>E-mail</span> for Promocodes and Sales</h2>
+  <h2 i18n="Email reminder|Short text to remind customers to check their email for discount codes@discountbanner">Check your <span>E-mail</span> for Promocodes and Sales</h2>
   <!-- Button click -->
-  <button class="normal" type="button" onclick="location.href='shop.html'">Explore More </button>
+  <button class="normal" type="button" (click)="this.router.navigate(['/catalog'])" i18n="View products|A button to redirect users to the catalog page@gotocatalog">Explore More</button>
 </section>
+
+<!-- <section id="homeparagraph" class="section-p1">
+  <h2 style="font-size: 40px;">{{'home.heading' | translate}}</h2>    
+  <div class="float-child">
+    <div class="green">{{'home.text' | translate}}</div>
+  </div>
+</section>
+
+
+<section id="banner" class="section-m1">
+  <h2>{{'home.checkyour' | translate}}<span>{{'email' | translate}}</span>{{'home.for_promocodes_and_sales' | translate}}</h2>
+<button class="normal" type="button" (click)="this.router.navigate(['/catalog'])">{{'home.go_to_catalog' | translate}}</button>
+</section> -->

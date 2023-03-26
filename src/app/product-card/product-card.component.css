@@ -6,6 +6,7 @@
     margin: auto;
     border-radius: 10px;
     width: 250px;
+    position: relative;
 }
 
 .card-body {
@@ -13,7 +14,7 @@
     padding-top: 0.7rem;
     padding-right: 0.2rem;
     background-color: white;
-    min-height: 8.7vh;
+    position: relative;
 }
 
 .cardcontainer {
@@ -36,4 +37,13 @@
 .spec {
     white-space: nowrap;
     font-size: 15px;
+}
+
+.card-text-specs {
+    position: absolute;
+    bottom: 0;
+}
+
+.card-text {
+    min-height: 90px;
 }

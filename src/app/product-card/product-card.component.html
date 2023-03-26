@@ -6,10 +6,13 @@
         <div class="row">
           <div class="card-text col-7">
             <div class="h6 font-weight-bold">{{product.name}}</div>
-            <div class="spec"><b>Type:</b> {{product.productType.name}}</div>
-            <div class="spec"><b>Model:</b> {{product.productModel.name}}</div>
+            <div class="card-text-specs">
+              <div class="spec"><b>Type:</b> {{product.productType.name}}</div>
+              <div class="spec"><b>Model:</b> {{product.productModel.name}}</div>
+            </div>
+            
           </div>
-          <div class="card-text col-5">
+          <div class="card-text-price col-5">
             <div class="h6 font-weight-bold pricelabel">{{product.price}} {{product.currency.currencyCode}}</div>
           </div>  
         </div>

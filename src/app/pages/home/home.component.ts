@@ -5,6 +5,7 @@ import { MoveDirection, ClickMode, HoverMode, OutMode, Container, Engine } from 
 import { loadFull } from "tsparticles";
 import { InteractivityDetect } from 'tsparticles-engine/types/Enums/InteractivityDetect';
 import { OrderForm } from 'src/app/shared/order.form';
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -17,7 +18,7 @@ export class HomeComponent implements OnInit {
   preSheet: any;
 
   
-  constructor(GlobalsService: GlobalsService, private OrderForm: OrderForm) { 
+  constructor(GlobalsService: GlobalsService, public router: Router) { 
     this.sampleProduct = GlobalsService.sampleProduct
     this.preSheet = GlobalsService.preSheet
   }
