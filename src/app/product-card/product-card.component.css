@@ -47,3 +47,8 @@
 .card-text {
     min-height: 90px;
 }
+
+.card-img-top {
+    max-width: 250px;
+    max-height: 190px;
+    }
