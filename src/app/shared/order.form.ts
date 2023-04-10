@@ -9,12 +9,15 @@ const form = {
     addressLine2: new FormControl('', [
     ]),
     countryId: new FormControl('', [
+      Validators.required
     ]),
     city: new FormControl('Sofia', [
       Validators.required,
     ]),
     state: new FormControl('', []),
-    postalCode: new FormControl('1335'),
+    postalCode: new FormControl('1335',[
+      Validators.required
+    ]),
     }),
     shippingMethodId: new FormControl(undefined, [
         Validators.required

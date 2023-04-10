@@ -9,8 +9,9 @@ import { CartService } from "src/app/_services/cart.service";
 import { DataService } from "src/app/_services/data.service";
 import { GlobalsService } from "src/app/_services/globals.service";
 import { Product } from "../../_models/Product";
-import { Router} from "node_modules/@angular/router";
+import { ActivatedRoute, Router} from "node_modules/@angular/router";
 import { PersonalDetailsForm } from "src/app/shared/personal.details.form";
+import { TranslateService } from "@ngx-translate/core";
 
 
 
@@ -63,10 +64,13 @@ export class CartComponent implements OnInit {
               public GlobalsService: GlobalsService, 
               public DataService: DataService,
               public toastr: ToastrService,
+              public translate: TranslateService,
+              private route: ActivatedRoute,
               private Router: Router,
               public PersonalDetailsForm: PersonalDetailsForm) {
     this.CartService.cartItems.subscribe((value) => {
       this.cartItems = value;
+      console.log(value)
 
     });
     this.CartService.cartItemsCount.subscribe((value) => {
@@ -89,8 +93,10 @@ export class CartComponent implements OnInit {
    }
 
    ngOnInit() {
+    this.translate.use(this.route.snapshot.paramMap.get("languageCode"))
     this.sum = this.CartService.calculateTotal();
     this.total = this.sum
+
    }
    ngAfterContentInit() {
    }
@@ -158,10 +164,9 @@ export class CartComponent implements OnInit {
     this.DataService.checkout(data).subscribe( (value: any) => {
       console.log(value)
       let checkoutID = value['id'];
-      this.Router.navigate(['/checkout/'+ checkoutID+ '/shipping-address']);
+      this.Router.navigate(['/'+this.translate.currentLang+'/checkout/'+ checkoutID+ '/shipping-address']);
       
     },
     error => this.toastr.error(error.error))
    }
-
 }

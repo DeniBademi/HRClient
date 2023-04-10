@@ -2,7 +2,7 @@
   <article class="filter-group">
     <header class="card-header">
       <i class="icon-control fa fa-chevron-down"></i>
-        <h2 class="title"><b>Product Types</b></h2>
+        <h2 class="title"><b>{{'catalog.product_types_header' | translate}}</b></h2>
     </header>
     <div class="filter-content collapse show" id="collapse_2" style="">
       <div class="card-body" *ngFor="let item of productTypes">
@@ -18,7 +18,7 @@
   <article class="filter-group">
     <header class="card-header">
       <i class="icon-control fa fa-chevron-down"></i>
-      <h2 class="title"><b>Models</b></h2>
+      <h2 class="title"><b>{{'catalog.product_models_header' | translate}}</b></h2>
     </header>
     <div class="filter-content collapse show" id="collapse_4" style="">
       <div class="card-body" *ngFor="let item of productModels">
@@ -52,5 +52,5 @@
   </div> -->
 
 
-  <button class="btn btn-warning applyfiltersbtn"(click)="applyFilters()">Apply filters</button>
+  <button class="btn btn-warning applyfiltersbtn"(click)="applyFilters()">{{'catalog.apply_filters_btn' | translate}}</button>
 </div>

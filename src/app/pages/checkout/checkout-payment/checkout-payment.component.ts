@@ -10,6 +10,7 @@ import { Observable, Subject, Subscription } from 'rxjs';
 import {loadStripe, Stripe} from '@stripe/stripe-js';
 import { ToastrService } from 'ngx-toastr';
 import { GlobalsService } from 'src/app/_services/globals.service';
+import { TranslateService } from '@ngx-translate/core';
 
 
 
@@ -39,6 +40,13 @@ export class CheckoutPaymentComponent implements OnInit {
   selectedPaymentOption: any;
   total: any;
   clientSecret: any;
+
+  setShipping: Subject<number> = new Subject<number>();
+
+  setShippingInOverview(value:number) {
+    console.log(value)
+    this.setShipping.next(value);
+  }
   
   
   constructor(private Route: ActivatedRoute, 
@@ -46,16 +54,20 @@ export class CheckoutPaymentComponent implements OnInit {
     private DataService: DataService,
     private CartService: CartService,
     public form: OrderForm,
+    public translate: TranslateService,
+    private route: ActivatedRoute,
     private toastr: ToastrService,
     private Globals: GlobalsService) { }
 
 
   ngOnInit() {
+      this.translate.use(this.route.snapshot.paramMap.get("languageCode"))
 
       //Get shipping methods
-      this.DataService.getAll("shippingmethod").subscribe( (value) => {
-          this.shippingMethods = value;
-        })
+      // this.DataService.getAll("shippingmethod").subscribe( (value) => {
+      //     this.shippingMethods = value;
+
+      //   })
 
 
       //seed page with data from the checkout entity
@@ -76,7 +88,11 @@ export class CheckoutPaymentComponent implements OnInit {
 
       
       let shippingMethodId = this.form.get("shippingMethodId").value;
-      if(["5014454e-a434-4fb7-842b-570b0c80e44d", "b52271b9-7ee0-49ea-8d2c-ce40c5f16f76"].includes(shippingMethodId)){
+      let shippingPrice = this.form.get('shippingAddress.countryId').value.price
+      console.log(shippingMethodId)
+      console.log(shippingPrice)
+      this.setShippingInOverview(shippingPrice + (shippingMethodId=="priority"?10:0))
+      if(this.form.get('shippingAddress.countryId').value.name != "Bulgaria" && this.form.get('shippingAddress.countryId').value.name != "България"){
         this.form.get('paymentMethod').setValue("card")
         this.form.get('paymentMethod').disable();
         this.showPaymentOptions = false;
@@ -92,7 +108,11 @@ export class CheckoutPaymentComponent implements OnInit {
           //this.paymentOptions.disable();
       })
 
-      this.DataService.getStripeClientSecret(this.checkoutID).subscribe(
+      this.DataService.getStripeClientSecret({
+        'checkoutId':this.checkoutID,
+        'countryId':this.form.get('shippingAddress.countryId').value.id,
+        'shippingMethod':shippingMethodId,
+        'currencyCode': this.translate.currentLang=="en"?"EUR":"BGN"}).subscribe(
         (data) => {
           this.clientSecret = data["clientSecret"]
           this.initiateCardElement();
@@ -108,12 +128,8 @@ export class CheckoutPaymentComponent implements OnInit {
       await this.makeTransaction();
       return;
     }
-        
-
-    console.log(this.form)
     
     let shippingInfo = this.form.get('shippingAddress')
-    console.log(shippingInfo)
     data['checkoutId'] = this.checkout.id;
     data['shippingMethodId'] = this.form.get("shippingMethodId").value
     data['addressLine1'] = shippingInfo.get("addressLine1").value
@@ -127,7 +143,7 @@ export class CheckoutPaymentComponent implements OnInit {
 
     this.DataService.placeOrder(data).subscribe( (value) => {
         console.log(value)
-        this.Router.navigate(["/checkout/thank-you"])
+        this.Router.navigate(['/'+this.translate.currentLang+"/checkout/thank-you"])
     });
   }
 
@@ -147,18 +163,19 @@ export class CheckoutPaymentComponent implements OnInit {
     const { error } = await this.stripe.confirmPayment({
       elements: this.elements,
       confirmParams: {
-        return_url: window.location.href + "checkout/thank-you",
+        return_url: window.location.href.replace("payment", "thank-you"),
         receipt_email: "denis.zaharievv@gmail.com",
         shipping: {
           address: {
             city: this.form.get("shippingAddress.city").value,
-            country: this.form.get("shippingAddress.countryId").value,
+            country: this.form.get("shippingAddress.countryId").value.name,
             line1: this.form.get("shippingAddress.addressLine1").value,
             line2: this.form.get("shippingAddress.addressLine2").value,
             postal_code: this.form.get("shippingAddress.postalCode").value,
             state: this.form.get("shippingAddress.state").value,
           },
-          name: this.checkout.customer["firstName"] + " " + this.checkout.customer["lastName"]
+          name: this.checkout.customer["firstName"] + " " + this.checkout.customer["lastName"],
+          carrier: this.form.get("shippingMethodId").value
         }
       }
     })
@@ -216,7 +233,8 @@ export class CheckoutPaymentComponent implements OnInit {
         iconColor: "#fa755a",
       },
     };
-     this.stripe = await loadStripe('pk_test_51KUEGcE2HlANu4Kr1gkhviY29YvdUIw6XVNHi7KyaatBfBY8ztFXDtiXT2BdLjLP918VXdsV8a72xMgFFOjgwxkf00Nu2bgDBv')
+     //this.stripe = await loadStripe('pk_test_51KUEGcE2HlANu4Kr1gkhviY29YvdUIw6XVNHi7KyaatBfBY8ztFXDtiXT2BdLjLP918VXdsV8a72xMgFFOjgwxkf00Nu2bgDBv')
+     this.stripe = await loadStripe('pk_test_51MuGi1BAZhA0rlRn9ZAiDgRRfVhJ9F0j5KD62362DJQhM1T6SUjwT5m3ObdVrpYfJWD1C7BLi95dYm4Xks4XzZ3p00qELKSmiJ')
      console.log(this.clientSecret)
      this.elements = this.stripe.elements({clientSecret: this.clientSecret});
     // this.card = this.elements.create("card", {style:cardStyle});

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-about',
@@ -7,9 +9,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AboutComponent implements OnInit {
 
-  constructor() { }
+  constructor(private route: ActivatedRoute, private translate:TranslateService) { }
 
   ngOnInit() {
+    this.translate.use(this.route.snapshot.paramMap.get("languageCode"))
   }
 
 }

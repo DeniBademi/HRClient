@@ -49,7 +49,7 @@ export class DataService {
   }
 
   getById(id: string, route: string) {
-    return this.http.get(this.GlobalsService.baseURL+'checkout/getById/'+id).pipe(
+    return this.http.get(this.GlobalsService.baseURL+route+'/getById/'+id).pipe(
       map((response: any) => {
         const types = response;
         return types;
@@ -75,9 +75,7 @@ export class DataService {
     return this.http.post(this.GlobalsService.baseURL +'contactmessage/add', data);
   }
 
-  getStripeClientSecret(checkoutId: string) {
-    let data = {};
-    data['checkoutId'] = checkoutId;
+  getStripeClientSecret(data) {
     return this.http.post(this.GlobalsService.baseURL +'stripe/create-payment-intent', data);
   }
 }

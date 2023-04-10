@@ -1,7 +1,7 @@
 <app-home-banner></app-home-banner>
 
 
-
+<!-- 
 <section id="homeparagraph" class="section-p1">
   <h2 style="font-size: 40px;" i18n="Paragraph header|Title for the honeycomb rollers product@homeheader">Foundation making for everyone.</h2>    
   <div class="float-child">
@@ -12,11 +12,10 @@
 
 <section id="banner" class="section-m1">
   <h2 i18n="Email reminder|Short text to remind customers to check their email for discount codes@discountbanner">Check your <span>E-mail</span> for Promocodes and Sales</h2>
-  <!-- Button click -->
   <button class="normal" type="button" (click)="this.router.navigate(['/catalog'])" i18n="View products|A button to redirect users to the catalog page@gotocatalog">Explore More</button>
-</section>
+</section> -->
 
-<!-- <section id="homeparagraph" class="section-p1">
+<section id="homeparagraph" class="section-p1">
   <h2 style="font-size: 40px;">{{'home.heading' | translate}}</h2>    
   <div class="float-child">
     <div class="green">{{'home.text' | translate}}</div>
@@ -25,6 +24,6 @@
 
 
 <section id="banner" class="section-m1">
-  <h2>{{'home.checkyour' | translate}}<span>{{'email' | translate}}</span>{{'home.for_promocodes_and_sales' | translate}}</h2>
-<button class="normal" type="button" (click)="this.router.navigate(['/catalog'])">{{'home.go_to_catalog' | translate}}</button>
-</section> -->
+  <h2>{{'home.checkyour' | translate}} <span>{{'email' | translate}}</span> {{'home.for_promocodes_and_sales' | translate}}</h2>
+<button class="normal" type="button" (click)="this.router.navigate(['/'+this.translate.currentLang+'/catalog'])">{{'home.go_to_catalog' | translate}}</button>
+</section>

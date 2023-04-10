@@ -7,7 +7,7 @@ export class Product {
       public id: string,
       public name: string,
       public price: number,
-      public currencyCode: string,
+      public currencyCode: string = "",
       public description: string,
       public photosJSON: any,
       public productModel: ProductModel,

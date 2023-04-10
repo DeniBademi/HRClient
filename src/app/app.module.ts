@@ -60,6 +60,10 @@ import {LocalizeRouterHttpLoader} from '@gilsdav/ngx-translate-router-http-loade
 import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
 import {TranslateHttpLoader} from '@ngx-translate/http-loader';
 import {HttpClient} from '@angular/common/http';
+import { AboutComponent } from './pages/about/about.component';
+import { LanguageInterceptor } from './language.interceptor';
+import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
+import { ConvertPipe } from './_pipes/convert.pipe';
 
 
 @NgModule({
@@ -67,6 +71,7 @@ import {HttpClient} from '@angular/common/http';
       AppComponent,
       NavBarComponent,
       ProductCardComponent,
+      AboutComponent,
       FooterComponent,
       HomeComponent,
       CartComponent,
@@ -83,7 +88,8 @@ import {HttpClient} from '@angular/common/http';
       CheckoutShippingAddressComponent,
       CheckoutShippingMethodComponent,
       CheckoutPaymentComponent,
-      CheckoutOrderOverviewComponent
+      CheckoutOrderOverviewComponent,
+      ConvertPipe
        ],
   imports: [
     BrowserModule,
@@ -101,7 +107,7 @@ import {HttpClient} from '@angular/common/http';
     MatDialogModule,
     MatSelectModule,
     FormsModule,
-    
+    NgxMatSelectSearchModule,
     HttpClientModule,
     NgParticlesModule,
     GalleryModule,
@@ -129,7 +135,6 @@ import {HttpClient} from '@angular/common/http';
     RouterModule,
     
     // RxTranslateModule.forRoot({filePath:'assets/i18n/{{language-code}}.json',isCache:true}),
-    HttpClientModule,
         TranslateModule.forRoot({
             loader: {
                 provide: TranslateLoader,
@@ -142,7 +147,8 @@ import {HttpClient} from '@angular/common/http';
         
   ],
   providers: [
-    { provide: MatDialogRef, useValue: {} }
+    { provide: MatDialogRef, useValue: {} },
+    { provide: HTTP_INTERCEPTORS, useClass: LanguageInterceptor, multi: true }
   ],
   bootstrap: [AppComponent]
 })

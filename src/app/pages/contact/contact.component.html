@@ -2,15 +2,15 @@
 
 <section id="contact-details" class="section-p1">
   <div class="details bubble">
-      <span>GET IN TOUCH</span>
-      <h2>Visit one of our distributor locations or contact us today</h2>
-      <h3>Sofia, Bulgaria</h3>
+      <span>{{'contact.get_in_touch' | translate}}</span>
+      <h2>{{'contact.visit_distributors' | translate}}</h2>
+      <h3>{{'contact.sofia_bulgaria' | translate}}</h3>
       <div>
           <li>
             <div class="pair">
               <div class="icon">
                 <i class="fal fa-map" style="color:white;"></i></div>
-                <div class="text">325-1,, ж.к Младост 3 3251, 1712 София</div>
+                <div class="text">{{'contact.address' | translate}}</div>
             </div>
           </li>
           <!--
@@ -22,7 +22,7 @@
           <li>
             <div class="pair">
               <div class="icon"><i class="fas fa-phone-alt" style="color:white;"></i></div>
-              <div class="text">088 650 8084</div>
+              <div class="text">+359 88 650 8084</div>
             </div>
             
           </li>
@@ -32,7 +32,7 @@
                 <i class="far fa-clock col-sm-1" style="color:white;"></i>
               </div>
                 <div class="text">
-                  Monday to Friday: 10.00am to 7.00pm <br> Saturday: 10.00am to 2.00pm
+                  {{'contact.working_hours_1' | translate}} <br> {{'contact.working_hours_2' | translate}}
                 </div>
             </div>
               
@@ -58,32 +58,32 @@
         </div> -->
         <div class="phone details">
           <i class="fas fa-phone-alt"></i>
-          <div class="topic">Phone</div>
+          <div class="topic">{{'phone' | translate}}</div>
           <div class="text-one">tel 1</div>
-          <div class="text-two">tel 2</div>
+          <div class="text-two">tel 2 </div>
         </div>
         <div class="email details">
           <i class="fas fa-envelope"></i>
-          <div class="topic">Email</div>
-          <div class="text-one">email@example.com</div>
-          <div class="text-two">email@example.com</div>
+          <div class="topic">{{'Email' | translate}}</div>
+          <div class="text-one">honeycomb.rollers@gmail.com</div>
+          <!-- <div class="text-two">email@example.com</div> -->
         </div>
       </div>
       <div class="right-side">
-        <div class="topic-text">Send us a message</div>
-        <p>Leave us a message. We love to hear from you!</p>
+        <div class="topic-text">{{'contact.send_message_header' | translate}}</div>
+        <p>{{'contact.send_message_sub' | translate}}</p>
       <form action="#" [formGroup]="contactUs" (ngSubmit)="sendMessage()">
         <div class="input-box">
-          <input type="text" placeholder="Enter your name" formControlName="name">
+          <input type="text" placeholder="{{'contact.enter_name' | translate}}" formControlName="name">
         </div>
         <div class="input-box">
-          <input type="text" placeholder="Enter your email" formControlName="email">
+          <input type="text" placeholder="{{'contact.enter_email' | translate}}" formControlName="email">
         </div>
         <div class="input-box message-box">
-            <textarea placeholder="Enter your message" formControlName="message"></textarea>
+            <textarea placeholder="{{'contact.enter_message' | translate}}" formControlName="message"></textarea>
         </div>
         <div class="button">
-          <button class="submitBtn" type="submit" value="Send Now" [disabled]="!contactUs.valid">Send Now</button>
+          <button class="submitBtn" type="submit" value="Send Now" [disabled]="!contactUs.valid">{{'contact.send_now' | translate}}</button>
         </div>
       </form>
     </div>

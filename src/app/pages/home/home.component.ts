@@ -5,7 +5,8 @@ import { MoveDirection, ClickMode, HoverMode, OutMode, Container, Engine } from 
 import { loadFull } from "tsparticles";
 import { InteractivityDetect } from 'tsparticles-engine/types/Enums/InteractivityDetect';
 import { OrderForm } from 'src/app/shared/order.form';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -18,7 +19,7 @@ export class HomeComponent implements OnInit {
   preSheet: any;
 
   
-  constructor(GlobalsService: GlobalsService, public router: Router) { 
+  constructor(GlobalsService: GlobalsService, public router: Router, private route: ActivatedRoute, public translate:TranslateService) { 
     this.sampleProduct = GlobalsService.sampleProduct
     this.preSheet = GlobalsService.preSheet
   }
@@ -26,7 +27,10 @@ export class HomeComponent implements OnInit {
 
 
   ngOnInit() {
+    this.translate.use(this.route.snapshot.paramMap.get("languageCode"))
   }
+
+  
 
 
 

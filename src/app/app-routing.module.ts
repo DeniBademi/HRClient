@@ -13,16 +13,18 @@ import { ProductDetailsComponent } from './pages/product-details/product-details
 import { NotFoundComponent } from './shared/not-found/not-found.component';
 
 const routes: Routes = [
-  {path: 'about', component: AboutComponent},
-  {path: 'catalog', component: ProductCatalogComponent},
-  {path: 'contact', component: ContactComponent},
-  {path: 'cart', component: CartComponent},
-  {path: 'checkout/:id/shipping-address', component: CheckoutShippingAddressComponent},
-  {path: 'checkout/:id/shipping-method', component: CheckoutShippingMethodComponent},
-  {path: 'checkout/:id/payment', component: CheckoutPaymentComponent},
-  {path: 'checkout/thank-you', component: CheckoutThankYouComponent},
-  {path: 'product/:id', component: ProductDetailsComponent},
-  {path: '', component: HomeComponent},
+  {path: '', redirectTo: "en/home", pathMatch: "full"},
+  {path: ':languageCode/home', component: HomeComponent},
+  {path: ':languageCode/about', component: AboutComponent},
+  {path: ':languageCode/catalog', component: ProductCatalogComponent},
+  {path: ':languageCode/contact', component: ContactComponent},
+  {path: ':languageCode/cart', component: CartComponent},
+  {path: ':languageCode/checkout/:id/shipping-address', component: CheckoutShippingAddressComponent},
+  {path: ':languageCode/checkout/:id/shipping-method', component: CheckoutShippingMethodComponent},
+  {path: ':languageCode/checkout/:id/payment', component: CheckoutPaymentComponent},
+  {path: ':languageCode/checkout/:id/thank-you', component: CheckoutThankYouComponent},
+  {path: ':languageCode/product/:id', component: ProductDetailsComponent},
+  
   { path: '**', component: NotFoundComponent }
 ];
 

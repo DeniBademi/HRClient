@@ -30,12 +30,12 @@
 
   <nav class="nav nav-links">
     <ul id="navbar">
-      <li><a [routerLink]="['/']" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="closeMenu()">Home</a></li>
-      <li><a [routerLink]="['/catalog']" routerLinkActive="active" (click)="closeMenu()">Catalog</a></li>
-      <li><a [routerLink]="['/about']" routerLinkActive="active" (click)="closeMenu()">About</a></li>
-      <li><a [routerLink]="['/contact']" routerLinkActive="active" (click)="closeMenu()" >Contact</a></li>
-      <li id="lg-bag"><a [routerLink]="['/cart']"><i class="far fa-shopping-bag fa-3x"></i><span class='badge badge-warning' id='lblCartCount'> {{cartItemsLength}} </span></a></li>
+      <li><a [routerLink]="['/'+this.translateService.currentLang+'/home']" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="closeMenu()">{{'nav.home' | translate}}</a></li>
+      <li><a [routerLink]="['/'+this.translateService.currentLang+'/catalog']" routerLinkActive="active" (click)="closeMenu()">{{'nav.catalog' | translate}}</a></li>
+      <li><a [routerLink]="['/'+this.translateService.currentLang+'/about']" routerLinkActive="active" (click)="closeMenu()">{{'nav.about' | translate}}</a></li>
+      <li><a [routerLink]="['/'+this.translateService.currentLang+'/contact']" routerLinkActive="active" (click)="closeMenu()" >{{'nav.contact' | translate}}</a></li>
+      <li><a (click)="setLanguage()" >{{'nav.language' | translate}}: {{ this.translateService.currentLang }}</a></li>
+      <li id="lg-bag"><a [routerLink]="['/'+this.translateService.currentLang+'/cart']"><i class="far fa-shopping-bag fa-3x"></i><span class='badge badge-warning' id='lblCartCount'> {{cartItemsLength}} </span></a></li>
     </ul>
   </nav>
- 
 </div>

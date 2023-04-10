@@ -143,5 +143,12 @@
 .items {
     max-height: 10vh;
 }
-  
+
+::ng-deep .mat-mdc-select-value-text {
+  color: white !important;
+}
+
+::ng-deep .mat-select-placeholder {
+  color: white !important;
+}
   

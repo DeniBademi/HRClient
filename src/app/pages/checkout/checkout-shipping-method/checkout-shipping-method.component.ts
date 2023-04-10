@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 import { OrderForm } from 'src/app/shared/order.form';
 import { Checkout } from 'src/app/_models/Checkout';
 import { CartService } from 'src/app/_services/cart.service';
 import { DataService } from 'src/app/_services/data.service';
 import { GlobalsService } from 'src/app/_services/globals.service';
+import { Subject } from 'rxjs';
 
 
 @Component({
@@ -19,18 +21,32 @@ export class CheckoutShippingMethodComponent implements OnInit {
   cartItems: any;
   total: number;
 
+  priorityOrderPrice = 10; //bgn
+
+  setShipping: Subject<number> = new Subject<number>();
+
+  setShippingInOverview(value:number) {
+    this.setShipping.next(value);
+  }
+
   constructor(private Route: ActivatedRoute,
     private Router: Router, 
     private DataService: DataService, 
     public form: OrderForm,
+    public translate: TranslateService,
     public CartService: CartService,
+    public route: ActivatedRoute,
     public GlobalsService: GlobalsService) { }
 
   ngOnInit() {
-    this.DataService.getAll("shippingmethod").subscribe( (value) => {
-      this.shippingMethods = value;
-      console.log(this.shippingMethods)
-    })
+    const language = this.route.snapshot.paramMap.get("languageCode")
+    this.translate.use(language)
+    console.log(this.form.get('shippingAddress.countryId').value.name)
+
+    // this.DataService.getAll("shippingmethod").subscribe( (value) => {
+    //   this.shippingMethods = value;
+    //   console.log(this.shippingMethods)
+    // })
 
     this.Route.paramMap.subscribe( paramMap => {
       this.checkoutID = paramMap.get('id');
@@ -46,11 +62,15 @@ export class CheckoutShippingMethodComponent implements OnInit {
           console.log(this.form.get('shippingAddress').valid)
 
       });
-})
+    })
+    this.form.valueChanges.subscribe(val => {
+      console.log(val['shippingAddress']['countryId'].price)
+      this.setShippingInOverview(val['shippingAddress']['countryId'].price + (val['shippingMethodId']=="priority"?this.priorityOrderPrice:0))
+    })
   }
 
   nextStep() {
-    this.Router.navigate(['/checkout/'+ this.checkoutID + '/payment']);
+    this.Router.navigate(['/'+this.translate.currentLang+'/checkout/'+ this.checkoutID + '/payment']);
   }
 
 }

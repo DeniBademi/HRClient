@@ -1,5 +1,5 @@
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
-import { Component, EventEmitter, Input, OnInit, Output, ViewEncapsulation } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, SkipSelf, ViewEncapsulation } from '@angular/core';
 import { map } from 'rxjs/operators';
 import { Product } from 'src/app/_models/Product';
 import { CartService } from 'src/app/_services/cart.service';
@@ -9,6 +9,7 @@ import { ProductModel } from '../_models/ProductModel';
 import { ProductType } from '../_models/ProductType';
 import { Currency } from '../_models/Currency';
 import { GlobalsService } from '../_services/globals.service';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-product-list',
@@ -37,10 +38,11 @@ export class ProductListComponent implements OnInit {
   typesLoaded: boolean = false;
   changeFiltersSubscription: any;
   
-  constructor(private http: HttpClient, 
+  constructor(@SkipSelf() private http: HttpClient, 
     public cartService: CartService,
     public toastr: ToastrService,
-    private Globals: GlobalsService) { 
+    private Globals: GlobalsService,
+    private translate: TranslateService) { 
 
     
   
@@ -72,16 +74,29 @@ export class ProductListComponent implements OnInit {
     ).subscribe(response => {
       console.log(response)
       this.typesLoaded=true;
+      // this.productList = response.body.map((item: any) => {
+      //   return new Product(item.id, 
+      //     item.name, 
+      //     item.price, 
+      //     item.currency.currencycode, 
+      //     item.description, 
+      //     JSON.parse(item.photosJSON.replaceAll("'","\"")),
+      //     new ProductModel(item.productModel.id, item.productModel.name),
+      //     new ProductType(item.productType.id, item.productType.name),
+      //     new Currency(item.currency.id, item.currency.fullname, item.currency.currencyCode, item.currency.prefix))
+      // });
       this.productList = response.body.map((item: any) => {
         return new Product(item.id, 
           item.name, 
           item.price, 
-          item.currency.currencycode, 
+          "", 
           item.description, 
           JSON.parse(item.photosJSON.replaceAll("'","\"")),
           new ProductModel(item.productModel.id, item.productModel.name),
           new ProductType(item.productType.id, item.productType.name),
-          new Currency(item.currency.id, item.currency.fullname, item.currency.currencyCode, item.currency.prefix))
+          new Currency(1, this.translate.currentLang == "en" ? "Euro" : "Leva",
+                          this.translate.currentLang == "en" ? "EUR" : "лв", 
+                          ""))
       });
       console.log(this.productList)
       var pag = JSON.parse(response.headers.get("Pagination"))

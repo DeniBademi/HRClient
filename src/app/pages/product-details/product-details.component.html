@@ -22,7 +22,7 @@
                                 <h2>{{product.name}}</h2>
                             </div>
                             <div class="product-price">
-                                <h2 class="offer-price">{{product.price}} {{product.currency.currencyCode}}</h2>
+                                <h2 class="offer-price">{{product.price | convert | currency: (translate.currentLang == "en"? "EUR": "BGN")}}</h2>
                                 <!-- <span class="sale-price">$129.00</span> -->
                             </div>
                         </div>
@@ -65,7 +65,7 @@
                         <span class="divider"></span>
 
                         <div class="product-btn-group">
-                            <div class="button buy-now" (click)="buyInstant()"><i class='bx bxs-zap' ></i> Buy Now</div>
+                            <div class="button buy-now" (click)="buyInstant()"><i class='bx bxs-zap' ></i>{{'catalog.buy_now' | translate}}</div>
                             <div class="button add-cart"><app-add-to-cart-btn (click)="CartService.addItem(product)"></app-add-to-cart-btn></div>
                         </div>
                     </div>

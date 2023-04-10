@@ -23,47 +23,50 @@ export class ProductDetailsComponent implements OnInit {
     public DataService: DataService,
     private router: Router, 
     public GlobalsService: GlobalsService,
-    private translate: TranslateService) { }
+    public translate: TranslateService) { }
 
   ngOnInit() {
-    this.route.paramMap.subscribe( paramMap => {
-      this.productID = paramMap.get('id');
-      this.DataService.getProductByIdFull(this.productID).subscribe( product => {
-
-        if(product == undefined)
-          this.router.navigate(["not-found"]);
-        
-        this.product = product;
-        console.log(this.product)
-        this.product.photosJSON = JSON.parse(this.product.photosJSON.replaceAll("'","\""))
-
-        
-        this.photos.push(new ImageItem({
-          src: this.GlobalsService.productPhotosMediaURLs + this.product.photosJSON.thumbnail,
-          thumb: this.GlobalsService.productPhotosMediaURLs + this.product.photosJSON.thumbnail
-        }));
-        //https://res.cloudinary.com/dvkjlgu83/image/upload/v1679592200/product-photos/5.40mm-compressed/Top%20Roller/250mm_5.4mm_2023-Mar-15_12-40-34PM-000_CustomizedView9730449655_juzc56.jpg
-        for(let i=0;i<this.product.photosJSON.gallery.length;i++){
+    this.translate.use(this.route.snapshot.paramMap.get("languageCode")).subscribe(res=>{
+      this.route.paramMap.subscribe( paramMap => {
+        this.productID = paramMap.get('id');
+        this.DataService.getById(this.productID, "product").subscribe( product => {
+  
+          if(product == undefined)
+            this.router.navigate(["not-found"]);
+          
+          this.product = product;
+          console.log(this.product)
+          this.product.photosJSON = JSON.parse(this.product.photosJSON.replaceAll("'","\""))
+  
           
           this.photos.push(new ImageItem({
-              src: this.GlobalsService.productPhotosMediaURLs + this.product.photosJSON.gallery[i],
-              thumb: this.GlobalsService.productPhotosMediaURLs + this.product.photosJSON.gallery[i]
+            src: this.GlobalsService.productPhotosMediaURLs + this.product.photosJSON.thumbnail,
+            thumb: this.GlobalsService.productPhotosMediaURLs + this.product.photosJSON.thumbnail
           }));
-        }
-
-      //   this.translate.get('demo.greeting', {name: 'John'}).subscribe((res: string) => {
-      //     console.log(res);
-      // });
-        
-      })
-  })
+          //https://res.cloudinary.com/dvkjlgu83/image/upload/v1679592200/product-photos/5.40mm-compressed/Top%20Roller/250mm_5.4mm_2023-Mar-15_12-40-34PM-000_CustomizedView9730449655_juzc56.jpg
+          for(let i=0;i<this.product.photosJSON.gallery.length;i++){
+            
+            this.photos.push(new ImageItem({
+                src: this.GlobalsService.productPhotosMediaURLs + this.product.photosJSON.gallery[i],
+                thumb: this.GlobalsService.productPhotosMediaURLs + this.product.photosJSON.gallery[i]
+            }));
+          }
+  
+        //   this.translate.get('demo.greeting', {name: 'John'}).subscribe((res: string) => {
+        //     console.log(res);
+        // });
+          
+        })
+    })
+    })
+    
 
 
   }
 
   buyInstant() {
     this.CartService.addItem(this.product)
-    this.router.navigate(["/cart"])
+    this.router.navigate(['/'+this.translate.currentLang+"/cart"])
   }
 
 

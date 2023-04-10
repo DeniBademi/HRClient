@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { ActivatedRoute } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 import { ToastrService } from 'ngx-toastr';
 import { DataService } from 'src/app/_services/data.service';
 
@@ -24,9 +26,10 @@ export class ContactComponent implements OnInit {
     ])
   });
 
-  constructor(private DataService: DataService, private toastr: ToastrService) { }
+  constructor(private DataService: DataService, private toastr: ToastrService, private translate: TranslateService, private route: ActivatedRoute) { }
 
   ngOnInit() {
+    this.translate.use(this.route.snapshot.paramMap.get("languageCode"))
   }
 
   sendMessage() {
