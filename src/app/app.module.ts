@@ -89,6 +89,8 @@ import { ConvertPipe } from './_pipes/convert.pipe';
       CheckoutShippingMethodComponent,
       CheckoutPaymentComponent,
       CheckoutOrderOverviewComponent,
+      FooterComponent,
+      NewsletterFormComponent,
       ConvertPipe
        ],
   imports: [

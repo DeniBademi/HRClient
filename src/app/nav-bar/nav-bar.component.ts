@@ -39,7 +39,7 @@ export class NavBarComponent implements OnInit {
     
     //this.router.navigate([this.language+this.router.url.slice(3)])
     this.redirect("/home")
-
+    this.closeMenu()
   }
   redirect(route: string) {
     this.router.navigate([this.language+route])

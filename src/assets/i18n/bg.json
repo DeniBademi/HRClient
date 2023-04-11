@@ -2,6 +2,9 @@
 	"email": "имейл",
 	"Email": "Имейл",
 	"phone": "Телефон",
+	"Contact": "Контакт",
+	"hours": "Приемно време",
+	"follow_us": "Последвайте ни",
 	"optional": "Опционално",
 	"free": "Безплатно",
 	"home": {
@@ -112,5 +115,18 @@
 			"subtotal":"Междинна сума",
 			"discount": "Отстъпка"
 		}
+	},
+	"footer": {
+		"terms_conditions": "Условия и правила",
+		"privacy_policy": "Политика за поверителност",
+		"return_policy": "Политика за връщане",
+		"contact": "Контакт",
+		"about": "Относно",
+		"contact_us": "Свържете се с нас",
+		"payment": "Плащане",
+		"secured_payment_gateways": "Защитени платежни връзки",
+		"account":"Акаунт",
+		"view_cart": "Виж количката",
+		"help": "Помощ"
 	}
 }

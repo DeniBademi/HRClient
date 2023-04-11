@@ -2,6 +2,9 @@
 	"email": "email",
 	"Email": "Email",
 	"phone": "Phone",
+	"Contact": "Contact",
+	"hours": "Hours",
+	"follow_us": "Follow us",
 	"optional": "Optional",
 	"free": "Free",
 	"home": {
@@ -112,5 +115,18 @@
 			"subtotal":"Subtotal",
 			"discount": "DISCOUNT"
 		}
+	},
+	"footer": {
+		"terms_conditions": "Terms and Conditions",
+		"privacy_policy": "Privacy Policy",
+		"return_policy": "Return Policy",
+		"contact": "Contact",
+		"about": "About",
+		"contact_us": "Contact us",
+		"payment": "Payment",
+		"secured_payment_gateways": "Secured payment gateways",
+		"account":"Account",
+		"view_cart": "View cart",
+		"help": "Help"
 	}
 }
