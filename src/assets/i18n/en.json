@@ -75,7 +75,7 @@
 	},
 
 	"checkout": {
-		"information_link":"Информация",
+		"information_link":"Information",
 		"personal_details_link":"Personal Details",
 		"shipping_address_link": "Shipping Address",
 		"shipping_method_link": "Shipping method",
@@ -128,5 +128,14 @@
 		"account":"Account",
 		"view_cart": "View cart",
 		"help": "Help"
+	},
+	"newsletter": {
+		"newsletter": "Sign Up For Our Newsletter",
+		"newsletter_sub_1": "Get E-mail updates about our latest products and ",
+		"newsletter_sub_2": "special offers.",
+		"subscribe": "Subscribe",
+		"enter_email": "Enter your email address",
+		"subscribe_success": "You have successfully subscribed to our newsletter",
+		"subscribe_error": "You have already subscribed to our newsletter"
 	}
 }
