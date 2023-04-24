@@ -94,6 +94,7 @@ export class ProductListComponent implements OnInit {
         
         return 0;
       }).map((item: any) => {
+        console.log(item)
         return new Product(item.id, 
           item.name, 
           item.price, 

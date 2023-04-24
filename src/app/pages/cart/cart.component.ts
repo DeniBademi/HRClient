@@ -39,7 +39,8 @@ export class CartComponent implements OnInit {
       Validators.required,
 
     ]),
-    discountCode: new FormControl('', [])
+    discountCode: new FormControl('', []),
+
   });
 
 
@@ -58,6 +59,10 @@ export class CartComponent implements OnInit {
   total: number = 0;
   discount: number = 0;
   discountType: string = "";
+
+
+  agreed_terms: any = undefined;
+  agreed_privacy_policy: any = undefined;
   
 
   constructor(public CartService: CartService, 
@@ -169,4 +174,9 @@ export class CartComponent implements OnInit {
     },
     error => this.toastr.error(error.error))
    }
+
+   checkoutState() {
+    return this.PersonalDetailsForm.valid && this.agreed_terms===undefined && this.agreed_privacy_policy
+
+  }
 }

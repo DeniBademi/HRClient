@@ -22,6 +22,7 @@ export class CheckoutShippingMethodComponent implements OnInit {
   total: number;
 
   priorityOrderPrice = 10; //bgn
+  screwsPrice = 9.76; //bgn
 
   setShipping: Subject<number> = new Subject<number>();
 
@@ -57,7 +58,7 @@ export class CheckoutShippingMethodComponent implements OnInit {
           
           this.checkout = checkout
           console.log(this.checkout)
-          this.cartItems = JSON.parse(this.checkout["cartJSON"])
+
           this.total = this.CartService.calculateTotalJSON(this.cartItems);
           console.log(this.form.get('shippingAddress').valid)
 

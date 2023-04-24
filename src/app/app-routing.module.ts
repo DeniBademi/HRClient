@@ -11,6 +11,8 @@ import { HomeComponent } from './pages/home/home.component';
 import { ProductCatalogComponent } from './pages/product-catalog/product-catalog.component';
 import { ProductDetailsComponent } from './pages/product-details/product-details.component';
 import { NotFoundComponent } from './shared/not-found/not-found.component';
+import { TermsAndConditionsComponent } from './pages/terms-and-conditions/terms-and-conditions.component';
+import { PrivacyPolicyComponent } from './pages/privacy-policy/privacy-policy.component';
 
 const routes: Routes = [
   {path: '', redirectTo: "en/home", pathMatch: "full"},
@@ -24,7 +26,8 @@ const routes: Routes = [
   {path: ':languageCode/checkout/:id/payment', component: CheckoutPaymentComponent},
   {path: ':languageCode/checkout/:id/thank-you', component: CheckoutThankYouComponent},
   {path: ':languageCode/product/:id', component: ProductDetailsComponent},
-  
+  {path: ':languageCode/terms-and-conditions', component: TermsAndConditionsComponent},
+  {path: ':languageCode/privacy-policy', component: PrivacyPolicyComponent},
   { path: '**', component: NotFoundComponent }
 ];
 
