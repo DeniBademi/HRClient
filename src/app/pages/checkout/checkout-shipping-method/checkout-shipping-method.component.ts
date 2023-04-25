@@ -59,6 +59,12 @@ export class CheckoutShippingMethodComponent implements OnInit {
           this.checkout = checkout
           console.log(this.checkout)
 
+          this.cartItems = JSON.parse(this.checkout["cartJSON"])
+          if(this.cartItems.length == 1 && this.cartItems[0].product.id == "a79ad598-fa70-4e93-9a2d-1094100da251") {
+
+          }
+
+
           this.total = this.CartService.calculateTotalJSON(this.cartItems);
           console.log(this.form.get('shippingAddress').valid)
 
