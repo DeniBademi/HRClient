@@ -64,8 +64,6 @@ export class CheckoutShippingMethodComponent implements OnInit {
           console.log(this.checkout)
 
           this.cartItems = JSON.parse(this.checkout["cartJSON"])
-
-
           this.total = this.CartService.calculateTotalJSON(this.cartItems);
           console.log(this.form.get('shippingAddress').valid)
 
