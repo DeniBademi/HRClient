@@ -6,7 +6,7 @@ import { Product } from '../_models/Product';
 })
 export class GlobalsService {
 
-  baseURL = "https://hrserver3.azurewebsites.net/"
+  baseURL = "https://hrserver8.azurewebsites.net/"
   //baseURL = "https://localhost:5001/"
   // clientBaseURL = "http://213.124.166.84:4200/"
 

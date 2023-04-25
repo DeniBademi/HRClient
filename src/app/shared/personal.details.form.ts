@@ -16,7 +16,13 @@ const form = {
     Validators.required,
 
   ]),
-  discountCode: new FormControl('', [])
+  discountCode: new FormControl('', []),
+  agreed_privacy_policy: new FormControl(false, [
+    Validators.requiredTrue
+  ]),
+  agreed_terms: new FormControl(false, [
+    Validators.requiredTrue
+  ]),
   };
 
 @Injectable({ providedIn: 'root' })

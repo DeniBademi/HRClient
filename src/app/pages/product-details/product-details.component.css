@@ -296,7 +296,7 @@
     
     background-color: var(--bg-grey);
     color: var(--grey);
-    border-radius: 4px;
+    border-radius: 4px !important;
     cursor: pointer;
 }
 .product-btn-group .add-cart i{
@@ -436,6 +436,5 @@
 }
 
 .add-to-cart-button {
-    border: none;
     border-radius: 5px;
 }

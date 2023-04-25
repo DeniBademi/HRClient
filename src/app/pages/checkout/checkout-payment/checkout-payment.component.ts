@@ -137,13 +137,13 @@ export class CheckoutPaymentComponent implements OnInit {
     data['city'] = shippingInfo.get("city").value
     data['state'] = shippingInfo.get("state").value
     data['postalCode'] = shippingInfo.get("postalCode").value
-    data['country'] = shippingInfo.get("countryId").value
+    data['country'] = shippingInfo.get("countryId").value.name
     data["paymentMethod"] = this.form.get('paymentMethod').value;
     data["checkoutId"] = this.checkoutID;
 
     this.DataService.placeOrder(data).subscribe( (value) => {
         console.log(value)
-        this.Router.navigate(['/'+this.translate.currentLang+"/checkout/thank-you"])
+        this.Router.navigate(['/'+this.translate.currentLang+"/checkout/"+this.checkoutID+"/thank-you"])
     });
   }
 

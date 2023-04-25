@@ -27,8 +27,8 @@
       <h4>{{"footer.about" | translate}}</h4>
       <a [routerLink]="['/'+this.translate.currentLang+'/about']" routerLinkActive="router-link-active" >{{"nav.about" | translate}}</a>
       <!-- <a href="#">Delivery Information</a> -->
-      <a [routerLink]="['/'+this.translate.currentLang+'/home']" routerLinkActive="router-link-active">{{"footer.privacy_policy" | translate }}</a>
-      <a [routerLink]="['/'+this.translate.currentLang+'/home']" routerLinkActive="router-link-active">{{"footer.terms_conditions" | translate }}</a>
+      <a [routerLink]="['/'+this.translate.currentLang+'/privacy-policy']" routerLinkActive="router-link-active">{{"footer.privacy_policy" | translate }}</a>
+      <a [routerLink]="['/'+this.translate.currentLang+'/terms-and-conditions']" routerLinkActive="router-link-active">{{"footer.terms_conditions" | translate }}</a>
       <a [routerLink]="['/'+this.translate.currentLang+'/contact']" routerLinkActive="router-link-active" >{{"footer.contact_us" | translate }}</a>
   </div>
 
@@ -44,7 +44,7 @@
 
   <div class="col install">
       <h4>{{"footer.payment" | translate}}</h4>           
-      <p>{{"footer.secured_payment_gateways" | translate}}</p>
       <img src="../../assets/img/pay/pay.png" alt="">
+      <p>{{"footer.secured_payment_gateways" | translate}}</p>
   </div>
 </footer>

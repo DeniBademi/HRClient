@@ -77,7 +77,9 @@ export class CheckoutShippingAddressComponent implements OnInit {
 
       this.DataService.getAll("country").subscribe(value => {
         this.countries = value.slice();
-        this.filteredCountries.next(value.slice());
+        
+        
+        this.filteredCountries.next(this.countries);
       })
       this.countryFilterCtrl.valueChanges
       .pipe(takeUntil(this._onDestroy))
@@ -142,6 +144,11 @@ export class CheckoutShippingAddressComponent implements OnInit {
 
     nextStep(){
       //console.log(this.form.get("shippingAddress.countryId"))
+      const cartItems = JSON.parse(this.checkout["cartJSON"])
+      if(cartItems.length == 1 && cartItems[0].product.id == "d547ea73-101d-4b62-83eb-92d3c45f54b2" && this.form.get('shippingAddress.countryId').value.name != "Bulgaria") {
+        this.form.get('shippingAddress.countryId').value.price = 9.7809
+      }
+
       this.Router.navigate(['/'+this.translateService.currentLang+'/checkout/'+ this.checkoutID + '/shipping-method']);
     }
 }
