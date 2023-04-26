@@ -25,18 +25,19 @@ export class CartComponent implements OnInit {
 
 
   personalDetails = new FormGroup({
-    firstName: new FormControl('Denis', [
+    firstName: new FormControl('', [
       Validators.required,
     ]),
-    lastName: new FormControl('Zahariev', [
+    lastName: new FormControl('', [
       Validators.required,
     ]),
-    email: new FormControl('denis.zaharievv@gmail.com', [
+    email: new FormControl('', [
       Validators.required,
       Validators.email
     ]),
-    phoneNumber: new FormControl(undefined,[
+    phoneNumber: new FormControl('',[
       Validators.required,
+      Validators.pattern(/^\+?\d{1,3}[- ]?\d{3}[- ]?\d{3}[- ]?\d{4}$/)
 
     ]),
     discountCode: new FormControl('', []),
@@ -59,7 +60,6 @@ export class CartComponent implements OnInit {
   total: number = 0;
   discount: number = 0;
   discountType: string = "";
-
 
   agreed_terms: any = undefined;
   agreed_privacy_policy: any = undefined;

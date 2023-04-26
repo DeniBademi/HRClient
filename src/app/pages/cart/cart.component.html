@@ -67,15 +67,32 @@
                         <div class="col-md-6">
                             <label class="credit-card-label">{{'cart.first_name' | translate}} *</label>
                             <input required type="text" class="form-control credit-inputs" placeholder="John" formControlName="firstName">
+                            <div *ngIf="PersonalDetailsForm.controls['firstName'].invalid && (PersonalDetailsForm.controls['firstName'].dirty || PersonalDetailsForm.controls['firstName'].touched)">
+                                <div *ngIf="PersonalDetailsForm.controls['firstName'].errors!['required']" class="error">
+                                    {{'messages.required_field' | translate}}
+                                </div>
+                            </div>
                         </div>
                         <div class="col-md-6">
                             <label class="credit-card-label">{{'cart.last_name' | translate}} *</label>
                             <input required type="text" class="form-control credit-inputs" placeholder="Smith" formControlName="lastName">
+                            <div *ngIf="PersonalDetailsForm.controls['lastName'].invalid && (PersonalDetailsForm.controls['lastName'].dirty || PersonalDetailsForm.controls['lastName'].touched)">
+
+                                <div *ngIf="PersonalDetailsForm.controls['lastName'].errors!['required']" class="error">
+                                    {{'messages.required_field' | translate}}
+                                </div>
+                            </div>
                         </div>
                     </div>
                     <div>
                         <label class="credit-card-label">{{'cart.email' | translate}} *</label>
                         <input required type="email" class="form-control credit-inputs" placeholder="john.smith@example.com" formControlName="email">
+                        <div *ngIf="PersonalDetailsForm.controls['email'].invalid && (PersonalDetailsForm.controls['email'].dirty || PersonalDetailsForm.controls['email'].touched)">
+                            <div *ngIf="PersonalDetailsForm.controls['email'].errors!['required']" class="error">
+                                {{'messages.required_field' | translate}}
+                            </div>
+                        </div>
+                        
                     </div>
                     <div>
                         <label class="credit-card-label">{{'cart.phone_number' | translate}} *</label>
@@ -96,7 +113,16 @@
                         name="phone"
                         formControlName="phoneNumber"
                     ></ngx-intl-tel-input> -->
-                    <input required class="form-control credit-inputs" formControlName="phoneNumber">
+                            <input required class="form-control credit-inputs" formControlName="phoneNumber" type="tel">
+                            <div *ngIf="PersonalDetailsForm.controls['phoneNumber'].invalid && (PersonalDetailsForm.controls['phoneNumber'].dirty || PersonalDetailsForm.controls['phoneNumber'].touched)">
+                                <div *ngIf="PersonalDetailsForm.controls['phoneNumber'].errors['required']" class="error">
+                                    {{'messages.required_field' | translate}}
+                                </div>
+                                <div *ngIf="PersonalDetailsForm.controls['phoneNumber'].errors['pattern']" class="error">
+                                    {{'messages.invalid_field' | translate}}
+                                </div>
+                            </div>
+
                         </div>
                         
                     </div>  

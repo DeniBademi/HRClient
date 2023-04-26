@@ -2,18 +2,19 @@ import { Injectable } from '@angular/core';
 import { FormControl, FormGroup, FormArray, Validators } from '@angular/forms';
 
 const form = {
-  firstName: new FormControl('Denis', [
+  firstName: new FormControl('', [
     Validators.required,
   ]),
-  lastName: new FormControl('Zahariev', [
+  lastName: new FormControl('', [
     Validators.required,
   ]),
-  email: new FormControl('denis.zaharievv@gmail.com', [
+  email: new FormControl('', [
     Validators.required,
     Validators.email
   ]),
   phoneNumber: new FormControl(undefined,[
     Validators.required,
+    Validators.pattern(/^\+?\d{1,3}[- ]?\d{3}[- ]?\d{3}[- ]?\d{4}$/)
 
   ]),
   discountCode: new FormControl('', []),

@@ -143,7 +143,9 @@
 .items {
     max-height: 10vh;
 }
-
+.error {
+  color: red;
+}
 ::ng-deep .mat-mdc-select-value-text {
   color: white !important;
 }

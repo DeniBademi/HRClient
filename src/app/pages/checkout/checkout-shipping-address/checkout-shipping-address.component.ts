@@ -68,6 +68,7 @@ export class CheckoutShippingAddressComponent implements OnInit {
                 console.log(this.form.get('shippingAddress').valid)
 
             });
+            console.log(this.form.controls)
       })
 
       // this.bankCtrl.setValue(this.countries[10]);

@@ -140,6 +140,10 @@
 		"enter_email": "Въведи своя имейл",
 		"subscribe_success": "Успешно се абонирахте за нашия бюлетин",
 		"subscribe_error": "Вече сте абонирани"
+	},
+	"messages": {
+		"required_field": "Това поле е задължително!",
+		"invalid_field": "Невалидна стойност!"
 	}
 	
 }

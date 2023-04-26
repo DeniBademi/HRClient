@@ -43,6 +43,11 @@
                   <div>
                      <label class="credit-card-label">{{'checkout.shipping_address.line1' | translate}} *</label>
                      <input required type="text" class="form-control credit-inputs" placeholder="" formControlName="addressLine1">
+                     <div *ngIf="form.controls['shippingAddress']['controls']['addressLine1'].invalid && (form.controls['shippingAddress']['controls']['addressLine1'].dirty || form.controls['shippingAddress']['controls']['addressLine1'].touched)">
+                        <div *ngIf="form.controls['shippingAddress']['controls']['addressLine1'].errors!['required']" class="error">
+                            {{'messages.required_field' | translate}}
+                        </div>
+                    </div>
                   </div>
                   <div>
                      <label class="credit-card-label">{{'checkout.shipping_address.line2' | translate}} ({{'optional' | translate}})</label>
@@ -63,11 +68,21 @@
                        <mat-option>
                          <ngx-mat-select-search [formControl]="countryFilterCtrl"></ngx-mat-select-search>
                        </mat-option>
+                     <!-- <div *ngIf="form.controls['shippingAddress.countryId'].invalid && (form.controls['shippingAddress.countryId'].dirty || form.controls['shippingAddress.countryId'].touched)">
+                        <div *ngIf="form.controls['shippingAddress.countryId'].errors!['required']" class="error">
+                            {{'messages.required_field' | translate}}
+                        </div>
+                    </div> -->
                  
                        <mat-option *ngFor="let bank of filteredCountries | async" [value]="bank">
                          {{bank.name}}
                        </mat-option>
                      </mat-select>
+                     <div *ngIf="form.controls['shippingAddress']['controls']['countryId'].invalid && (form.controls['shippingAddress']['controls']['countryId'].dirty || form.controls['shippingAddress']['controls']['countryId'].touched)">
+                        <div *ngIf="form.controls['shippingAddress']['controls']['countryId'].errors!['required']" class="error">
+                            {{'messages.required_field' | translate}}
+                        </div>
+                    </div>
                     
                     
                   </div>
@@ -75,6 +90,11 @@
                      <div class="col-md-6">
                         <label class="credit-card-label">{{'checkout.shipping_address.city' | translate}} *</label>
                         <input required type="text" class="form-control credit-inputs" placeholder="" formControlName="city">
+                        <div *ngIf="form.controls['shippingAddress']['controls']['city'].invalid && (form.controls['shippingAddress']['controls']['city'].dirty || form.controls['shippingAddress']['controls']['city'].touched)">
+                           <div *ngIf="form.controls['shippingAddress']['controls']['city'].errors!['required']" class="error">
+                               {{'messages.required_field' | translate}}
+                           </div>
+                       </div>
                      </div>
                      <div class="col-md-6">
                         <label class="credit-card-label">{{'checkout.shipping_address.state' | translate}} ({{'optional' | translate}})</label>
@@ -84,6 +104,11 @@
                   <div>
                      <label class="credit-card-label">{{'checkout.shipping_address.postal_code' | translate}} *</label>
                      <input required type="text" class="form-control credit-inputs" placeholder="" formControlName="postalCode">
+                     <div *ngIf="form.controls['shippingAddress']['controls']['postalCode'].invalid && (form.controls['shippingAddress']['controls']['postalCode'].dirty || form.controls['shippingAddress']['controls']['postalCode'].touched)">
+                        <div *ngIf="form.controls['shippingAddress']['controls']['postalCode'].errors!['required']" class="error">
+                            {{'messages.required_field' | translate}}
+                        </div>
+                    </div>
                   </div>
                </div>
                </form>

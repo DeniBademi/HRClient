@@ -3,7 +3,7 @@ import { FormControl, FormGroup, FormArray, Validators } from '@angular/forms';
 
 const form = {
   shippingAddress: new FormGroup({
-    addressLine1: new FormControl('Lulin 170', [
+    addressLine1: new FormControl('', [
       Validators.required,
     ]),
     addressLine2: new FormControl('', [
@@ -11,11 +11,11 @@ const form = {
     countryId: new FormControl('', [
       Validators.required
     ]),
-    city: new FormControl('Sofia', [
+    city: new FormControl('', [
       Validators.required,
     ]),
     state: new FormControl('', []),
-    postalCode: new FormControl('1335',[
+    postalCode: new FormControl('',[
       Validators.required
     ]),
     }),

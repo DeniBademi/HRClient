@@ -72,9 +72,9 @@
 		"checkout": "Checkout",
 		"empty_cart": "Your cart is empty",
 		"go_shopping": "Go Shopping",
-		"agree":"   I agree to",
-		"privacy_policy": "the Privacy Policy",
-		"terms": "the Terms and Conditions"
+		"agree":"   I agree to the",
+		"privacy_policy": "Privacy Policy",
+		"terms": "Terms and Conditions"
 
 	},
 
@@ -141,5 +141,10 @@
 		"enter_email": "Enter your email address",
 		"subscribe_success": "You have successfully subscribed to our newsletter",
 		"subscribe_error": "You have already subscribed to our newsletter"
+	},
+	"messages": {
+		"required_field": "This field is required!",
+		"invalid_field": "Invalid input!"
 	}
+
 }
