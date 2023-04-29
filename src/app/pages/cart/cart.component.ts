@@ -75,7 +75,7 @@ export class CartComponent implements OnInit {
               public PersonalDetailsForm: PersonalDetailsForm) {
     this.CartService.cartItems.subscribe((value) => {
       this.cartItems = value;
-      console.log(value)
+      //console.log(value)
 
     });
     this.CartService.cartItemsCount.subscribe((value) => {
@@ -119,7 +119,7 @@ export class CartComponent implements OnInit {
         this.PersonalDetailsForm.get('discountCode').setValue(this.discountCode)
         this.discount = data.body["discount"]
         if(data.body["isPercentage"]) {
-          this.total = Math.round(this.sum * (100 - this.discount))/100
+          this.total = this.sum * (100 - this.discount)/100
           this.discountType = "p"
         } else {
           this.total = this.sum - this.discount;
@@ -133,7 +133,7 @@ export class CartComponent implements OnInit {
    refreshTotal() {
     this.sum = this.CartService.calculateTotal();
     if(this.discountType=="p") {
-      this.total = Math.round(this.sum * (100 -this.discount))/100
+      this.total = this.sum * (100 -this.discount)/100
     } else if (this.discountType=="a") {
       this.total = this.sum - this.discount;
       
@@ -162,12 +162,12 @@ export class CartComponent implements OnInit {
     data.PhoneNumber = this.PersonalDetailsForm.value.phoneNumber//!["internationalNumber"];
 
     if(this.PersonalDetailsForm.value.discountCode.length>0){
-      console.log(data.DiscountCode)
+      //console.log(data.DiscountCode)
       data.DiscountCode = this.PersonalDetailsForm.value.discountCode!;
     }
     
     this.DataService.checkout(data).subscribe( (value: any) => {
-      console.log(value)
+      //console.log(value)
       let checkoutID = value['id'];
       this.Router.navigate(['/'+this.translate.currentLang+'/checkout/'+ checkoutID+ '/shipping-address']);
       

@@ -44,7 +44,7 @@ export class CheckoutPaymentComponent implements OnInit {
   setShipping: Subject<number> = new Subject<number>();
 
   setShippingInOverview(value:number) {
-    console.log(value)
+    //console.log(value)
     this.setShipping.next(value);
   }
   
@@ -79,7 +79,7 @@ export class CheckoutPaymentComponent implements OnInit {
                   this.Router.navigate(["not-found"]);;
               
               this.checkout = checkout
-              console.log(this.checkout)
+              //console.log(this.checkout)
               let cartItems = JSON.parse(this.checkout["cartJSON"])
                 this.total = this.CartService.calculateTotalJSON(cartItems);
               })
@@ -89,8 +89,8 @@ export class CheckoutPaymentComponent implements OnInit {
       
       let shippingMethodId = this.form.get("shippingMethodId").value;
       let shippingPrice = this.form.get('shippingAddress.countryId').value.price
-      console.log(shippingMethodId)
-      console.log(shippingPrice)
+      //console.log(shippingMethodId)
+      //console.log(shippingPrice)
       this.setShippingInOverview(shippingPrice + (shippingMethodId=="priority"?10:0))
       if(this.form.get('shippingAddress.countryId').value.name != "Bulgaria" && this.form.get('shippingAddress.countryId').value.name != "България"){
         this.form.get('paymentMethod').setValue("card")
@@ -142,7 +142,7 @@ export class CheckoutPaymentComponent implements OnInit {
     data["checkoutId"] = this.checkoutID;
 
     this.DataService.placeOrder(data).subscribe( (value) => {
-        console.log(value)
+        //console.log(value)
         this.Router.navigate(['/'+this.translate.currentLang+"/checkout/"+this.checkoutID+"/thank-you"])
     });
   }
@@ -200,16 +200,16 @@ export class CheckoutPaymentComponent implements OnInit {
   
     switch (paymentIntent.status) {
       case "succeeded":
-        console.log("Payment succeeded!");
+        //console.log("Payment succeeded!");
         break;
       case "processing":
-        console.log("Your payment is processing.");
+        //console.log("Your payment is processing.");
         break;
       case "requires_payment_method":
-        console.log("Your payment was not successful, please try again.");
+        //console.log("Your payment was not successful, please try again.");
         break;
       default:
-        console.log("Something went wrong.");
+        //console.log("Something went wrong.");
         break;
     }
   }
@@ -235,7 +235,7 @@ export class CheckoutPaymentComponent implements OnInit {
     };
      //this.stripe = await loadStripe('pk_test_51KUEGcE2HlANu4Kr1gkhviY29YvdUIw6XVNHi7KyaatBfBY8ztFXDtiXT2BdLjLP918VXdsV8a72xMgFFOjgwxkf00Nu2bgDBv')
      this.stripe = await loadStripe('pk_test_51MuGi1BAZhA0rlRn9ZAiDgRRfVhJ9F0j5KD62362DJQhM1T6SUjwT5m3ObdVrpYfJWD1C7BLi95dYm4Xks4XzZ3p00qELKSmiJ')
-     console.log(this.clientSecret)
+     //console.log(this.clientSecret)
      this.elements = this.stripe.elements({clientSecret: this.clientSecret});
     // this.card = this.elements.create("card", {style:cardStyle});
     // this.card.mount("#card-info");
@@ -255,6 +255,6 @@ export class CheckoutPaymentComponent implements OnInit {
   getTotal() {}
 
   createOrder(id: any) {
-    console.log(id)
+    //console.log(id)
   }
 }

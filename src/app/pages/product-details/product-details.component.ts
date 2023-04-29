@@ -35,7 +35,7 @@ export class ProductDetailsComponent implements OnInit {
             this.router.navigate(["not-found"]);
           
           this.product = product;
-          console.log(this.product)
+          //console.log(this.product)
           this.product.photosJSON = JSON.parse(this.product.photosJSON.replaceAll("'","\""))
   
           

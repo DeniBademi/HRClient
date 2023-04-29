@@ -24,7 +24,7 @@ export class ProductCatalogComponent implements OnInit {
   }
 
   onChangeFilters(newFilters: {}) {
-    console.log(newFilters)
+    //console.log(newFilters)
     this.changeFilters.next(newFilters);
   }
 

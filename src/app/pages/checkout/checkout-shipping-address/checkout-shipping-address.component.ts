@@ -62,13 +62,13 @@ export class CheckoutShippingAddressComponent implements OnInit {
                     this.Router.navigate(["not-found"]);;
                 
                 this.checkout = checkout
-                console.log(this.checkout)
+                //console.log(this.checkout)
                 this.cartItems = JSON.parse(this.checkout["cartJSON"])
                 this.total = this.CartService.calculateTotalJSON(this.cartItems);
-                console.log(this.form.get('shippingAddress').valid)
+                //console.log(this.form.get('shippingAddress').valid)
 
             });
-            console.log(this.form.controls)
+            //console.log(this.form.controls)
       })
 
       // this.bankCtrl.setValue(this.countries[10]);

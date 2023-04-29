@@ -43,7 +43,6 @@ ngOnInit() {
       if(prevCart[i].product.id == product.id) {
         //increment quantity
         prevCart[i].quantity+=1;
-        console.log(product)
         this.cartItems.next(prevCart);
         return;
       }
@@ -103,7 +102,7 @@ ngOnInit() {
   return false;
 }
   printCart(){
-    console.log(this.cartItems)
+    //console.log(this.cartItems)
   }
 
 

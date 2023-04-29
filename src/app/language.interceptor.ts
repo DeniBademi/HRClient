@@ -20,7 +20,6 @@ export class LanguageInterceptor implements HttpInterceptor {
   addLanguageHeader(request: HttpRequest<any>) {
     const language = this.translate.currentLang
     if(language==undefined) return request
-    console.log(language)
     return request.clone({
       setHeaders: {
         "Language": language

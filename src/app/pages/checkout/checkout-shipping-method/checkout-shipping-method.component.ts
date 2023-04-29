@@ -61,16 +61,16 @@ export class CheckoutShippingMethodComponent implements OnInit {
               this.Router.navigate(["not-found"]);;
           
           this.checkout = checkout
-          console.log(this.checkout)
+          //console.log(this.checkout)
 
           this.cartItems = JSON.parse(this.checkout["cartJSON"])
           this.total = this.CartService.calculateTotalJSON(this.cartItems);
-          console.log(this.form.get('shippingAddress').valid)
+          //console.log(this.form.get('shippingAddress').valid)
 
       });
     })
     this.form.valueChanges.subscribe(val => {
-      console.log(val['shippingAddress']['countryId'].price)
+      //console.log(val['shippingAddress']['countryId'].price)
       this.setShippingInOverview(val['shippingAddress']['countryId'].price + (val['shippingMethodId']=="priority"?this.priorityOrderPrice:0))
     })
   }

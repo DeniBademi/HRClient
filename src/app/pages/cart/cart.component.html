@@ -137,7 +137,7 @@
                     <button class="btn btn-checkout btn-block d-flex justify-content-between mt-3" 
                     type="submit" [disabled]="!(PersonalDetailsForm.valid)">
                         <span *ngIf="this.discountType.length==0">{{sum | convert | currency:(translate.currentLang == "en"? "EUR": "BGN")}}</span>
-                        <span *ngIf="this.discountType.length>0"><s style="color:red; font-weight: 500;white-space: pre;">{{sum | convert: {round:false} | currency:"EUR"}}</s> {{total | convert | currency:"EUR"}}</span>
+                        <span *ngIf="this.discountType.length>0"><s style="color:red; font-weight: 500;white-space: pre;">{{sum | convert: {round:false} | currency:(translate.currentLang == "en"? "EUR": "BGN")}}</s> {{total | convert | currency:(translate.currentLang == "en"? "EUR": "BGN")}}</span>
                         <span>{{'cart.checkout' | translate}}<i class="fa fa-long-arrow-right ml-1"></i></span>
                     </button>
                 </form>

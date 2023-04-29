@@ -33,7 +33,7 @@ export class ShippingInformationComponent implements OnInit {
   ngOnInit() {
     this.DataService.getAll("shippingmethod").subscribe( (value) => {
       this.shippingMethods = value;
-      console.log(this.shippingMethods)
+      //ddconsole.log(this.shippingMethods)
     })
   }
 

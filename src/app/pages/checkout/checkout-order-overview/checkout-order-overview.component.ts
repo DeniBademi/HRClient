@@ -40,7 +40,7 @@ export class CheckoutOrderOverviewComponent implements OnInit {
     this.total = this.sum;
     if(this.checkout.coupon != undefined) {
           if(this.checkout.coupon.isPercentage) {
-      this.total = Math.round(this.sum * (100 - this.checkout.coupon.discount))/100
+      this.total = this.sum * (100 - this.checkout.coupon.discount)/100
     } else {
       this.total = this.sum - this.checkout.coupon.discount;
     }
@@ -66,7 +66,7 @@ export class CheckoutOrderOverviewComponent implements OnInit {
     this.total = 0;
     if(this.checkout.coupon != undefined) {
       if(this.checkout.coupon.isPercentage) {
-        this.total = Math.round(this.sum * (100 - this.checkout.coupon.discount))/100
+        this.total = this.sum * (100 - this.checkout.coupon.discount)/100
       } else {
         this.total = this.sum - this.checkout.coupon.discount;
       }

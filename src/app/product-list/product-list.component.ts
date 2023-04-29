@@ -72,7 +72,7 @@ export class ProductListComponent implements OnInit {
         return types;
       })
     ).subscribe(response => {
-      console.log(response)
+      //console.log(response)
       this.typesLoaded=true;
       // this.productList = response.body.map((item: any) => {
       //   return new Product(item.id, 
@@ -94,7 +94,7 @@ export class ProductListComponent implements OnInit {
         
         return 0;
       }).map((item: any) => {
-        console.log(item)
+        //console.log(item)
         return new Product(item.id, 
           item.name, 
           item.price, 
@@ -107,11 +107,11 @@ export class ProductListComponent implements OnInit {
                           this.translate.currentLang == "en" ? "EUR" : "лв", 
                           ""))
       });
-      console.log(this.productList)
+      //console.log(this.productList)
       var pag = JSON.parse(response.headers.get("Pagination"))
       this.totalPages = String(pag["TotalItems"])
     }, error => {
-      console.log(error.error);
+      //console.log(error.error);
     })
   }
 
@@ -125,9 +125,9 @@ export class ProductListComponent implements OnInit {
 
       this.typesLoaded=true;
       this.types = response;
-      console.log(response[0])
+      //console.log(response[0])
     }, error => {
-      console.log(error.error);
+      //console.log(error.error);
     })
   }
 
@@ -140,7 +140,7 @@ export class ProductListComponent implements OnInit {
     ).subscribe(response => {
 
       this.models = response;
-      console.log(response[0])
+      //console.log(response[0])
     }, error => {
       console.log(error.error);
     })
@@ -167,7 +167,7 @@ export class ProductListComponent implements OnInit {
   }
   onChangePage(pageOfItems: any) {
     // update current page of items
-    console.log(pageOfItems)
+    //console.log(pageOfItems)
     this.currentPage = pageOfItems["pageIndex"]+1;
     this.pageSize = String(pageOfItems["pageSize"]);
     this.ngOnInit();
@@ -188,7 +188,7 @@ export class ProductListComponent implements OnInit {
     this.types = [];
     this.models = [];
 
-    console.log(this.filters)
+    //console.log(this.filters)
 
     this.ngOnInit()    
   }
