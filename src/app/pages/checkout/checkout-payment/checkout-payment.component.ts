@@ -234,7 +234,7 @@ export class CheckoutPaymentComponent implements OnInit {
       },
     };
      //this.stripe = await loadStripe('pk_test_51KUEGcE2HlANu4Kr1gkhviY29YvdUIw6XVNHi7KyaatBfBY8ztFXDtiXT2BdLjLP918VXdsV8a72xMgFFOjgwxkf00Nu2bgDBv')
-     this.stripe = await loadStripe('pk_test_51MuGi1BAZhA0rlRn9ZAiDgRRfVhJ9F0j5KD62362DJQhM1T6SUjwT5m3ObdVrpYfJWD1C7BLi95dYm4Xks4XzZ3p00qELKSmiJ')
+     this.stripe = await loadStripe('pk_live_51MuGi1BAZhA0rlRnKh5ouoqDaBiS7YBIr7MjXtxVWrvarUvCIlI71l7eU6P9P4PUAyr966Ebwjh6miUpDzvuLhT500nRdEpzgw')
      //console.log(this.clientSecret)
      this.elements = this.stripe.elements({clientSecret: this.clientSecret});
     // this.card = this.elements.create("card", {style:cardStyle});
