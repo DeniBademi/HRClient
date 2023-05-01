@@ -41,6 +41,9 @@
 
 
                <div *ngIf="this.form.get('shippingAddress.countryId').value.name != 'Bulgaria'">
+                  <div class = "description">{{'checkout.shipping_method.warning_international' | translate}} </div>
+                  <div class = "description">{{'checkout.shipping_method.processing_time' | translate}} </div>
+
                   <div class="row shipping-option d-flex align-items-center">
                      <div class="col-sm-auto">
                        <input type="radio" id="accent" formControlName="shippingMethodId"
@@ -70,6 +73,7 @@
                </div>
                
                <div *ngIf="this.form.get('shippingAddress.countryId').value.name == 'Bulgaria'">
+                <div class = "description">{{'checkout.shipping_method.processing_time' | translate}} </div>
                   <div class="row shipping-option d-flex align-items-center">
                      <div class="col-sm-auto">
                        <input type="radio" id="accent" formControlName="shippingMethodId"
