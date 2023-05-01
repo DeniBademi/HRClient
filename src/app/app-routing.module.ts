@@ -16,11 +16,11 @@ import { PrivacyPolicyComponent } from './pages/privacy-policy/privacy-policy.co
 
 const routes: Routes = [
   {path: '', redirectTo: "en/home", pathMatch: "full"},
-  {path: ':languageCode/home', component: HomeComponent},
-  {path: ':languageCode/about', component: AboutComponent},
-  {path: ':languageCode/catalog', component: ProductCatalogComponent},
-  {path: ':languageCode/contact', component: ContactComponent},
-  {path: ':languageCode/cart', component: CartComponent},
+  {path: ':languageCode/home', component: HomeComponent, data: { title: 'Homepage' }},
+  {path: ':languageCode/about', component: AboutComponent, data: { title: 'About' }},
+  {path: ':languageCode/catalog', component: ProductCatalogComponent, data: { title: 'Catalog' }},
+  {path: ':languageCode/contact', component: ContactComponent, data: { title: 'Contact' }},
+  {path: ':languageCode/cart', component: CartComponent, data: { title: 'Cart' }},
   {path: ':languageCode/checkout/:id/shipping-address', component: CheckoutShippingAddressComponent},
   {path: ':languageCode/checkout/:id/shipping-method', component: CheckoutShippingMethodComponent},
   {path: ':languageCode/checkout/:id/payment', component: CheckoutPaymentComponent},
