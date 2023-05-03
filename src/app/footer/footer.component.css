@@ -27,11 +27,6 @@ p {
     margin: 15px 0 20px 0;
 }
 
-footer {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-}
 
 footer .follow {
     margin-top: 20px;
@@ -91,6 +86,9 @@ footer a:hover {
 }
 
 .section-p1 {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
     padding: 20px 20px;
 
 }
@@ -158,4 +156,8 @@ button.normal {
     border: none;
     outline: none;
     transition: 0.2s;
+}
+
+.copyright {
+    padding: 10px;
 }

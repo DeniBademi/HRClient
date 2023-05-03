@@ -133,7 +133,8 @@
 		"secured_payment_gateways": "All payments are processed by Stripe",
 		"account":"Account",
 		"view_cart": "View cart",
-		"help": "Help"
+		"help": "Help",
+		"copyright": "All rights reserved."
 	},
 	"newsletter": {
 		"newsletter": "Sign Up For Our Newsletter",

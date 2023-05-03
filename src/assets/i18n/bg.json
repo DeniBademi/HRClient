@@ -132,7 +132,8 @@
 		"secured_payment_gateways": "Всички онлайн плащания се обработват със Stripe",
 		"account":"Акаунт",
 		"view_cart": "Виж количката",
-		"help": "Помощ"
+		"help": "Помощ",
+		"copyright":"Всички права запазени"
 	},
 	"newsletter": {
 		"newsletter": "Абонирай се за нашия бюлетин",
