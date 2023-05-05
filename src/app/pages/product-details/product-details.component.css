@@ -1,6 +1,6 @@
 .container {
     width: 100vw;
-    height:70vh;
+    height:100vh;
     position: relative;
     background-color: #333;
     overflow: hidden;
@@ -423,6 +423,11 @@
 
     
     
+}
+
+::ng-deep .g-slider, .ng-star-inserted, .g-box  {
+    background-color: #333;
+    border:none;
 }
 
 /** Responsive Tablet **/

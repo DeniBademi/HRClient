@@ -36,6 +36,11 @@ ngOnInit() {
 
 }
 
+  emptyCart(){
+    this.cartItemsCount.next(0);
+    this.cartItems.next([]);
+  }
+
   addItem(product: Product){
     this.cartItemsCount.next(this.cartItemsCount.getValue()+1);
     let prevCart = this.cartItems.getValue();
@@ -77,7 +82,7 @@ ngOnInit() {
   }
 
   deleteItem(product: Product) {
-    this.cartItemsCount.next(this.cartItemsCount.getValue()-1);
+    
     let tempCart = this.cartItems.getValue();
     let index = -1;
     for(let i=0;i<tempCart.length;i++){
@@ -86,18 +91,21 @@ ngOnInit() {
         break;
       }
     }
+    this.cartItemsCount.next(this.cartItemsCount.getValue()-tempCart[index].quantity);
     if (index > -1) {
       tempCart.splice(index, 1);
     }
+
+   
   }
 
   productInCart(product: Product) {
     let cartContent = this.cartItems.getValue();
-  for (var i = 0; i < cartContent.length; i++) {
-      if (cartContent[i].product.id === product.id) {
-          return true;
-      }
-  }
+    for (var i = 0; i < cartContent.length; i++) {
+        if (cartContent[i].product.id === product.id) {
+            return true;
+        }
+    }
 
   return false;
 }

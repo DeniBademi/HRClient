@@ -113,7 +113,7 @@
                         name="phone"
                         formControlName="phoneNumber"
                     ></ngx-intl-tel-input> -->
-                            <input required class="form-control credit-inputs" formControlName="phoneNumber" type="tel">
+                            <input required class="form-control credit-inputs" formControlName="phoneNumber" type="tel" placeholder="+359 999 999 999">
                             <div *ngIf="PersonalDetailsForm.controls['phoneNumber'].invalid && (PersonalDetailsForm.controls['phoneNumber'].dirty || PersonalDetailsForm.controls['phoneNumber'].touched)">
                                 <div *ngIf="PersonalDetailsForm.controls['phoneNumber'].errors['required']" class="error">
                                     {{'messages.required_field' | translate}}

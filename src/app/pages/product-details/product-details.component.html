@@ -12,7 +12,15 @@
                             <img [attr.src]="GlobalsService.productPhotosMediaURLs + item" alt=""  class="image-list" *ngFor="let item of product.photosJSON['gallery']">
                         </div>
                     </div> -->
-                    <gallery class="gallery" [items]="photos" thumbPosition="right"></gallery>
+
+                    <div *ngIf="innerWidth>700">
+                        <gallery class="gallery" [items]="photos" thumbPosition="right" imageSize="cover"></gallery>
+                    </div>
+                    <div *ngIf="innerWidth<=700">
+                        <gallery class="gallery" [items]="photos" thumbPosition="bottom" imageSize="cover"></gallery>
+                    </div>
+                    
+                    
                 </div>
                 <div class="col-sm-1"></div>
                 <div class="col-sm-4">
