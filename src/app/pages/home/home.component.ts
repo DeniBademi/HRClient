@@ -7,6 +7,7 @@ import { InteractivityDetect } from 'tsparticles-engine/types/Enums/Interactivit
 import { OrderForm } from 'src/app/shared/order.form';
 import { ActivatedRoute, Router } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
+import { DataService } from 'src/app/_services/data.service';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -19,7 +20,11 @@ export class HomeComponent implements OnInit {
   preSheet: any;
 
   
-  constructor(GlobalsService: GlobalsService, public router: Router, private route: ActivatedRoute, public translate:TranslateService) { 
+  constructor(GlobalsService: GlobalsService, 
+    public router: Router, 
+    private route: ActivatedRoute, 
+    public translate:TranslateService,
+    public data: DataService) { 
     this.sampleProduct = GlobalsService.sampleProduct
     this.preSheet = GlobalsService.preSheet
   }
@@ -28,6 +33,9 @@ export class HomeComponent implements OnInit {
 
   ngOnInit() {
     this.translate.use(this.route.snapshot.paramMap.get("languageCode"))
+    this.data.wakeUpServer().subscribe(res=>{
+      console.log(res)
+    });
   }
 
   

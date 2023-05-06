@@ -12,6 +12,15 @@ export class DataService {
 
   constructor(private http: HttpClient, private GlobalsService: GlobalsService, private toastr: ToastrService) { }
 
+
+  wakeUpServer() {
+    return this.http.get(this.GlobalsService.baseURL+'weatherforecast').pipe(
+      map((response: any) => {
+        const types = response;
+        return types;
+      }))
+  }
+
   getTypes(){
     return this.http.get(this.GlobalsService.baseURL+'producttype/getAll').pipe(
       map((response: any) => {
