@@ -1,0 +1,8 @@
+<div class="container" [routerLink]="['/'+this.translate.currentLang+'/product', product.id]">
+  <div class="image">
+    <img class="card-img-top" [attr.src]="GlobalsService.productPhotosMediaURLs + product.photosJSON.thumbnail">
+
+  </div>
+  <div class="text">
+  <div>{{product.description}}</div></div>
+</div>

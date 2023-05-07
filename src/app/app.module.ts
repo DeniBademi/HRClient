@@ -64,6 +64,7 @@ import { AboutComponent } from './pages/about/about.component';
 import { LanguageInterceptor } from './language.interceptor';
 import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
 import { ConvertPipe } from './_pipes/convert.pipe';
+import { FeaturedCardComponent } from './shared/featured-card/featured-card.component';
 
 
 @NgModule({
@@ -91,6 +92,7 @@ import { ConvertPipe } from './_pipes/convert.pipe';
       CheckoutOrderOverviewComponent,
       FooterComponent,
       NewsletterFormComponent,
+      FeaturedCardComponent,
       ConvertPipe
        ],
   imports: [

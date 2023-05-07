@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+.container {
+    display: flex;
+    align-items: center;
+    /* max-width: 500px; */
+    max-width: 85%;
+    min-height: 120px;
+    border-radius: 10px;
+    border: 2px solid yellow;
+    padding: 0;
+    cursor: pointer;
+    background-color: black;
+  }
+  img {
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+  }
+  .image {
+    flex-basis: 40%
+  }
+  .text {
+    font-size: 20px;
+    padding: 10px;
+    padding-left: 20px;
+    height: 100%;
+    line-height: 2.5vh;
+    width: 50%;
+    background-color: black;
+    vertical-align: middle;
+  }
