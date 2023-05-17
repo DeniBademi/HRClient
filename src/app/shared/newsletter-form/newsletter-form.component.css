@@ -72,3 +72,14 @@ button.normal {
     outline: none;
     transition: 0.2s;
 }
+
+@media (max-width: 991px) {
+    #newsletter {
+        padding: 40px 20px;
+    }
+
+    #newsletter .form {
+        width: 100%;
+        margin-top: 20px;
+    }
+}
