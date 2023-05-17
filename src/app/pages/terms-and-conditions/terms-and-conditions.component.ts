@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-terms-and-conditions',
@@ -7,7 +9,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TermsAndConditionsComponent implements OnInit {
 
-  constructor() { }
+  constructor(public translate: TranslateService, private route: ActivatedRoute) { 
+    this.translate.use(this.route.snapshot.paramMap.get("languageCode"))
+  }
 
   ngOnInit() {
   }

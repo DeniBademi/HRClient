@@ -65,6 +65,8 @@ import { LanguageInterceptor } from './language.interceptor';
 import { NgxMatSelectSearchModule } from 'ngx-mat-select-search';
 import { ConvertPipe } from './_pipes/convert.pipe';
 import { FeaturedCardComponent } from './shared/featured-card/featured-card.component';
+import { PrivacyPolicyComponent } from './pages/privacy-policy/privacy-policy.component';
+import { TermsAndConditionsComponent } from './pages/terms-and-conditions/terms-and-conditions.component';
 
 
 @NgModule({
@@ -93,7 +95,9 @@ import { FeaturedCardComponent } from './shared/featured-card/featured-card.comp
       FooterComponent,
       NewsletterFormComponent,
       FeaturedCardComponent,
-      ConvertPipe
+      ConvertPipe,
+      PrivacyPolicyComponent,
+      TermsAndConditionsComponent
        ],
   imports: [
     BrowserModule,
