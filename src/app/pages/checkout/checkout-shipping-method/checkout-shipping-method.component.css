@@ -220,7 +220,53 @@
 }
 
 .icon{
-    filter: invert(1)
+    filter: invert(1);
+    width: 100px;
+    height: auto;
+}
+
+.option-container {
+  display: flex;
+  justify-content: space-between;
+  align-items:flex-end;
+  flex-direction: row;
+  width: 90%;
+}
+
+.option-text {
+  max-width: 500px;
+}
+
+.end-disclaimers {
+  margin-bottom: 20px;
+}
+
+@media (max-width: 720px) {
+  .icon {
+    width: 70px;
+    height: auto;
+  }
+  .option-header {
+    font-size: 15px;
+  }
+
+  .option-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-direction: row;
+    width: 90%;
+    margin-bottom: 15px;
+  }
+  .option-text {
+    width: 200px;
+    font-size: smaller;
+    float: right;
+  }
+
+  .shipping-options {
+    height: 50vh;
+  }
 }
   
   

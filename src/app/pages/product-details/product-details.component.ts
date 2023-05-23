@@ -36,7 +36,7 @@ export class ProductDetailsComponent implements OnInit {
     this.translate.use(this.route.snapshot.paramMap.get("languageCode")).subscribe(res=>{
       this.route.paramMap.subscribe( paramMap => {
         this.productID = paramMap.get('id');
-        this.DataService.getById(this.productID, "product").subscribe( product => {
+        this.DataService.getProductByIdFull(this.productID).subscribe( product => {
   
           if(product == undefined)
             this.router.navigate(["not-found"]);
@@ -47,7 +47,7 @@ export class ProductDetailsComponent implements OnInit {
             product.price,
             "", 
             product.description, 
-            JSON.parse(product.photosJSON.replaceAll("'","\"")),
+            JSON.parse(product.photosJSON.replaceAll("'","\"").replaceAll("\\\"", "\"")),
             new ProductModel(product.productModel.id, product.productModel.name),
             new ProductType(product.productType.id, product.productType.name),
             new Currency(1, this.translate.currentLang == "en" ? "Euro" : "Leva",
@@ -61,6 +61,8 @@ export class ProductDetailsComponent implements OnInit {
             src: this.GlobalsService.productPhotosMediaURLs + this.product.photosJSON.thumbnail,
             thumb: this.GlobalsService.productPhotosMediaURLs + this.product.photosJSON.thumbnail
           }));
+
+          console.log(this.product.photosJSON)
           //https://res.cloudinary.com/dvkjlgu83/image/upload/v1679592200/product-photos/5.40mm-compressed/Top%20Roller/250mm_5.4mm_2023-Mar-15_12-40-34PM-000_CustomizedView9730449655_juzc56.jpg
           for(let i=0;i<this.product.photosJSON.gallery.length;i++){
             

@@ -1,16 +1,18 @@
 .container {
-    width: 100vh;
-    height:45vh;
+    width: 100vw;
+    height:80vh;
     position: relative;
 }
 
 .label {
     color: yellow;
+    text-align: center;
     font-size: 60px;
     margin: 0;
     position: absolute;
     top: 50%;
     left: 50%;
+    line-height: 50px;
     transform: translate(-50%, -50%);
 }
 

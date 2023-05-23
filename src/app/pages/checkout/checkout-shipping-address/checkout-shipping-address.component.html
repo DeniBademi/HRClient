@@ -66,7 +66,7 @@
                     </datalist> -->
                      <mat-select [formControlName]="'countryId'" class="form-control credit-inputs" style="display: flex; color:white;" #singleSelect>
                        <mat-option>
-                         <ngx-mat-select-search [formControl]="countryFilterCtrl"></ngx-mat-select-search>
+                         <ngx-mat-select-search  placeholderLabel="Search" [formControl]="countryFilterCtrl"></ngx-mat-select-search>
                        </mat-option>
                      <!-- <div *ngIf="form.controls['shippingAddress.countryId'].invalid && (form.controls['shippingAddress.countryId'].dirty || form.controls['shippingAddress.countryId'].touched)">
                         <div *ngIf="form.controls['shippingAddress.countryId'].errors!['required']" class="error">

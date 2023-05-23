@@ -405,7 +405,7 @@
 }
 
 .item-row {
-    width: 100%;
+    gap: 20px;
 }
 
 .spec {
@@ -420,4 +420,34 @@
     text-align: left;
     padding: 0;
     white-space: nowrap;
+}
+
+
+.spec {
+  white-space: nowrap
+}
+
+.product-img {
+  width: 60px;
+  height: auto;
+  margin-right: 10px;
+}
+
+.equation {
+  margin-bottom: 15px;
+}
+
+@media (max-width: 720px) {
+  
+  .product-img {
+    display: none;
+  }
+  .spec {
+    white-space: nowrap
+  }
+
+  .item-row {
+    gap: 10px;
+}
+
 }

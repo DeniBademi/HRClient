@@ -100,7 +100,7 @@ export class ProductListComponent implements OnInit {
           item.price, 
           "", 
           item.description, 
-          JSON.parse(item.photosJSON.replaceAll("'","\"")),
+          JSON.parse(item.photosJSON.replaceAll("'","\"").replaceAll("\\\"", "\"")),
           new ProductModel(item.productModel.id, item.productModel.name),
           new ProductType(item.productType.id, item.productType.name),
           new Currency(1, this.translate.currentLang == "en" ? "Euro" : "Leva",

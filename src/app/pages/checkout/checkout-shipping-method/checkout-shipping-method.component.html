@@ -40,44 +40,70 @@
                </div> -->
 
 
-               <div *ngIf="this.form.get('shippingAddress.countryId').value.name != 'Bulgaria'">
+               <div *ngIf="this.form.get('shippingAddress.countryId').value.name != 'Bulgaria'" class="container">
                   <div class = "description">{{'checkout.shipping_method.warning_international' | translate}} </div>
                   <div class = "description">{{'checkout.shipping_method.processing_time' | translate}} </div>
 
-                  <div class="row shipping-option d-flex align-items-center">
-                     <div class="col-sm-auto">
+
+                  <div class="container shipping-option">
+                    <div class="row d-flex align-items-center">
+                      <input type="radio" id="accent" formControlName="shippingMethodId" value="standard">
+                      <img class="icon" [attr.src]="this.GlobalsService.productDesignImagesURLs + 'delivery-truck_fwxrxy.png'">
+                      <div class="option-text">
+                        <div class="option-header">{{'checkout.shipping_method.standard_delivery_header_int' | translate: {country: this.form.get('shippingAddress.countryId').value.name } }} {{this.form.get('shippingAddress.countryId').value.price | convert | currency:(translate.currentLang=="en"?"EUR":"BGN") }}</div>
+                        <div class="description">{{'checkout.shipping_method.standard_delivery_content_int' | translate}}</div>
+                      </div>
+                    </div>
+                  </div>
+                  
+
+                  <!-- <div class="row shipping-option d-flex align-items-center">
+                     <div class="col-sm-1">
                        <input type="radio" id="accent" formControlName="shippingMethodId"
                        value="standard">
                      </div>
-                     <div class="col-md-10 row">
+                     <div class="col-sm-11">
                        <img class="rounded icon col-md-2" [attr.src]="this.GlobalsService.productDesignImagesURLs + 'delivery-truck_fwxrxy.png'">
-                       <div class="col-md-10">
-                         <div>{{'checkout.shipping_method.standard_delivery_header_int' | translate: {country: this.form.get('shippingAddress.countryId').value.name } }} {{this.form.get('shippingAddress.countryId').value.price | convert | currency:(translate.currentLang=="en"?"EUR":"BGN") }}</div>
+                       <div class="col-md-10 option-text">
+                         <div class="option-header">{{'checkout.shipping_method.standard_delivery_header_int' | translate: {country: this.form.get('shippingAddress.countryId').value.name } }} {{this.form.get('shippingAddress.countryId').value.price | convert | currency:(translate.currentLang=="en"?"EUR":"BGN") }}</div>
                          <div class = "description">{{'checkout.shipping_method.standard_delivery_content_int' | translate}}</div>
                        </div>
                      </div>
+                  </div> -->
+
+                  <div class="container shipping-option">
+                    <div class="row d-flex align-items-center">
+                      <input type="radio" id="accent" formControlName="shippingMethodId" value="priority">
+                      <img class="rounded icon col-md-2" [attr.src]="this.GlobalsService.productDesignImagesURLs + 'fast_v4g5qd.png'">
+                      <div class="option-text">
+                        <div class="option-header">{{'checkout.shipping_method.priority_delivery_header_int' | translate: {country: this.form.get('shippingAddress.countryId').value.name} }} {{(this.form.get('shippingAddress.countryId').value.price + this.priorityOrderPrice) | convert | currency:(translate.currentLang=="en"?"EUR":"BGN") }}</div>
+                        <div class = "description">{{'checkout.shipping_method.priority_delivery_content_int' | translate}} </div>
+                      </div>
+                    </div>
                   </div>
-                  <div class="row shipping-option d-flex align-items-center">
+
+                  <!-- <div class="row shipping-option d-flex align-items-center">
                      <div class="col-sm-auto">
                        <input type="radio" id="accent" formControlName="shippingMethodId"
                        value="priority">
                      </div>
-                     <div class="col-md-10 row">
+                     <div class="col-md-10 row option-container">
                        <img class="rounded icon col-md-2" [attr.src]="this.GlobalsService.productDesignImagesURLs + 'fast_v4g5qd.png'">
-                       <div class="col-md-10">
-                         <div>{{'checkout.shipping_method.priority_delivery_header_int' | translate: {country: this.form.get('shippingAddress.countryId').value.name} }} {{(this.form.get('shippingAddress.countryId').value.price + this.priorityOrderPrice) | convert | currency:(translate.currentLang=="en"?"EUR":"BGN") }}</div>
+                       <div class="col-md-10 option-text">
+                         <div class="option-header">{{'checkout.shipping_method.priority_delivery_header_int' | translate: {country: this.form.get('shippingAddress.countryId').value.name} }} {{(this.form.get('shippingAddress.countryId').value.price + this.priorityOrderPrice) | convert | currency:(translate.currentLang=="en"?"EUR":"BGN") }}</div>
                          <div class = "description">{{'checkout.shipping_method.priority_delivery_content_int' | translate}} </div>
                        </div>
                      </div>
-                  </div>
+                  </div> -->
                </div>
                
                <div *ngIf="this.form.get('shippingAddress.countryId').value.name == 'Bulgaria'">
-                <div class = "description">{{'checkout.shipping_method.processing_time' | translate}} </div>
+                <div class = "description">{{'checkout.shipping_method.processing_time' | translate}}</div>
                   <div class="row shipping-option d-flex align-items-center">
                      <div class="col-sm-auto">
                        <input type="radio" id="accent" formControlName="shippingMethodId"
                        value="standard">
+                       
                      </div>
                      <div class="col-md-10 row">
                        <img class="rounded icon col-md-2" [attr.src]="this.GlobalsService.productDesignImagesURLs + 'delivery-truck_fwxrxy.png'">
@@ -87,6 +113,9 @@
                        </div>
                      </div>
                   </div>
+
+
+
                   <div class="row shipping-option d-flex align-items-center">
                      <div class="col-sm-auto">
                        <input type="radio" id="accent" formControlName="shippingMethodId"
