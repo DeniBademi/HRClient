@@ -66,6 +66,15 @@ export class DataService {
     )
   }
 
+  getByIdFull(id: string, route: string) {
+    return this.http.get(this.GlobalsService.baseURL+route+'/getByIdFull/'+id).pipe(
+      map((response: any) => {
+        const types = response;
+        return types;
+      })
+    )
+  }
+
   validateCouponCode(code: string) {
     return this.http.put(this.GlobalsService.baseURL+'coupon/validate', {},
     {params: new HttpParams().set("Code", code),
