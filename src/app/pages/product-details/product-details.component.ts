@@ -36,7 +36,7 @@ export class ProductDetailsComponent implements OnInit {
     this.translate.use(this.route.snapshot.paramMap.get("languageCode")).subscribe(res=>{
       this.route.paramMap.subscribe( paramMap => {
         this.productID = paramMap.get('id');
-        this.DataService.getProductByIdFull(this.productID).subscribe( product => {
+        this.DataService.getByIdFull(this.productID, "product").subscribe( product => {
   
           if(product == undefined)
             this.router.navigate(["not-found"]);
