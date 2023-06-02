@@ -7,3 +7,17 @@
     {{product.description}}
   </div>
 </div>
+
+<!-- <div class="container">
+  <img class="image" [attr.src]="GlobalsService.productPhotosMediaURLs + product.photosJSON.thumbnail" alt="Image" />
+  <div class="text">
+    <p>{{product.description}}</p>
+  </div>
+</div> -->
+
+<div class="card flex-row">
+  <img class="card-img-md-left example-card-img-responsive" [attr.src]="GlobalsService.productPhotosMediaURLs + product.photosJSON.thumbnail"/>
+  <div class="card-body">
+    <p class="card-text">{{product.description}}</p>
+  </div>
+</div>

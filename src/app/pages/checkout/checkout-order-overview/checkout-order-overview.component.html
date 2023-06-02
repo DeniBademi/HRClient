@@ -5,16 +5,17 @@
     <div *ngFor="let item of cartItems">
       <div class="equation d-flex align-items-center justify-content-center item-row">
         <div class="quantity-item">{{item.quantity}}</div>
-          <div><i class="fas fa-times"></i></div>
-          <div class="items rounded d-flex">
-            <img class="rounded product-img" [attr.src]="this.GlobalsService.productPhotosMediaURLs + item.product.photosJSON.thumbnail">
-            <div class="item-desc"><span class="font-weight-bold d-block">{{item.product.name}}</span>
-              <span class="spec">{{item.product.productType.name}} | {{item.product.productModel.name}}</span>
-            </div>
+        <div><i class="fas fa-times"></i></div>
+        <div class="items rounded d-flex">
+          <img class="rounded product-img" [attr.src]="this.GlobalsService.productPhotosMediaURLs + item.product.photosJSON.thumbnail">
+          <div class="item-desc">
+            <span class="font-weight-bold d-block">{{item.product.name}}</span>
+            <span class="spec">{{item.product.productType.name}} | {{item.product.productModel.name}}</span>
           </div>
-          <i class="fas fa-equals"></i>
-          <div class="price-multi">
-            <div class="d-block font-weight-bold price">{{(item.product.price * item.quantity) | convert | currency:(translate.currentLang=="en"?"EUR":"BGN")}}</div>
+        </div>
+        <i class="fas fa-equals"></i>
+        <div class="price-multi">
+          <div class="d-block font-weight-bold price">{{(item.product.price * item.quantity) | convert | currency:(translate.currentLang=="en"?"EUR":"BGN")}}</div>
         </div>
       </div>
     </div>

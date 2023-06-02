@@ -25,7 +25,7 @@ button.normal {
 }
 
 #banner {
-    background-image: url("https://res.cloudinary.com/dvkjlgu83/image/upload/v1679590149/design/Web-Banner_npa7e4.svg");
+    background-image: url("https://res.cloudinary.com/dvkjlgu83/image/upload/v1685727641/design/Web_Banner_yellow_lqownv.svg");
     width: 100%;
     height: 40vh;
     background-size: cover;
@@ -55,10 +55,22 @@ button.normal {
     width: 100%;
 }
 
+.newsletter_header {
+    color: white;
+    background-color: rgba(0, 0, 0, 0.575);
+    font-size: 30px;
+    border-radius: 10px;
+    padding: 15px;
+    margin: 10px;
+    box-shadow: inset 0 0 40px 1px transparent;
+    
+}
+
 @media (min-width: 700px) {
     .featured {
         display:flex; 
     }
+    
 }
 
 
@@ -72,5 +84,9 @@ button.normal {
         flex-direction: column;
         align-items: stretch; 
         justify-content: center;
+    }
+
+    .newsletter_header {
+        font-size: 20px;
     }
 }
