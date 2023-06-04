@@ -20,9 +20,9 @@ export class HomeComponent implements OnInit {
   id = "tsparticles";
   sampleProduct: any;
   preSheet: Product = new Product(
-    "49d498b4-a7fe-4f14-b516-3f399c5fc4c5",
+    "04473D05-9230-41F3-82C6-66255EA70894",
     "Pre-Sheet Maker",
-    750,
+    550,
     null,
     "Our pre-processing machine that gets you the perfect wax thickness down to the milimeter.",
     {'thumbnail':'Pre-sheet/Main_esdfsp.jpg','gallery':['Pre-sheet/2_hudhl6.jpg','Pre-sheet/3_ftz5rp.jpg','Pre-sheet/4_b6vbcu.jpg','Pre-sheet/5_hhfn93.jpg']},
@@ -37,7 +37,7 @@ export class HomeComponent implements OnInit {
     null
   );
   roller: Product = new Product(
-    "13ffb8ab-3655-413a-93f8-55af30bcfa16",
+    "75E4EB9E-DD36-4F50-A50D-3711EE6DC679",
     "Roller",
     750,
     null,

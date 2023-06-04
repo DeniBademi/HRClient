@@ -16,7 +16,7 @@
 </div> -->
 
 <div class="card flex-row">
-  <img class="card-img-md-left example-card-img-responsive" [attr.src]="GlobalsService.productPhotosMediaURLs + product.photosJSON.thumbnail"/>
+  <img class="card-img-md-left example-card-img-responsive" [routerLink]="['/'+this.translate.currentLang+'/product', product.id]" [attr.src]="GlobalsService.productPhotosMediaURLs + product.photosJSON.thumbnail"/>
   <div class="card-body">
     <p class="card-text">{{product.description}}</p>
   </div>
