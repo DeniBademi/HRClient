@@ -32,8 +32,8 @@ export class NavBarComponent implements OnInit {
     this.isMenuOpened = false;
   }
 
-  setLanguage() {
-    this.language = this.language == "en" ? "bg": "en"
+  setLanguage(languageCode: string) {
+    this.language = languageCode;
     this.translateService.use(this.language)
     
     

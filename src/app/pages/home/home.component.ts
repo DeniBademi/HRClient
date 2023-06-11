@@ -72,15 +72,20 @@ export class HomeComponent implements OnInit {
       //translate product descriptions
       this.preSheet.description = "Нашата машина за предварителна обработка, която ви дава перфектната дебелина на восъка до милиметър."
       this.roller.description = "Нашата шестоъгълна ролка, която прави перфектна восъчна пита от всеки лист."
+    } else if(this.translate.currentLang == 'el') {
+      this.preSheet.description = "Η μηχανή προεπεξεργασίας μας που παράγει το τέλειο πάχος κεριού με ακρίβεια στο χιλιοστό.",
+      this.roller.description = "Ο εξαγωνικός μας κυλινδρέας που αφήνει το τέλειο μοτίβο κηρήθρας σε κάθε φύλλο."
     }
     this.translate.onLangChange.subscribe((event) => {
       if(event.lang == 'bg'){
         this.preSheet.description = "Нашата машина за предварителна обработка, която ви дава перфектната дебелина на восъка до милиметър."
         this.roller.description = "Нашата шестоъгълна ролка, която прави перфектна восъчна пита от всеки лист."
+      } else if(event.lang == 'el') {
+        this.preSheet.description = "Η μηχανή προεπεξεργασίας μας που παράγει το τέλειο πάχος κεριού με ακρίβεια στο χιλιοστό.",
+        this.roller.description = "Ο εξαγωνικός μας κυλινδρέας που αφήνει το τέλειο μοτίβο κηρήθρας σε κάθε φύλλο."
       } else {
         this.preSheet.description = "Our pre-processing machine that gets you the perfect wax thickness down to the milimeter.",
         this.roller.description = "Our hexagon roller that leaves the perfect honeycomb pattern on each sheet."
-
       }
 
     });
