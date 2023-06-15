@@ -1,4 +1,4 @@
-<div class="container" [routerLink]="['/'+this.translate.currentLang+'/product', product.id]">
+<a class="container" [routerLink]="['/'+this.translate.currentLang+'/product', product.id]">
   <div class="image">
     <img class="card-img-top" [attr.src]="GlobalsService.productPhotosMediaURLs + product.photosJSON.thumbnail">
 
@@ -6,7 +6,7 @@
   <div class="text">
     {{product.description}}
   </div>
-</div>
+</a>
 
 <!-- <div class="container">
   <img class="image" [attr.src]="GlobalsService.productPhotosMediaURLs + product.photosJSON.thumbnail" alt="Image" />
@@ -15,9 +15,9 @@
   </div>
 </div> -->
 
-<div class="card flex-row">
+<a class="card flex-row">
   <img class="card-img-md-left example-card-img-responsive" [routerLink]="['/'+this.translate.currentLang+'/product', product.id]" [attr.src]="GlobalsService.productPhotosMediaURLs + product.photosJSON.thumbnail"/>
   <div class="card-body">
     <p class="card-text">{{product.description}}</p>
   </div>
-</div>
+</a>
