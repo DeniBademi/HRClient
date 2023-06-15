@@ -123,7 +123,8 @@ body {
     vertical-align: middle;
 }
 
-#navbar li a {
+#navbar li a,
+.dropdown-toggle {
     text-decoration: none;
     font-size: 16px;
     font-weight: 600;
@@ -131,7 +132,7 @@ body {
     transition: 0.3s ease;
     letter-spacing: 1px;
     text-decoration: none;
-    text-align: center;
+    
 }
 
 #navbar ul {
@@ -140,22 +141,34 @@ body {
 }
 
 #navbar li a:hover,
-#navbar li a.active {
-
+#navbar li a.active,
+.dropdown-toggle:hover {
     color: yellow;
 }
 
+.dropdown-toggle {
+    color: white;
+    background-color: transparent;
+    border: none;
+    font-family: 'Spartan', sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+
+}
+
+.dropdown-item {
+  color: black !important;
+  cursor: pointer;
+  
+}
 
 
 #navbar li a.active::after,
 #navbar li a:hover::after {
     content: "";
-    width: 30%;
     height: 2px;
     background: yellow;
-    position: absolute;
     bottom: -4px;
-    left: 20px;
 }
 
 #navbar li a i {
