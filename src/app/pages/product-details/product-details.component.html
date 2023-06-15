@@ -74,7 +74,7 @@
                         <span class="divider"></span>
 
                         <div class="product-btn-group">
-                            <div class="button buy-now" (click)="buyInstant()"><i class='bx bxs-zap' ></i>{{'catalog.buy_now' | translate}}</div>
+                            <a class="button buy-now" (click)="buyInstant()"><i class='bx bxs-zap' ></i>{{'catalog.buy_now' | translate}}</a>
                             <div class="button add-cart" ><app-add-to-cart-btn (click)="CartService.addItem(product)" style="border-radius: 4px !important;"></app-add-to-cart-btn></div>
                         </div>
                     </div>
