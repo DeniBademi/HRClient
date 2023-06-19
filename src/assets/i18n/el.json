@@ -27,7 +27,9 @@
        "apply_filters_btn":"Εφαρμόστε φίλτρα",
        "product_type":"Τύπος",
        "product_model":"Μοντέλο",
-       "buy_now":"Αγορά τώρα"
+       "buy_now":"Αγορά τώρα",
+       "warranty-5": "5 χρόνια εγγύηση"
+
     },
     "product_details":{
        "add_to_cart":"Προσθήκη στο καλάθι",

@@ -27,7 +27,9 @@
 		"apply_filters_btn": "Apply Filters",
 		"product_type":"Type",
 		"product_model":"Model",
-		"buy_now": "Buy now"
+		"buy_now": "Buy now",
+		"warranty-5": "5 Year Warranty"
+		
 	},
 	"product_details": {
 		"add_to_cart": "Add to cart",

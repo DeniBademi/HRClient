@@ -35,42 +35,16 @@
                                 <!-- <span class="sale-price">$129.00</span> -->
                             </div>
                         </div>
+                        <div class="d-flex justify-content-start align-items-center" style="gap: 5px;" *ngIf="product.productType.name == 'Machine'">
+                            <img src="https://res.cloudinary.com/dvkjlgu83/image/upload/v1687206032/design/verified_qbvytb.png" class="shield-badge">
+                            <div class="warranty-text">{{'catalog.warranty-5' | translate}}</div>
+                        </div>
+                        
                         <span class="divider"></span>
                         <div class="product-details" *ngIf="product.description.length>0">
                             <div style="font-size:small;" [innerHTML]="product.description"></div>
                         </div>
-                    
-                        <!-- <div class="product-size">
-                            <h4>Size</h4>
-                            <div class="size-layout">
-                                <input type="radio" name="size" value="S" id="1" class="size-input">
-                                <label for="1" class="size">S</label>
-
-                                <input type="radio" name="size" value="M" id="2" class="size-input">
-                                <label for="2" class="size">M</label>
-
-                                <input type="radio" name="size" value="L" id="3" class="size-input">
-                                <label for="3" class="size">L</label>
-
-                                <input type="radio" name="size" value="XL" id="4" class="size-input">
-                                <label for="4" class="size">XL</label>
-
-                                <input type="radio" name="size" value="XXL" id="5" class="size-input">
-                                <label for="5" class="size">XXL</label>
-                            </div>
-                        </div> -->
-                        <!-- <div class="product-color">
-                            <h4>Color</h4>
-                            <div class="color-layout">
-                                <input type="radio" name="color"  value="black" class="color-input">
-                                <label for="black" class="black"></label>
-                                <input type="radio" name="color"  value="red" class="color-input">
-                                <label for="red" class="red"></label>
-
-                                <input type="radio" name="color"  value="blue" class="color-input">
-                                <label for="blue" class="blue"></label>
-                            </div>
-                        </div> -->
+    
                         <span class="divider"></span>
 
                         <div class="product-btn-group">
