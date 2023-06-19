@@ -38,12 +38,13 @@ export class CheckoutOrderOverviewComponent implements OnInit {
     this.cartItems = JSON.parse(this.checkout["cartJSON"])
     this.sum = this.CartService.calculateTotalJSON(this.cartItems);
     this.total = this.sum;
+    console.log(this.checkout.coupon)
     if(this.checkout.coupon != undefined) {
-          if(this.checkout.coupon.isPercentage) {
-      this.total = this.sum * (100 - this.checkout.coupon.discount)/100
-    } else {
-      this.total = this.sum - this.checkout.coupon.discount;
-    }
+      if(this.checkout.coupon.isPercentage) {
+        this.total = this.sum * (100 - this.checkout.coupon.discount)/100
+      } else {
+        this.total = this.sum - this.checkout.coupon.discount;
+      }
     }
 
     if( this.form.get("shippingAddress.countryId").value != undefined && this.form.get("shippingMethodId").value != null) {
@@ -74,6 +75,7 @@ export class CheckoutOrderOverviewComponent implements OnInit {
       this.total += this.sum;
     }
     this.total += this.shippingPrice
+    console.log(this.checkout.coupon)
   }
 
   ngOnDestroy() {
