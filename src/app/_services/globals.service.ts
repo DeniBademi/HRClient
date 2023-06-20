@@ -19,6 +19,7 @@ export class GlobalsService {
  // https://res.cloudinary.com/dvkjlgu83/image/upload/v1679592199/product-photos/5.40mm-compressed/Top%20Roller/250mm_5.4mm_2023-Mar-15_12-10-39PM-000_CustomizedView33014944612_pyoznp.jpg
   machines : any;
 
+  
   sampleProduct: any;
 
   spareParts : Product[] = []
