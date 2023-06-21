@@ -15,19 +15,19 @@
         </div>
         <i class="fas fa-equals"></i>
         <div class="price-multi">
-          <div class="d-block font-weight-bold price">{{(item.product.price * item.quantity) | convert | currency:(translate.currentLang=="en"?"EUR":"BGN")}}</div>
+          <div class="d-block font-weight-bold price">{{(item.product.price * item.quantity) | convert | currency:(translate.currentLang=="bg"?"BGN":"EUR")}}</div>
         </div>
       </div>
     </div>
   </div>
 <hr class="line">
-  <div class="d-flex justify-content-between information"><span>{{'checkout.overview.subtotal' | translate}}</span><span>{{sum | convert | currency:(translate.currentLang=="en"?"EUR":"BGN")}}</span></div>
+  <div class="d-flex justify-content-between information"><span>{{'checkout.overview.subtotal' | translate}}</span><span>{{sum | convert | currency:(translate.currentLang=="bg"?"BGN":"EUR")}}</span></div>
   <div *ngIf="checkout.coupon != undefined">
     <div class="d-flex justify-content-between information"><span>{{'checkout.overview.discount' | translate}}</span>
       <span *ngIf="this.checkout.coupon.isPercentage">-{{checkout.coupon.discount}} %</span>
-      <span *ngIf="!this.checkout.coupon.isPercentage">-{{checkout.coupon.discount | convert | currency:(translate.currentLang=="en"?"EUR":"BGN")}}</span>
+      <span *ngIf="!this.checkout.coupon.isPercentage">-{{checkout.coupon.discount | convert | currency:(translate.currentLang=="bg"?"BGN":"EUR")}}</span>
     </div>
   </div>
-  <div class="d-flex justify-content-between information" *ngIf="this.shippingPrice !=undefined"><span>{{'checkout.overview.shipping' | translate}}</span> <span>{{shippingPrice | convert | currency:(translate.currentLang=="en"?"EUR":"BGN")}}</span></div>
-  <div class="d-flex justify-content-between information"><span>{{'checkout.overview.total' | translate}}</span><span>{{total | convert | currency:(translate.currentLang=="en"?"EUR":"BGN")}}</span></div>
+  <div class="d-flex justify-content-between information" *ngIf="this.shippingPrice !=undefined"><span>{{'checkout.overview.shipping' | translate}}</span> <span>{{shippingPrice | convert | currency:(translate.currentLang=="bg"?"BGN":"EUR")}}</span></div>
+  <div class="d-flex justify-content-between information"><span>{{'checkout.overview.total' | translate}}</span><span>{{total | convert | currency:(translate.currentLang=="bg"?"BGN":"EUR")}}</span></div>
 </div>

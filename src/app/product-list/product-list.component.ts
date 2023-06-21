@@ -103,8 +103,8 @@ export class ProductListComponent implements OnInit {
           JSON.parse(item.photosJSON.replaceAll("'","\"").replaceAll("\\\"", "\"")),
           new ProductModel(item.productModel.id, item.productModel.name),
           new ProductType(item.productType.id, item.productType.name),
-          new Currency(1, this.translate.currentLang == "en" ? "Euro" : "Leva",
-                          this.translate.currentLang == "en" ? "EUR" : "лв", 
+          new Currency(1, this.translate.currentLang == "bg" ? "Leva" : "EUR",
+                          this.translate.currentLang == "bg" ? "лв" : "EUR", 
                           ""))
       });
       //console.log(this.productList)

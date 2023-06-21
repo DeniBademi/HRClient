@@ -112,7 +112,7 @@ export class CheckoutPaymentComponent implements OnInit {
         'checkoutId':this.checkoutID,
         'countryId':this.form.get('shippingAddress.countryId').value.id,
         'shippingMethod':shippingMethodId,
-        'currencyCode': this.translate.currentLang=="en"?"EUR":"BGN"}).subscribe(
+        'currencyCode': this.translate.currentLang=="bg"?"BGN":"EUR"}).subscribe(
         (data) => {
           this.clientSecret = data["clientSecret"]
           this.initiateCardElement();

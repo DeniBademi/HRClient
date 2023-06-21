@@ -50,8 +50,8 @@ export class ProductDetailsComponent implements OnInit {
             JSON.parse(product.photosJSON.replaceAll("'","\"").replaceAll("\\\"", "\"")),
             new ProductModel(product.productModel.id, product.productModel.name),
             new ProductType(product.productType.id, product.productType.name),
-            new Currency(1, this.translate.currentLang == "en" ? "Euro" : "Leva",
-                            this.translate.currentLang == "en" ? "EUR" : "лв", 
+            new Currency(1, this.translate.currentLang == "bg" ? "Leva" : "Euro",
+                            this.translate.currentLang == "bg" ? "лв" : "EUR", 
                             ""))
           //console.log(this.product)
         

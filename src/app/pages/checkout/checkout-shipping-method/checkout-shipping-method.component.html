@@ -50,7 +50,7 @@
                       <input type="radio" id="accent" formControlName="shippingMethodId" value="standard">
                       <img class="icon" [attr.src]="this.GlobalsService.productDesignImagesURLs + 'delivery-truck_fwxrxy.png'">
                       <div class="option-text">
-                        <div class="option-header">{{'checkout.shipping_method.standard_delivery_header_int' | translate: {country: this.form.get('shippingAddress.countryId').value.name } }} {{this.form.get('shippingAddress.countryId').value.price | convert | currency:(translate.currentLang=="en"?"EUR":"BGN") }}</div>
+                        <div class="option-header">{{'checkout.shipping_method.standard_delivery_header_int' | translate: {country: this.form.get('shippingAddress.countryId').value.name } }} {{this.form.get('shippingAddress.countryId').value.price | convert | currency:(translate.currentLang=="bg"?"BGN":"EUR") }}</div>
                         <div class="description">{{'checkout.shipping_method.standard_delivery_content_int' | translate}}</div>
                       </div>
                     </div>
@@ -65,7 +65,7 @@
                      <div class="col-sm-11">
                        <img class="rounded icon col-md-2" [attr.src]="this.GlobalsService.productDesignImagesURLs + 'delivery-truck_fwxrxy.png'">
                        <div class="col-md-10 option-text">
-                         <div class="option-header">{{'checkout.shipping_method.standard_delivery_header_int' | translate: {country: this.form.get('shippingAddress.countryId').value.name } }} {{this.form.get('shippingAddress.countryId').value.price | convert | currency:(translate.currentLang=="en"?"EUR":"BGN") }}</div>
+                         <div class="option-header">{{'checkout.shipping_method.standard_delivery_header_int' | translate: {country: this.form.get('shippingAddress.countryId').value.name } }} {{this.form.get('shippingAddress.countryId').value.price | convert | currency:(translate.currentLang=="bg"?"BGN":"EUR") }}</div>
                          <div class = "description">{{'checkout.shipping_method.standard_delivery_content_int' | translate}}</div>
                        </div>
                      </div>
@@ -76,7 +76,7 @@
                       <input type="radio" id="accent" formControlName="shippingMethodId" value="priority">
                       <img class="rounded icon col-md-2" [attr.src]="this.GlobalsService.productDesignImagesURLs + 'fast_v4g5qd.png'">
                       <div class="option-text">
-                        <div class="option-header">{{'checkout.shipping_method.priority_delivery_header_int' | translate: {country: this.form.get('shippingAddress.countryId').value.name} }} {{(this.form.get('shippingAddress.countryId').value.price + this.priorityOrderPrice) | convert | currency:(translate.currentLang=="en"?"EUR":"BGN") }}</div>
+                        <div class="option-header">{{'checkout.shipping_method.priority_delivery_header_int' | translate: {country: this.form.get('shippingAddress.countryId').value.name} }} {{(this.form.get('shippingAddress.countryId').value.price + this.priorityOrderPrice) | convert | currency:(translate.currentLang=="bg"?"BGN":"EUR") }}</div>
                         <div class = "description">{{'checkout.shipping_method.priority_delivery_content_int' | translate}} </div>
                       </div>
                     </div>
@@ -90,7 +90,7 @@
                      <div class="col-md-10 row option-container">
                        <img class="rounded icon col-md-2" [attr.src]="this.GlobalsService.productDesignImagesURLs + 'fast_v4g5qd.png'">
                        <div class="col-md-10 option-text">
-                         <div class="option-header">{{'checkout.shipping_method.priority_delivery_header_int' | translate: {country: this.form.get('shippingAddress.countryId').value.name} }} {{(this.form.get('shippingAddress.countryId').value.price + this.priorityOrderPrice) | convert | currency:(translate.currentLang=="en"?"EUR":"BGN") }}</div>
+                         <div class="option-header">{{'checkout.shipping_method.priority_delivery_header_int' | translate: {country: this.form.get('shippingAddress.countryId').value.name} }} {{(this.form.get('shippingAddress.countryId').value.price + this.priorityOrderPrice) | convert | currency:(translate.currentLang=="bg"?"BGN":"EUR") }}</div>
                          <div class = "description">{{'checkout.shipping_method.priority_delivery_content_int' | translate}} </div>
                        </div>
                      </div>
@@ -124,7 +124,7 @@
                      <div class="col-md-10 row">
                        <img class="rounded icon col-md-2" [attr.src]="this.GlobalsService.productDesignImagesURLs + 'fast_v4g5qd.png'">
                        <div class="col-md-10">
-                         <div>{{'checkout.shipping_method.priority_delivery_header_bg' | translate }} {{this.form.get('shippingAddress.countryId').value.price + this.priorityOrderPrice | convert | currency:(translate.currentLang=="en"?"EUR":"BGN") }}</div>
+                         <div>{{'checkout.shipping_method.priority_delivery_header_bg' | translate }} {{this.form.get('shippingAddress.countryId').value.price + this.priorityOrderPrice | convert | currency:(translate.currentLang=="bg"?"BGN":"EUR") }}</div>
                          <div class = "description">{{'checkout.shipping_method.priority_delivery_content_bg' | translate}}</div>
                        </div>
                      </div>
