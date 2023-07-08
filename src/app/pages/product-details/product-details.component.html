@@ -39,6 +39,11 @@
                             <img src="https://res.cloudinary.com/dvkjlgu83/image/upload/v1687206032/design/verified_qbvytb.png" class="shield-badge">
                             <div class="warranty-text">{{'catalog.warranty-5' | translate}}</div>
                         </div>
+                        <div style="height: 5px;"></div>
+                        <div class="d-flex justify-content-start align-items-center" style="gap: 5px;" *ngIf="product.productType.name == 'Machine'">
+                            <img src="https://res.cloudinary.com/dvkjlgu83/image/upload/v1687206032/design/verified_qbvytb.png" class="shield-badge">
+                            <div class="warranty-text">{{'catalog.money-30' | translate}}</div>
+                        </div>
                         
                         <span class="divider"></span>
                         <div class="product-details" *ngIf="product.description.length>0">

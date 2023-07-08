@@ -9,6 +9,7 @@ import { FooterComponent } from './footer/footer.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { HomeComponent } from './pages/home/home.component';
 import { CartComponent } from './pages/cart/cart.component';
+import { FindUsComponent } from './pages/find-us/find-us.component';
 import { ContactComponent } from './pages/contact/contact.component';
 import { ProductCatalogComponent } from './pages/product-catalog/product-catalog.component';
 import { BrowserAnimationsModule, NoopAnimationsModule } from '@angular/platform-browser/animations';
@@ -67,6 +68,7 @@ import { ConvertPipe } from './_pipes/convert.pipe';
 import { FeaturedCardComponent } from './shared/featured-card/featured-card.component';
 import { PrivacyPolicyComponent } from './pages/privacy-policy/privacy-policy.component';
 import { TermsAndConditionsComponent } from './pages/terms-and-conditions/terms-and-conditions.component';
+import { ModalComponent } from './shared/modal/modal.component';
 
 
 @NgModule({
@@ -95,6 +97,8 @@ import { TermsAndConditionsComponent } from './pages/terms-and-conditions/terms-
       FooterComponent,
       NewsletterFormComponent,
       FeaturedCardComponent,
+      ModalComponent,
+      FindUsComponent,
       ConvertPipe,
       PrivacyPolicyComponent,
       TermsAndConditionsComponent

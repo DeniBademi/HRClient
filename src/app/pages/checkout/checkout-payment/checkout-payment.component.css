@@ -188,3 +188,59 @@
     border-radius: 5px;
     color: white !important;
 }
+
+
+.box {
+  --border-size: 3px;
+  --border-angle: 0turn;
+  --angle: 0deg;
+  border: none;
+  border-radius: 0px;
+  width: 200px;
+  height: 100px;
+  background-image: conic-gradient(
+      from var(--border-angle),
+      rgb(34, 36, 12),
+      #112 50%,
+      rgb(34, 36, 12)
+    ),
+    conic-gradient(from var(--border-angle), transparent 20%, yellow, yellow);
+  background-size: calc(100% - (var(--border-size) * 2))
+      calc(100% - (var(--border-size) * 2)),
+    cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+
+  animation: 4s rotate linear infinite;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Poppins', sans-serif;
+  font-size: 20px;
+  color: white;
+  font-weight: 400;
+  cursor: pointer;
+  float: right;
+}
+
+
+
+@keyframes rotate {
+  to {
+    --angle: 360deg;
+    --border-angle: 1turn;
+  }
+}
+
+@property --border-angle {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0turn;
+}
+
+@property --angle {
+  syntax: '<angle>';
+  initial-value: 0deg;
+  inherits: false;
+}

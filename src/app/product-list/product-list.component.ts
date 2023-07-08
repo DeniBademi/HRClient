@@ -53,7 +53,7 @@ export class ProductListComponent implements OnInit {
       this.filters = res;
       this.getProducts();
     });
-    this.getProducts();
+    // this.getProducts();
     
   }
 

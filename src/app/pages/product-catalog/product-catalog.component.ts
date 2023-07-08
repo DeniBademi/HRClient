@@ -5,6 +5,7 @@ import { Subject } from 'rxjs';
 import { MenuOption } from 'src/app/product-filters/MenuOption';
 import { GlobalsService } from 'src/app/_services/globals.service';
 import { Product } from '../../_models/Product';
+import { ModalService } from 'src/app/_services/modal.service';
 
 @Component({
   selector: 'app-product-catalog',
@@ -16,7 +17,7 @@ export class ProductCatalogComponent implements OnInit {
   changeFilters: Subject<{}> = new Subject<{}>();
   spareParts: any;
 
-  constructor(GlobalsService: GlobalsService, private route: ActivatedRoute, private translate:TranslateService) { 
+  constructor(GlobalsService: GlobalsService, private route: ActivatedRoute, private translate:TranslateService, public modalService: ModalService) { 
     this.spareParts = GlobalsService.spareParts;
   }
   ngOnInit() {
@@ -26,6 +27,10 @@ export class ProductCatalogComponent implements OnInit {
   onChangeFilters(newFilters: {}) {
     //console.log(newFilters)
     this.changeFilters.next(newFilters);
+  }
+
+  onAddToCart(product: Product) {
+    this.modalService.open("modal-1");
   }
 
 }

@@ -1,4 +1,4 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output, AfterViewInit } from '@angular/core';
 import { ProductModel } from '../_models/ProductModel';
 import { ProductType } from '../_models/ProductType';
 import { DataService } from '../_services/data.service';
@@ -10,7 +10,7 @@ import { MenuOption } from './MenuOption';
   styleUrls: ['./product-filters.component.css']
 })
 
-export class ProductFiltersComponent implements OnInit {
+export class ProductFiltersComponent implements OnInit, AfterViewInit {
 
   
   @Output() ChangeFilters = new EventEmitter<{}>();
@@ -27,16 +27,23 @@ export class ProductFiltersComponent implements OnInit {
   ngOnInit() {
     this.dataService.getTypes().subscribe(response => {
       for(let i=0;i<response.length;i++)
-        this.productTypes.push(new MenuOption(response[i].id,response[i].name, true, response[i].count))
+        this.productTypes.push(new MenuOption(response[i].id, response[i].name, response[i].name != "Spare Part", response[i].count))
+      this.applyFilters();
     }, error => {
       console.log(error.error);
     })
     this.dataService.getModels().subscribe(response => {
       for(let i=0;i<response.length;i++)
         this.productModels.push(new MenuOption(response[i].id,response[i].name, true, response[i].count))
+        this.applyFilters();
     }, error => {
       console.log(error.error);
     })
+
+  }
+
+  ngAfterViewInit() {
+    this.applyFilters();
   }
 
   applyFilters(){

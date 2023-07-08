@@ -19,6 +19,7 @@
 		"catalog":"Shop",
 		"about": "About us",
 		"contact":"Contact",
+		"find_us": "Find us",
 		"language":"Language"
 	},
 	"catalog": {
@@ -28,7 +29,8 @@
 		"product_type":"Type",
 		"product_model":"Model",
 		"buy_now": "Buy now",
-		"warranty-5": "5 Year Warranty"
+		"warranty-5": "5 Year Warranty",
+		"money-30": "30 Day Money Back Guarantee"
 		
 	},
 	"product_details": {
@@ -144,7 +146,7 @@
 	},
 	"newsletter": {
 		"newsletter": "Sign Up For Our Newsletter",
-		"newsletter_sub_1": "Get E-mail updates about our latest products and ",
+		"newsletter_sub_1": "„Get 5% OFF Coupon and receive our latest news and",
 		"newsletter_sub_2": "special offers.",
 		"subscribe": "Subscribe",
 		"enter_email": "Enter your email address",
@@ -154,6 +156,18 @@
 	"messages": {
 		"required_field": "This field is required!",
 		"invalid_field": "Invalid input!"
+	},
+	"modals": {
+		"continue_shopping": "Continue Shopping",
+		"view_cart": "View Cart",
+		"new_item_added": "New item added to cart",
+		"have_any_questions": "Have any questions?",
+		"close": "Close",
+		"call_us": "Call us for a free consultation at",
+		"or_email": " or send us an email at ",
+		"find_us": "Find us",
+		"find_us_text": "Want to see first? Visit our distributor stores in Sofia, Bulgaria",
+		"here": "here"
 	}
 
 }

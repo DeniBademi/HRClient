@@ -3,6 +3,9 @@ import { Component, Inject, OnInit, ViewEncapsulation } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { ActivatedRoute, NavigationEnd, Router, RouterState } from '@angular/router';
 import { TranslateService } from '@ngx-translate/core';
+import { ModalService } from './_services/modal.service';
+import { CartService } from './_services/cart.service';
+import { GlobalsService } from './_services/globals.service';
 
 @Component({
   selector: 'app-root',
@@ -14,12 +17,18 @@ export class AppComponent implements OnInit {
   title = 'client';
 
   
-  constructor(private translate: TranslateService, private route: ActivatedRoute, private titleService: Title, @Inject(DOCUMENT) private document: Document, private router: Router) {
+  constructor(public translate: TranslateService, 
+    private route: ActivatedRoute, 
+    private titleService: Title, 
+    @Inject(DOCUMENT) private document: Document, 
+    public router: Router,
+    public modalService: ModalService,
+    public cartService: CartService,
+    public GlobalsService: GlobalsService) {
     translate.setDefaultLang('en');
     translate.addLangs(['en', 'bg']);
     translate.use('en');
 
-    
   }
   ngOnInit(): void {
     
@@ -50,6 +59,10 @@ export class AppComponent implements OnInit {
     return data;
   }
   
+  redirectToFindUs() {
+    this.modalService.close();
+    this.router.navigate(['/'+this.translate.currentLang+'/find-us']);
+  }
 
 
 }

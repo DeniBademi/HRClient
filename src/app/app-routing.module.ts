@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AboutComponent } from './pages/about/about.component';
 import { CartComponent } from './pages/cart/cart.component';
+import { FindUsComponent } from './pages/find-us/find-us.component';
 import { CheckoutPaymentComponent } from './pages/checkout/checkout-payment/checkout-payment.component';
 import { CheckoutShippingAddressComponent } from './pages/checkout/checkout-shipping-address/checkout-shipping-address.component';
 import { CheckoutShippingMethodComponent } from './pages/checkout/checkout-shipping-method/checkout-shipping-method.component';
@@ -28,6 +29,7 @@ const routes: Routes = [
   {path: ':languageCode/product/:id', component: ProductDetailsComponent},
   {path: ':languageCode/terms-and-conditions', component: TermsAndConditionsComponent},
   {path: ':languageCode/privacy-policy', component: PrivacyPolicyComponent},
+  {path: ':languageCode/find-us', component: FindUsComponent},
   { path: '**', component: NotFoundComponent }
 ];
 

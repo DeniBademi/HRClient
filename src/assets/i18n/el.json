@@ -19,6 +19,7 @@
        "catalog":"Κατάλογος",
        "about":"Σχετικά με",
        "contact":"Επικοινωνία",
+       "find_us":"Βρείτε μας",
        "language":"Γλώσσα"
     },
     "catalog":{
@@ -149,6 +150,17 @@
     "messages":{
        "required_field":" Αυτό το πεδίο είναι υποχρεωτικό!",
        "invalid_field":" Μη έγκυρη εισαγωγή!"
-    }
+    },
+    "modals": {
+		"continue_shopping": "Continue Shopping",
+		"view_cart": "View Cart",
+		"new_item_added": "New item added to cart",
+      "have_any_questions": "Have any questions?",
+		"close": "Close",
+		"call_us": "Call us for a free consultation at",
+		"or_email": " or send us an email at ",
+      "find_us_text": "Want to see first? Visit our distributor stores in Sofia, Bulgaria",
+		"here": "here"
+	}
  }
  

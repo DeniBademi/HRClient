@@ -33,6 +33,12 @@ export class ProductDetailsComponent implements OnInit {
 
     this.innerWidth = window.innerWidth;
 
+       window.scroll({ 
+           top: 0, 
+           left: 0, 
+           behavior: 'smooth' 
+    });
+
     this.translate.use(this.route.snapshot.paramMap.get("languageCode")).subscribe(res=>{
       this.route.paramMap.subscribe( paramMap => {
         this.productID = paramMap.get('id');

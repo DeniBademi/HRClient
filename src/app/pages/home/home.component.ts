@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import { GlobalsService } from 'src/app/_services/globals.service';
 import { Product } from '../../_models/Product';
 import { MoveDirection, ClickMode, HoverMode, OutMode, Container, Engine } from "tsparticles-engine";
@@ -10,12 +10,13 @@ import { TranslateService } from '@ngx-translate/core';
 import { DataService } from 'src/app/_services/data.service';
 import { ProductModel } from 'src/app/_models/ProductModel';
 import { ProductType } from 'src/app/_models/ProductType';
+import { ModalService } from 'src/app/_services/modal.service';
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css']
 })
-export class HomeComponent implements OnInit {
+export class HomeComponent implements OnInit, AfterViewInit {
 
   id = "tsparticles";
   sampleProduct: any;
@@ -59,7 +60,8 @@ export class HomeComponent implements OnInit {
     public router: Router, 
     private route: ActivatedRoute, 
     public translate:TranslateService,
-    public data: DataService) { 
+    public data: DataService,
+    public modalService: ModalService) { 
     this.sampleProduct = GlobalsService.sampleProduct
   }
 
@@ -93,8 +95,13 @@ export class HomeComponent implements OnInit {
     this.data.wakeUpServer().subscribe(res=>{ });
   }
 
-  
-
-
+  ngAfterViewInit(){
+    setTimeout( ()=>{
+      this.modalService.open('modal-call-us')
+    }, 60000)
+    setTimeout( ()=>{
+      this.modalService.open('modal-find-us')
+    }, 180000)
+  }
 
 }

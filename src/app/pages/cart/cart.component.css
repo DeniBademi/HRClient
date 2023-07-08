@@ -90,7 +90,6 @@
   .discount-code-label  {
     font-size: 12px;
     font-weight: 500;
-    color: black;
   }
   
   .form-control.credit-inputs:focus {
@@ -161,8 +160,8 @@
 }
 
 .discountcontainer {
-    background: yellow !important;
-    color: black;
+    background: #333 !important;
+    color: white !important;
     margin-bottom: 2vh;
 }
 .discountinput {
@@ -182,13 +181,20 @@
 }
 
 .applydiscountbtn {
-    background-color: #333;
-    color: #fff;
+    background-color: yellow;
+    color: black;
     width: 30%;
     margin-bottom: 10px;
     border-bottom-right-radius: 5px;
     border-top-right-radius: 5px;
     border-left: 1px solid yellow;
+    font-weight: 600;
+}
+
+.applydiscountbtn:hover {
+    background-color: #333;
+    color: yellow;
+    border-left: 1px solid #333;
 }
 
 .discountform {
@@ -364,4 +370,14 @@
 #privacy_policy_label, #terms_cons_label {
   cursor: pointer;
   margin-left: 8px;
+}
+
+
+
+
+@media (min-width:1200px) {
+    .box {
+        height: 100px;
+        
+    }
 }
