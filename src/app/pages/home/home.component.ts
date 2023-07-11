@@ -11,6 +11,7 @@ import { DataService } from 'src/app/_services/data.service';
 import { ProductModel } from 'src/app/_models/ProductModel';
 import { ProductType } from 'src/app/_models/ProductType';
 import { ModalService } from 'src/app/_services/modal.service';
+import AOS from "aos";
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -63,11 +64,13 @@ export class HomeComponent implements OnInit, AfterViewInit {
     public data: DataService,
     public modalService: ModalService) { 
     this.sampleProduct = GlobalsService.sampleProduct
+    
   }
 
 
 
   ngOnInit() {
+    
     this.translate.use(this.route.snapshot.paramMap.get("languageCode"))
 
     if(this.translate.currentLang == 'bg'){
@@ -92,7 +95,9 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
     });
 
+    
     this.data.wakeUpServer().subscribe(res=>{ });
+    AOS.init();
   }
 
   ngAfterViewInit(){

@@ -30,6 +30,46 @@
   <script src="./app/addtocart.js"></script>
 
 
+  <script>
+
+    function isSafari() {
+      var ua = navigator.userAgent.toLowerCase(); 
+        if (ua.indexOf('safari') != -1) { 
+          if (ua.indexOf('chrome') > -1) {
+            return false // Chrome
+          } else {
+            return true // Safari
+          }
+        }
+      }
+      
+      function startAnimation(box) {
+        var angle = 0;
+        var animationInterval = setInterval(function() {
+          box.style.setProperty('--border-angle', angle + 'turn');
+          angle += 0.01; // Adjust the increment as per your needs
+        }, 50); // Adjust the interval as per your needs
+      }
+
+    window.addEventListener('load', function() {
+      var boxes = document.querySelectorAll('.box');
+      boxes.forEach(function(box) {
+        
+        if(isSafari()) {
+          startAnimation(box);
+        } else {
+          //startAnimation(box);
+        }
+      });
+    });
+
+    
+  </script>
+
+
+
+
+
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-1M39KZ0ZY1"></script>
   <script>
     window.dataLayer = window.dataLayer || [];

@@ -66,10 +66,52 @@ button.normal {
     
 }
 
+.item {
+    height: 100px;
+    margin: 50px auto !important;
+    margin-top: 0px !important;
+    color: white;
+    font-size: 50px;
+    display: flex;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+
+  }
+
+
+  
+  .appearing_labels {
+    padding: 50px;
+    padding-top: 0px;
+    
+  }
+
 @media (min-width: 700px) {
     .featured {
         display:flex; 
     }
+
+    .left {
+        -webkit-box-align: left;
+        -ms-flex-align: left;
+        align-items: left;
+        -webkit-box-pack: left;
+        -ms-flex-pack: left;
+        justify-content: left;
+      }
+    
+      .right {
+        -webkit-box-align: right;
+        -ms-flex-align: right;
+        align-items: right;
+        -webkit-box-pack: right;
+        -ms-flex-pack: right;
+        justify-content: right;
+      }
     
 }
 
@@ -77,6 +119,11 @@ button.normal {
 @media (max-width:700px) {
     #homeparagraph {
         line-height: 3vh;
+    }
+
+    .item {
+        line-height: 40px;
+        font-size: 25px;
     }
 
     .featured {
