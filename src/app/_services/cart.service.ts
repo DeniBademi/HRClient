@@ -4,6 +4,7 @@ import { Currency } from '../_models/Currency';
 import { Product } from '../_models/Product';
 import { ProductModel } from '../_models/ProductModel';
 import { ProductType } from '../_models/ProductType';
+import { ModalService } from './modal.service';
 
 @Injectable({
   providedIn: 'root'
@@ -13,7 +14,7 @@ export class CartService {
   cartItems: BehaviorSubject<{ product: any, quantity: number }[]> = new BehaviorSubject<{ product: any, quantity: number }[]>([]);
   cartItemsCount: BehaviorSubject<number> = new BehaviorSubject<number>(0);
 
-constructor() { 
+constructor(private modal: ModalService) { 
   let temp = [];
   // temp.push({product: new Product("4c4d9f4f-c0ed-495d-b671-529557a1ae35", "Top Roller", 350, "BGN", "", JSON.parse('{"thumbnail":"001_main_gwqm02.jpg",' +
   // '"gallery":["001_1_yl9bpm.png","001_2_cxbbdb.png","001_3_bspmo4.png","001_4_i2lafj.png"]}'), 
@@ -58,7 +59,7 @@ ngOnInit() {
       quantity: 1
     }])
 
-    this.printCart();
+    this.modal.open("modal-1");
   }
   removeItem(product: Product){
     this.cartItemsCount.next(this.cartItemsCount.getValue()-1);

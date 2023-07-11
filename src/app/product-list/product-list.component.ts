@@ -111,7 +111,7 @@ export class ProductListComponent implements OnInit {
       var pag = JSON.parse(response.headers.get("Pagination"))
       this.totalPages = String(pag["TotalItems"])
     }, error => {
-      //console.log(error.error);
+      console.log(error.error);
     })
   }
 

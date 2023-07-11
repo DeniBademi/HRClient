@@ -28,7 +28,7 @@ export class ProductFiltersComponent implements OnInit, AfterViewInit {
     this.dataService.getTypes().subscribe(response => {
       for(let i=0;i<response.length;i++)
         this.productTypes.push(new MenuOption(response[i].id, response[i].name, response[i].name != "Spare Part", response[i].count))
-      this.applyFilters();
+      //this.applyFilters();
     }, error => {
       console.log(error.error);
     })

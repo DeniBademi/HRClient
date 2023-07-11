@@ -24,7 +24,7 @@ export class ProductCardComponent implements OnInit {
 
   onAddToCart(product: Product) {
     this.CartService.addItem(product);
-    this.modal.open("modal-1");
+    
   }
 
 }
