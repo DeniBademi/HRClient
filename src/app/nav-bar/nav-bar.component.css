@@ -199,6 +199,33 @@ body {
 }
 
 
+.flag-container {
+  
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flag-button {
+  width: 25px;
+  height: auto;
+  top: 50%;
+
+}
+
+
+@media (min-width:700px) {
+
+  .flag-container {
+
+      display: none;
+      
+  }
+
+  
+}
+
 
 @media (max-width:700px) {
     .navbar .nav-btn{
@@ -253,5 +280,10 @@ body {
     }
     .hexagon {
         left: 20vw;
+    }
+
+    .desktop-only {
+        display: none !important;
+        visibility: hidden;
     }
   }
