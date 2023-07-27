@@ -42,7 +42,7 @@ ngOnInit() {
     this.cartItems.next([]);
   }
 
-  addItem(product: Product){
+  addItem(product: Product, showPopup: boolean = true){
     this.cartItemsCount.next(this.cartItemsCount.getValue()+1);
     let prevCart = this.cartItems.getValue();
     for(let i=0;i<prevCart.length;i++){
@@ -59,7 +59,7 @@ ngOnInit() {
       quantity: 1
     }])
 
-    this.modal.open("modal-1");
+    if(showPopup) this.modal.open("modal-1");
   }
   removeItem(product: Product){
     this.cartItemsCount.next(this.cartItemsCount.getValue()-1);

@@ -14,6 +14,11 @@ export class TermsAndConditionsComponent implements OnInit {
   }
 
   ngOnInit() {
+    window.scroll({ 
+      top: 0, 
+      left: 0, 
+      behavior: 'smooth' 
+    });
   }
 
 }

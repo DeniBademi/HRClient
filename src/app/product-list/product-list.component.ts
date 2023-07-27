@@ -67,7 +67,7 @@ export class ProductListComponent implements OnInit {
       observe: 'response',
       params: new HttpParams().set("pageNumber", this.currentPage)
                               .set("pageSize", this.pageSize)
-                              .set("orderBy", this.filters.orderBy)
+                              //.set("orderBy", this.filters.orderBy == undefined ? "id" : this.filters.orderBy)
                               .set("filters", JSON.stringify(this.filters))
                               .set("direction", this.direction=="arrow_downward" ? "asc" : "desc")
     }).pipe(

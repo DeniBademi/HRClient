@@ -13,6 +13,11 @@ export class PrivacyPolicyComponent implements OnInit {
     this.translate.use(this.route.snapshot.paramMap.get("languageCode"))
   }
   ngOnInit() {
+    window.scroll({ 
+      top: 0, 
+      left: 0, 
+      behavior: 'smooth' 
+    });
   }
 
 }
