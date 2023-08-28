@@ -50,10 +50,11 @@ export class ProductListComponent implements OnInit {
 
   ngOnInit() {
 
-    this.filters = {"ProductTypeId":["d9e9e846-7a39-4aec-b065-88b9e22ff526"],"ProductModelId":["e752ef04-304f-49f2-b1ff-166309ea34fd","9c37bd3a-8ce5-42b2-8128-e0713beb7122","0638adf0-6e03-4715-b717-e3cad9b28ec0"]}
+    //this.filters = {"ProductTypeId":["d9e9e846-7a39-4aec-b065-88b9e22ff526"],"ProductModelId":["e752ef04-304f-49f2-b1ff-166309ea34fd","9c37bd3a-8ce5-42b2-8128-e0713beb7122","0638adf0-6e03-4715-b717-e3cad9b28ec0"]}
 
     this.changeFiltersSubscription = this.changeFilters.subscribe(res => {
       this.filters = res;
+      console.log(this.filters)
       this.getProducts();
     });
     
@@ -62,6 +63,7 @@ export class ProductListComponent implements OnInit {
   }
 
   getProducts() {
+    this.productList = [];
     this.http.get(this.Globals.baseURL+'product/getAll', 
     {
       observe: 'response',
@@ -111,7 +113,6 @@ export class ProductListComponent implements OnInit {
                           this.translate.currentLang == "bg" ? "лв" : "EUR", 
                           ""))
       });
-      //console.log(this.productList)
       var pag = JSON.parse(response.headers.get("Pagination"))
       this.totalPages = String(pag["TotalItems"])
     }, error => {

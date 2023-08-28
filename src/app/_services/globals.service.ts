@@ -8,7 +8,7 @@ export class GlobalsService {
 
   baseURL = "https://api.honeycomb-rollers.com/"
   
-  //baseURL = "https://localhost:5001/"
+  //baseURL = "http://localhost:5001/"
   // clientBaseURL = "http://213.124.166.84:4200/"
 
   productPhotosMediaURLs = "https://res.cloudinary.com/dvkjlgu83/image/upload/v1679592200/product-photos/"
