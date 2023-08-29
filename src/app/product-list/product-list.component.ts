@@ -94,7 +94,7 @@ export class ProductListComponent implements OnInit {
       // });
 
       
-      this.productList = response.body.map((item: any) => {
+      let products = response.body.map((item: any) => {
           return new Product(item.id, 
           item.name, 
           item.price, 
@@ -106,16 +106,17 @@ export class ProductListComponent implements OnInit {
           new Currency(1, this.translate.currentLang == "bg" ? "Leva" : "EUR",
                           this.translate.currentLang == "bg" ? "лв" : "EUR", 
                           ""))
-          }).sort((n1,n2) => {
-                            if (n1.productType.name === "Spare Part" && n2.productType.name === "Machine")
-                              return 1;
-                    
-                            if (n1.productType.name === "Machine" && n2.productType.name === "Spare Part")
-                                return -1;
-                            
-                            return 0;
-                          });
-          console.log(this.productList)
+          })
+      products.sort((n1,n2) => {
+        if (n1.productType.name === "Spare Part" && n2.productType.name === "Machine")
+          return 1;
+
+        if (n1.productType.name === "Machine" && n2.productType.name === "Spare Part")
+            return -1;
+        
+        return 0;
+      });
+      console.log(products)
 
       // this.productList = response.body.sort((n1,n2) => {
       //   if (n1.productType.name === "Spare Part" && n2.productType.name === "Machine")
