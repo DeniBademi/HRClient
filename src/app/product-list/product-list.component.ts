@@ -50,7 +50,7 @@ export class ProductListComponent implements OnInit {
 
   ngOnInit() {
 
-    //this.filters = {"ProductTypeId":["d9e9e846-7a39-4aec-b065-88b9e22ff526"],"ProductModelId":["e752ef04-304f-49f2-b1ff-166309ea34fd","9c37bd3a-8ce5-42b2-8128-e0713beb7122","0638adf0-6e03-4715-b717-e3cad9b28ec0"]}
+    this.filters = {"ProductTypeId":["d9e9e846-7a39-4aec-b065-88b9e22ff526"],"ProductModelId":["e752ef04-304f-49f2-b1ff-166309ea34fd","9c37bd3a-8ce5-42b2-8128-e0713beb7122","0638adf0-6e03-4715-b717-e3cad9b28ec0"]}
 
     this.changeFiltersSubscription = this.changeFilters.subscribe(res => {
       this.filters = res;
@@ -64,7 +64,6 @@ export class ProductListComponent implements OnInit {
 
   getProducts() {
 
-    this.filters = {"ProductTypeId":["d9e9e846-7a39-4aec-b065-88b9e22ff526"],"ProductModelId":["e752ef04-304f-49f2-b1ff-166309ea34fd","9c37bd3a-8ce5-42b2-8128-e0713beb7122","0638adf0-6e03-4715-b717-e3cad9b28ec0"]}
 
     this.productList = [];
 
@@ -82,19 +81,8 @@ export class ProductListComponent implements OnInit {
         return types;
       })
     ).subscribe(response => {
-      //console.log(response)
       this.typesLoaded=true;
-      // this.productList = response.body.map((item: any) => {
-      //   return new Product(item.id, 
-      //     item.name, 
-      //     item.price, 
-      //     item.currency.currencycode, 
-      //     item.description, 
-      //     JSON.parse(item.photosJSON.replaceAll("'","\"")),
-      //     new ProductModel(item.productModel.id, item.productModel.name),
-      //     new ProductType(item.productType.id, item.productType.name),
-      //     new Currency(item.currency.id, item.currency.fullname, item.currency.currencyCode, item.currency.prefix))
-      // });
+
 
       
       let products = response.body.map((item: any) => {
@@ -205,7 +193,7 @@ export class ProductListComponent implements OnInit {
     //console.log(pageOfItems)
     this.currentPage = pageOfItems["pageIndex"]+1;
     this.pageSize = String(pageOfItems["pageSize"]);
-    this.ngOnInit();
+    this.getProducts();
 
 }
   onChangeDirection(){
@@ -225,7 +213,7 @@ export class ProductListComponent implements OnInit {
 
     //console.log(this.filters)
 
-    this.ngOnInit()    
+    this.getProducts()    
   }
 
   
