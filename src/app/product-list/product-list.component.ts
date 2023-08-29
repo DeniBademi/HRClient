@@ -67,11 +67,7 @@ export class ProductListComponent implements OnInit {
     this.http.get(this.Globals.baseURL+'product/getAll', 
     {
       observe: 'response',
-      params: new HttpParams().set("pageNumber", this.currentPage)
-                              .set("pageSize", this.pageSize)
-                              //.set("orderBy", this.filters.orderBy == undefined ? "id" : this.filters.orderBy)
-                              .set("filters", JSON.stringify(this.filters))
-                              .set("direction", this.direction=="arrow_downward" ? "asc" : "desc")
+      
     }).pipe(
       map((response: any) => {
         const types = response;
