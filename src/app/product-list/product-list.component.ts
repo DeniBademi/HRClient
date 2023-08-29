@@ -58,7 +58,7 @@ export class ProductListComponent implements OnInit {
       this.getProducts();
     });
     
-    this.getProducts();
+    //this.getProducts();
     
   }
 
