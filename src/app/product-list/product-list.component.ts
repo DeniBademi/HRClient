@@ -64,6 +64,7 @@ export class ProductListComponent implements OnInit {
 
   getProducts() {
     this.productList = [];
+
     this.http.get(this.Globals.baseURL+'product/getAll', 
     {
       observe: 'response',
@@ -91,28 +92,30 @@ export class ProductListComponent implements OnInit {
       //     new ProductType(item.productType.id, item.productType.name),
       //     new Currency(item.currency.id, item.currency.fullname, item.currency.currencyCode, item.currency.prefix))
       // });
-      this.productList = response.body.sort((n1,n2) => {
-        if (n1.productType.name === "Spare Part" && n2.productType.name === "Machine")
-          return 1;
 
-        if (n1.productType.name === "Machine" && n2.productType.name === "Spare Part")
-            return -1;
+      console.log(response.body)
+      // this.productList = response.body.sort((n1,n2) => {
+      //   if (n1.productType.name === "Spare Part" && n2.productType.name === "Machine")
+      //     return 1;
+
+      //   if (n1.productType.name === "Machine" && n2.productType.name === "Spare Part")
+      //       return -1;
         
-        return 0;
-      }).map((item: any) => {
-        //console.log(item)
-        return new Product(item.id, 
-          item.name, 
-          item.price, 
-          "", 
-          item.description, 
-          JSON.parse(item.photosJSON.replaceAll("'","\"").replaceAll("\\\"", "\"")),
-          new ProductModel(item.productModel.id, item.productModel.name),
-          new ProductType(item.productType.id, item.productType.name),
-          new Currency(1, this.translate.currentLang == "bg" ? "Leva" : "EUR",
-                          this.translate.currentLang == "bg" ? "лв" : "EUR", 
-                          ""))
-      });
+      //   return 0;
+      // }).map((item: any) => {
+      //   //console.log(item)
+      //   return new Product(item.id, 
+      //     item.name, 
+      //     item.price, 
+      //     "", 
+      //     item.description, 
+      //     JSON.parse(item.photosJSON.replaceAll("'","\"").replaceAll("\\\"", "\"")),
+      //     new ProductModel(item.productModel.id, item.productModel.name),
+      //     new ProductType(item.productType.id, item.productType.name),
+      //     new Currency(1, this.translate.currentLang == "bg" ? "Leva" : "EUR",
+      //                     this.translate.currentLang == "bg" ? "лв" : "EUR", 
+      //                     ""))
+      // });
       var pag = JSON.parse(response.headers.get("Pagination"))
       this.totalPages = String(pag["TotalItems"])
     }, error => {
