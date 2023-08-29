@@ -93,7 +93,22 @@ export class ProductListComponent implements OnInit {
       //     new Currency(item.currency.id, item.currency.fullname, item.currency.currencyCode, item.currency.prefix))
       // });
 
-      console.log(response.body)
+      
+      let products = response.body.map((item: any) => {
+          return new Product(item.id, 
+          item.name, 
+          item.price, 
+          "", 
+          item.description, 
+          JSON.parse(item.photosJSON.replaceAll("'","\"").replaceAll("\\\"", "\"")),
+          new ProductModel(item.productModel.id, item.productModel.name),
+          new ProductType(item.productType.id, item.productType.name),
+          new Currency(1, this.translate.currentLang == "bg" ? "Leva" : "EUR",
+                          this.translate.currentLang == "bg" ? "лв" : "EUR", 
+                          ""))
+                        });
+          console.log(products)
+
       // this.productList = response.body.sort((n1,n2) => {
       //   if (n1.productType.name === "Spare Part" && n2.productType.name === "Machine")
       //     return 1;
