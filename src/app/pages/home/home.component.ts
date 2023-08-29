@@ -11,7 +11,7 @@ import { DataService } from 'src/app/_services/data.service';
 import { ProductModel } from 'src/app/_models/ProductModel';
 import { ProductType } from 'src/app/_models/ProductType';
 import { ModalService } from 'src/app/_services/modal.service';
-import AOS from "aos";
+//import AOS from "aos";
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
@@ -97,7 +97,7 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
     
     this.data.wakeUpServer().subscribe(res=>{ });
-    AOS.init();
+    //AOS.init();
   }
 
   ngAfterViewInit(){
