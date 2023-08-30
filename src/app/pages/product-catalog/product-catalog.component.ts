@@ -21,6 +21,11 @@ export class ProductCatalogComponent implements OnInit {
     this.spareParts = GlobalsService.spareParts;
   }
   ngOnInit() {
+    window.scroll({ 
+      top: 0, 
+      left: 0, 
+      behavior: 'smooth' 
+    });
     this.translate.use(this.route.snapshot.paramMap.get("languageCode"))
   }
 

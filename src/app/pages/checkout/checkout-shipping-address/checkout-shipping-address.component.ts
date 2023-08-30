@@ -53,6 +53,12 @@ export class CheckoutShippingAddressComponent implements OnInit {
 
 
     ngOnInit() {
+      window.scroll({ 
+        top: 0, 
+        left: 0, 
+        behavior: 'smooth' 
+      });
+
       this.translateService.use(this.route.snapshot.paramMap.get("languageCode"))
         this.Route.paramMap.subscribe( paramMap => {
             this.checkoutID = paramMap.get('id');

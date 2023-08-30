@@ -35,6 +35,12 @@ export class CheckoutOrderOverviewComponent implements OnInit {
     }
 
   ngOnInit() {
+    window.scroll({ 
+      top: 0, 
+      left: 0, 
+      behavior: 'smooth' 
+    });
+
     this.cartItems = JSON.parse(this.checkout["cartJSON"])
     this.sum = this.CartService.calculateTotalJSON(this.cartItems);
     this.total = this.sum;

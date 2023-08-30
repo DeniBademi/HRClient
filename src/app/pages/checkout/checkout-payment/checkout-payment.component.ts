@@ -61,6 +61,12 @@ export class CheckoutPaymentComponent implements OnInit {
 
 
   ngOnInit() {
+      window.scroll({ 
+        top: 0, 
+        left: 0, 
+        behavior: 'smooth' 
+      });
+      
       this.translate.use(this.route.snapshot.paramMap.get("languageCode"))
 
       //Get shipping methods

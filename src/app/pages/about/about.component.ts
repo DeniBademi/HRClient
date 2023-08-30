@@ -13,6 +13,12 @@ export class AboutComponent implements OnInit {
 
   ngOnInit() {
     this.translate.use(this.route.snapshot.paramMap.get("languageCode"))
+
+    window.scroll({ 
+      top: 0, 
+      left: 0, 
+      behavior: 'smooth' 
+    });
   }
 
 }
