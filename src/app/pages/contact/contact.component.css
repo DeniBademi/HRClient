@@ -145,7 +145,8 @@ body {
     width: 40%;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
+    white-space: nowrap;
 }
 
 #contact-details .details span,
