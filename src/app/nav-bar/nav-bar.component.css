@@ -27,13 +27,13 @@ body {
     background: #333;
     position: sticky;
     min-height: 70px;
-    top: 0;
+    top: 20px;
     left: 0;
     z-index: 999;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.06);
     border-bottom: 1vh solid yellow;
     width: 100%;
-    
+
   }
   .navbar .nav-header{
     display: inline;
@@ -46,7 +46,7 @@ body {
     display: inline;
     float: right;
   }
-   
+
   .navbar .nav-links a{
     text-decoration: none;
   }
@@ -66,13 +66,13 @@ body {
     bottom: -4px;
     left: 20px;
 }
-   
+
   /* responsive navbar toggle button */
   .navbar #nav-check, .navbar .nav-btn{
     display: none;
   }
-   
-  
+
+
 
   .hexagon {
     top:100%;
@@ -112,7 +112,7 @@ body {
 
 #navbar {
     margin: auto;
-    
+
 }
 
 #navbar li {
@@ -132,7 +132,7 @@ body {
     transition: 0.3s ease;
     letter-spacing: 1px;
     text-decoration: none;
-    
+
 }
 
 #navbar ul {
@@ -159,7 +159,7 @@ body {
 .dropdown-item {
   color: black !important;
   cursor: pointer;
-  
+
 }
 
 
@@ -185,7 +185,7 @@ body {
     margin-left: -5px;
     margin-bottom: -5px;
     padding-top: 5px;
-    
+
 }
 .badge {
   -webkit-border-radius: 9px;
@@ -200,7 +200,7 @@ body {
 
 
 .flag-container {
-  
+
   height: 30px;
   display: flex;
   align-items: center;
@@ -220,10 +220,10 @@ body {
   .flag-container {
 
       display: none;
-      
+
   }
 
-  
+
 }
 
 
@@ -264,12 +264,12 @@ body {
     .navbar .nav-links a {
       display: block;
     }
-   
+
     /* when nav toggle button not checked */
     .navbar #nav-check:not(:checked) ~ .nav-links {
       height: 0px;
     }
-   
+
     /* when nav toggle button is checked */
     .navbar #nav-check:checked ~ .nav-links {
       height: calc(100vh - 70px);

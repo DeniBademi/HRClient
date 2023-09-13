@@ -44,7 +44,7 @@
 		"buy_now": "Buy now",
 		"warranty-5": "5 Year Warranty",
 		"money-30": "30 Day Money Back Guarantee"
-		
+
 	},
 	"product_details": {
 		"add_to_cart": "Add to cart",
@@ -114,12 +114,12 @@
 			"city":"City",
 			"state":"State",
 			"postal_code":"Postal Code"
-			
+
 
 		},
 		"shipping_method": {
 			"warning_international": "Please note that international delivery time is around 20 business days.",
-			"processing_time": "Manufacturing time can take up to business 10 days.",
+			"processing_time": "Manufacturing time can take up to 10 business days.",
 			"standard_delivery_header_bg": "Standard Delivery - Bulgaria - Free",
 			"standard_delivery_content_bg": "Standard processing time. Your order is added to our queue and is processed in the order it was received. Payment on delivery possible. Shipped to you via EKONT.",
 			"priority_delivery_header_bg": "Prioritized Delivery - Bulgaria -",
@@ -180,7 +180,11 @@
 		"or_email": " or send us an email at ",
 		"find_us": "Find us",
 		"find_us_text": "Want to see first? Visit our distributor stores in Sofia, Bulgaria",
-		"here": "here"
+		"here": "here",
+		"special_offer": "Special offer",
+		"win_message_1": "You have won a limited-time discount of",
+		"win_message_2": "before the timer runs out!",
+		"shop_now": "Shop now"
 	}
 
 }

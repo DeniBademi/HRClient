@@ -76,7 +76,7 @@ export class DataService {
   }
 
   validateCouponCode(code: string) {
-    return this.http.put(this.GlobalsService.baseURL+'coupon/validate', {},
+    return this.http.get(this.GlobalsService.baseURL+'coupon/validate',
     {params: new HttpParams().set("Code", code),
       observe: "response"})
   }
@@ -95,5 +95,13 @@ export class DataService {
 
   getStripeClientSecret(data) {
     return this.http.post(this.GlobalsService.baseURL +'stripe/create-payment-intent', data);
+  }
+
+  isDiscountActive() {
+    try {
+      return new Date(localStorage.getItem('targetTime')!).getTime() - new Date().getTime() > 0
+    } catch (error) {
+      return false;
+    }
   }
 }

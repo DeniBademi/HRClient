@@ -14,19 +14,19 @@ export class CartService {
   cartItems: BehaviorSubject<{ product: any, quantity: number }[]> = new BehaviorSubject<{ product: any, quantity: number }[]>([]);
   cartItemsCount: BehaviorSubject<number> = new BehaviorSubject<number>(0);
 
-constructor(private modal: ModalService) { 
+constructor(private modal: ModalService) {
   let temp = [];
   // temp.push({product: new Product("4c4d9f4f-c0ed-495d-b671-529557a1ae35", "Top Roller", 350, "BGN", "", JSON.parse('{"thumbnail":"001_main_gwqm02.jpg",' +
-  // '"gallery":["001_1_yl9bpm.png","001_2_cxbbdb.png","001_3_bspmo4.png","001_4_i2lafj.png"]}'), 
-  // new ProductModel("e752ef04-304f-49f2-b1ff-166309ea34fd","250mm 5,4 mm"), 
-  // new ProductType("dbd88a2b-8408-4a00-8af2-f8cda4584d14", "Spare part"), 
+  // '"gallery":["001_1_yl9bpm.png","001_2_cxbbdb.png","001_3_bspmo4.png","001_4_i2lafj.png"]}'),
+  // new ProductModel("e752ef04-304f-49f2-b1ff-166309ea34fd","250mm 5,4 mm"),
+  // new ProductType("dbd88a2b-8408-4a00-8af2-f8cda4584d14", "Spare part"),
   // new Currency(2, "US Dollar", "USD", "Prefix")
   // ), quantity: 1});
 
   // temp.push({product: new Product("26d61449-b1b2-4c55-b4cc-ebd260a47a77", "Bottom Roller", 350, "BGN", "", JSON.parse('{"thumbnail":"001_main_gwqm02.jpg",' +
-  // '"gallery":["001_1_yl9bpm.png","001_2_cxbbdb.png","001_3_bspmo4.png","001_4_i2lafj.png"]}'), 
-  // new ProductModel("e752ef04-304f-49f2-b1ff-166309ea34fd","250mm 5,4 mm"), 
-  // new ProductType("dbd88a2b-8408-4a00-8af2-f8cda4584d14", "Spare part"), 
+  // '"gallery":["001_1_yl9bpm.png","001_2_cxbbdb.png","001_3_bspmo4.png","001_4_i2lafj.png"]}'),
+  // new ProductModel("e752ef04-304f-49f2-b1ff-166309ea34fd","250mm 5,4 mm"),
+  // new ProductType("dbd88a2b-8408-4a00-8af2-f8cda4584d14", "Spare part"),
   // new Currency(2, "US Dollar", "USD", "Prefix")
   // ), quantity: 1});
 
@@ -71,7 +71,7 @@ ngOnInit() {
         break;
       }
     }
-    
+
     if (index > -1) {
       if(tempCart[index].quantity==1)
         tempCart.splice(index, 1);
@@ -83,7 +83,7 @@ ngOnInit() {
   }
 
   deleteItem(product: Product) {
-    
+
     let tempCart = this.cartItems.getValue();
     let index = -1;
     for(let i=0;i<tempCart.length;i++){
@@ -97,7 +97,7 @@ ngOnInit() {
       tempCart.splice(index, 1);
     }
 
-   
+
   }
 
   productInCart(product: Product) {
@@ -130,7 +130,7 @@ ngOnInit() {
     }
     return total
    }
-  
+
 }
 
 

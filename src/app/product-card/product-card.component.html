@@ -10,11 +10,17 @@
               <div class="spec"><b>{{'catalog.product_type' | translate}}:</b> {{product.productType.name}}</div>
               <div class="spec"><b>{{'catalog.product_model' | translate}}:</b> {{product.productModel.name}}</div>
             </div>
-            
+
           </div>
           <div class="card-text-price col-5">
-            <div class="h6 font-weight-bold pricelabel">{{product.price | convert | currency:(translate.currentLang == "bg"? "BGN": "EUR")}}</div>
-          </div>  
+            <div class="h6 font-weight-bold pricelabel">
+              <span *ngIf="this.DataService.isDiscountActive()">{{product.price*0.6 | convert | currency:(translate.currentLang == "bg"? "BGN": "EUR")}}
+                <br><s style="color:red; font-weight: 500;white-space: pre; font-size:smaller">{{product.price | convert | currency:(translate.currentLang == "bg"? "BGN": "EUR")}}</s>
+              </span>
+              <span *ngIf="!this.DataService.isDiscountActive()">{{product.price | convert | currency:(translate.currentLang == "bg"? "BGN": "EUR")}}
+              </span>
+              </div>
+          </div>
         </div>
       </div>
     </div>

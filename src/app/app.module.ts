@@ -69,10 +69,13 @@ import { FeaturedCardComponent } from './shared/featured-card/featured-card.comp
 import { PrivacyPolicyComponent } from './pages/privacy-policy/privacy-policy.component';
 import { TermsAndConditionsComponent } from './pages/terms-and-conditions/terms-and-conditions.component';
 import { ModalComponent } from './shared/modal/modal.component';
+import { WheelOfFortuneComponent } from './wheel-of-fortune/wheel-of-fortune.component';
+import { BroadcastLineComponent } from './broadcast-line/broadcast-line.component';
+import { CountdownTimerComponent } from './broadcast-line/countdown-timer/countdown-timer.component';
 
 
 @NgModule({
-  declarations: [									
+  declarations: [
       AppComponent,
       NavBarComponent,
       ProductCardComponent,
@@ -101,8 +104,11 @@ import { ModalComponent } from './shared/modal/modal.component';
       FindUsComponent,
       ConvertPipe,
       PrivacyPolicyComponent,
-      TermsAndConditionsComponent
-       ],
+      TermsAndConditionsComponent,
+      WheelOfFortuneComponent,
+      BroadcastLineComponent,
+      CountdownTimerComponent
+   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -145,7 +151,7 @@ import { ModalComponent } from './shared/modal/modal.component';
     NoopAnimationsModule,
     ReactiveFormsModule,
     RouterModule,
-    
+
     // RxTranslateModule.forRoot({filePath:'assets/i18n/{{language-code}}.json',isCache:true}),
         TranslateModule.forRoot({
             loader: {
@@ -156,7 +162,7 @@ import { ModalComponent } from './shared/modal/modal.component';
         }),
     LocalizeRouterModule
 
-        
+
   ],
   providers: [
     { provide: MatDialogRef, useValue: {} },

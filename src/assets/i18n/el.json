@@ -173,7 +173,10 @@
 		"call_us": "Call us for a free consultation at",
 		"or_email": " or send us an email at ",
       "find_us_text": "Want to see first? Visit our distributor stores in Sofia, Bulgaria",
-		"here": "here"
+		"here": "here",
+      "special_offer": "Special offer",
+      "win_message_1": "You have won a",
+		"win_message_2": "before the timer runs out!",
+		"shop_now": "Shop now"
 	}
  }
- 

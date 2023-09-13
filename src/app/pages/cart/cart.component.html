@@ -26,16 +26,16 @@
                             <input type="number" step="1" min="1" max="" name="quantity" [(ngModel)]="item.quantity" title="Qty" class="input-text qty text" size="4" pattern="" inputmode="">
                             <input type="button" value="+" class="plus" (click)="addItem(item.product)">
                         </div>
-                        
+
                         <!-- <div class="round-button">
                             <div class="round-button-circle">
-                                
+
                             </div>
                         </div> -->
-                        <i class="fa-solid far fa-trash fa-lg ml-4" (click)="this.CartService.deleteItem(item.product)"></i>
+                        <i class="fa-solid far fa-trash fa-lg ml-4" style="cursor: pointer;" (click)="this.CartService.deleteItem(item.product)"></i>
                     </div>
                 </div>
-                
+
             </div>
         </div>
         <div class="col-md-4 ">
@@ -45,9 +45,9 @@
                 </div>
                 <label class="discount-code-label">{{'cart.enter_discount_code' | translate}}</label>
                 <div class="discountform">
-                    
+
                     <input type="text" class="form-control credit-inputs discountinput" [(ngModel)]="discountCode" placeholder="XXXXXX">
-                    <button class="applydiscountbtn" (click)="validateDiscountCode()">Apply</button>
+                    <button class="applydiscountbtn" (click)="validateDiscountCode()" >Apply</button>
                     <!-- <div class="form">
                         <input type="text" placeholder="Your email address" [(ngModel)]="email">
                         <button class="normal" (click)="addSubscription()">Sign Up</button>
@@ -92,12 +92,12 @@
                                 {{'messages.required_field' | translate}}
                             </div>
                         </div>
-                        
+
                     </div>
                     <div>
                         <label class="credit-card-label">{{'cart.phone_number' | translate}} *</label>
                         <div class="phoneContainer">
-        
+
                             <input required class="form-control credit-inputs" formControlName="phoneNumber" type="tel" placeholder="+359 999 999 999">
                             <div *ngIf="PersonalDetailsForm.controls['phoneNumber'].invalid && (PersonalDetailsForm.controls['phoneNumber'].dirty || PersonalDetailsForm.controls['phoneNumber'].touched)">
                                 <div *ngIf="PersonalDetailsForm.controls['phoneNumber'].errors['required']" class="error">
@@ -109,17 +109,17 @@
                             </div>
 
                         </div>
-                        
-                    </div>  
+
+                    </div>
                     <input type="checkbox" id="privacy_policy" name="privacy_policy" formControlName="agreed_privacy_policy">
                     <label for="privacy_policy" id="privacy_policy_label">{{'cart.agree' | translate}} <a [routerLink]="['/'+this.translate.currentLang+'/privacy-policy']">{{'cart.privacy_policy' | translate}}</a></label><br>
                     <input type="checkbox" id="terms_cons" name="terms_cons" formControlName="agreed_terms">
                     <label for="terms_cons" id="terms_cons_label">{{'cart.agree' | translate}} <a [routerLink]="['/'+this.translate.currentLang+'/terms-and-conditions']">{{'cart.terms' | translate}}</a></label><br>
- 
+
                     <hr class="line">
                     <!-- <div class="d-flex justify-content-between information"><span>Subtotal</span><span>{{total}} BGN</span></div> -->
                     <div class="d-flex justify-content-between information"><span>{{'cart.taxes_shipping' | translate}}</span></div>
-                    <button class="btn btn-checkout btn-block d-flex justify-content-between mt-3" 
+                    <button class="btn btn-checkout btn-block d-flex justify-content-between mt-3"
                     type="submit" [disabled]="!(PersonalDetailsForm.valid)">
                         <span *ngIf="this.discountType.length==0">{{sum | convert | currency:(translate.currentLang == "bg"? "BGN": "EUR")}}</span>
                         <span *ngIf="this.discountType.length>0"><s style="color:red; font-weight: 500;white-space: pre;">{{sum | convert: {round:false} | currency:(translate.currentLang == "bg"? "BGN": "EUR")}}</s> {{total | convert | currency:(translate.currentLang == "bg"? "BGN": "EUR")}}</span>
@@ -142,7 +142,7 @@
                 <h1 class="cart-empty-label">{{'cart.empty_cart' | translate}}</h1>
                 <button class="go-shopping-btn" [routerLink]="['/'+this.translate.currentLang+'/catalog']" routerLinkActive="active" >{{'cart.go_shopping' | translate}}</button>
             </div>
-            
+
         </div>
     </div>
 </div>

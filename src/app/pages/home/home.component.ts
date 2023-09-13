@@ -56,26 +56,26 @@ export class HomeComponent implements OnInit, AfterViewInit {
     null
   )
 
-  
-  constructor(GlobalsService: GlobalsService, 
-    public router: Router, 
-    private route: ActivatedRoute, 
+
+  constructor(GlobalsService: GlobalsService,
+    public router: Router,
+    private route: ActivatedRoute,
     public translate:TranslateService,
     public data: DataService,
-    public modalService: ModalService) { 
+    public modalService: ModalService) {
     this.sampleProduct = GlobalsService.sampleProduct
-    
+
   }
 
 
 
   ngOnInit() {
-    window.scroll({ 
-      top: 0, 
-      left: 0, 
-      behavior: 'smooth' 
+    window.scroll({
+      top: 0,
+      left: 0,
+      behavior: 'smooth'
     });
-    
+
     this.translate.use(this.route.snapshot.paramMap.get("languageCode"))
 
     if(this.translate.currentLang == 'bg'){
@@ -100,12 +100,15 @@ export class HomeComponent implements OnInit, AfterViewInit {
 
     });
 
-    
+
     this.data.wakeUpServer().subscribe(res=>{ });
     //AOS.init();
   }
 
   ngAfterViewInit(){
+
+
+
     setTimeout( ()=>{
       this.modalService.open('modal-call-us')
     }, 60000)

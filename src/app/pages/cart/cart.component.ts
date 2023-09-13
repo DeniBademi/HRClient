@@ -40,7 +40,7 @@ export class CartComponent implements OnInit {
       Validators.pattern(/^\+?\d{1,3}[- ]?\d{3}[- ]?\d{3}[- ]?\d{4}$/)
 
     ]),
-    discountCode: new FormControl('', []),
+    discountCode: new FormControl('SALE40', []),
 
   });
 
@@ -63,10 +63,10 @@ export class CartComponent implements OnInit {
 
   agreed_terms: any = undefined;
   agreed_privacy_policy: any = undefined;
-  
 
-  constructor(public CartService: CartService, 
-              public GlobalsService: GlobalsService, 
+
+  constructor(public CartService: CartService,
+              public GlobalsService: GlobalsService,
               public DataService: DataService,
               public toastr: ToastrService,
               public translate: TranslateService,
@@ -83,34 +83,41 @@ export class CartComponent implements OnInit {
     });
 
     // this.cartItems.push({product: new Product(1, "Top Roller", 0, "USD", "", JSON.parse('{"thumbnail":"001_main_gwqm02.jpg",' +
-    // '"gallery":["001_1_yl9bpm.png","001_2_cxbbdb.png","001_3_bspmo4.png","001_4_i2lafj.png"]}'), 
-    // new ProductModel(4,"250mm 5,4 mm"), 
-    // new ProductType(2, "Spare part"), 
+    // '"gallery":["001_1_yl9bpm.png","001_2_cxbbdb.png","001_3_bspmo4.png","001_4_i2lafj.png"]}'),
+    // new ProductModel(4,"250mm 5,4 mm"),
+    // new ProductType(2, "Spare part"),
     // new Currency(2, "US Dollar", "USD", "Prefix")
     // ), quantity: 1});
 
     // this.cartItems.push({product: new Product(2, "Bottom Roller", 0, "USD", "", JSON.parse('{"thumbnail":"001_main_gwqm02.jpg",' +
-    // '"gallery":["001_1_yl9bpm.png","001_2_cxbbdb.png","001_3_bspmo4.png","001_4_i2lafj.png"]}'), 
-    // new ProductModel(4,"250mm 5,4 mm"), 
-    // new ProductType(2, "Spare part"), 
+    // '"gallery":["001_1_yl9bpm.png","001_2_cxbbdb.png","001_3_bspmo4.png","001_4_i2lafj.png"]}'),
+    // new ProductModel(4,"250mm 5,4 mm"),
+    // new ProductType(2, "Spare part"),
     // new Currency(2, "US Dollar", "USD", "Prefix")
     // ), quantity: 1});
    }
 
    ngOnInit() {
-    window.scroll({ 
-      top: 0, 
-      left: 0, 
-      behavior: 'smooth' 
+    window.scroll({
+      top: 0,
+      left: 0,
+      behavior: 'smooth'
     });
 
 
     this.translate.use(this.route.snapshot.paramMap.get("languageCode"))
     this.sum = this.CartService.calculateTotal();
+
     this.total = this.sum
+
 
    }
    ngAfterContentInit() {
+    if(this.DataService.isDiscountActive()) {
+    this.PersonalDetailsForm.get('discountCode').setValue(this.discountCode)
+    this.discountCode = "SALE40"
+    this.validateDiscountCodeSilent();
+    }
    }
 
    validateDiscountCode() {
@@ -136,14 +143,31 @@ export class CartComponent implements OnInit {
     error => this.toastr.error(error.error))
    }
 
-   
+   validateDiscountCodeSilent() {
+
+    let answer = this.DataService.validateCouponCode(this.discountCode).subscribe(
+      data => {
+        this.PersonalDetailsForm.get('discountCode').setValue(this.discountCode)
+        this.discount = data.body["discount"]
+        if(data.body["isPercentage"]) {
+          this.total = this.sum * (100 - this.discount)/100
+          this.discountType = "p"
+        } else {
+          this.total = this.sum - this.discount;
+          this.discountType = "a"
+        }
+    },
+    error => this.toastr.error(error.error))
+   }
+
+
    refreshTotal() {
     this.sum = this.CartService.calculateTotal();
     if(this.discountType=="p") {
       this.total = this.sum * (100 -this.discount)/100
     } else if (this.discountType=="a") {
       this.total = this.sum - this.discount;
-      
+
     }
 
    }
@@ -161,7 +185,7 @@ export class CartComponent implements OnInit {
 
    checkout() {
     let data: any = {};
-    
+
     data.CartJSON = JSON.stringify(this.cartItems);
     data.FirstName = this.PersonalDetailsForm.value.firstName;
     data.LastName = this.PersonalDetailsForm.value.lastName;
@@ -172,12 +196,12 @@ export class CartComponent implements OnInit {
       //console.log(data.DiscountCode)
       data.DiscountCode = this.PersonalDetailsForm.value.discountCode!;
     }
-    
+
     this.DataService.checkout(data).subscribe( (value: any) => {
       //console.log(value)
       let checkoutID = value['id'];
       this.Router.navigate(['/'+this.translate.currentLang+'/checkout/'+ checkoutID+ '/shipping-address']);
-      
+
     },
     error => this.toastr.error(error.error))
    }

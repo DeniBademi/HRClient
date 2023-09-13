@@ -19,8 +19,8 @@
                     <div *ngIf="innerWidth<=700">
                         <gallery class="gallery" [items]="photos" thumbPosition="bottom" imageSize="cover"></gallery>
                     </div>
-                    
-                    
+
+
                 </div>
                 <div class="col-sm-1"></div>
                 <div class="col-sm-4">
@@ -31,7 +31,15 @@
                                 <!-- <img src="https://res.cloudinary.com/dvkjlgu83/image/upload/v1686526873/design/WARRANTY-5_jipazl.ai"> -->
                             </div>
                             <div class="product-price">
-                                <h2 class="offer-price">{{product.price | convert | currency: (translate.currentLang == "bg"? "BGN": "EUR")}}</h2>
+                                <!-- <h2 class="offer-price">{{product.price | convert | currency: (translate.currentLang == "bg"? "BGN": "EUR")}}</h2> -->
+                                <h2 class="offer-price">
+                                <span *ngIf="this.DataService.isDiscountActive()">{{product.price*0.6 | convert | currency:(translate.currentLang == "bg"? "BGN": "EUR")}}
+                                    <br><s class="old-price">{{product.price | convert | currency:(translate.currentLang == "bg"? "BGN": "EUR")}}</s>
+                                  </span>
+                                  <span *ngIf="!this.DataService.isDiscountActive()">{{product.price | convert | currency:(translate.currentLang == "bg"? "BGN": "EUR")}}
+                                  </span>
+                                </h2>
+
                                 <!-- <span class="sale-price">$129.00</span> -->
                             </div>
                         </div>
@@ -44,12 +52,12 @@
                             <img src="https://res.cloudinary.com/dvkjlgu83/image/upload/v1687206032/design/verified_qbvytb.png" class="shield-badge">
                             <div class="warranty-text">{{'catalog.money-30' | translate}}</div>
                         </div>
-                        
+
                         <span class="divider"></span>
                         <div class="product-details" *ngIf="product.description.length>0">
                             <div style="font-size:small;" [innerHTML]="product.description"></div>
                         </div>
-    
+
                         <span class="divider"></span>
 
                         <div class="product-btn-group">
