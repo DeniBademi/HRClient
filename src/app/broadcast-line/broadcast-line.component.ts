@@ -29,7 +29,10 @@ export class BroadcastLineComponent implements OnInit {
     this.countdown.startTimer();
     document.getElementById("background").style.display = "block";
     document.getElementById("background").style.backgroundColor = "black";
+    document.getElementById("background").style.display = "flex";
+    document.getElementById("background").style.justifyContent = "center";
     document.getElementById("content").style.color = "red";
+    document.getElementById("content").style.textAlign = "middle";
     this.text = "Limited-time discount:";
   }
 
