@@ -91,7 +91,7 @@ const sectors = [
       if (!angVel) {
         //win 0.46
         //spin again 0.
-        angVel = rand(0,1) > 0.5 ? 0.46 : 0.496
+        angVel = rand(0,1) > 0.25 ? 0.46 : 0.496
         ang = 0 // Angle in radians
       }
     })
