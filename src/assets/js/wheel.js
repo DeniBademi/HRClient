@@ -18,9 +18,11 @@ const sectors = [
   const TAU = 2 * PI
   const arc = TAU / sectors.length
 
+
   const friction = 0.991 // 0.995=soft, 0.99=mid, 0.98=hard
   let angVel = 0 // Angular velocity
   let ang = 0 // Angle in radians
+  let spinnable = true
 
   const getIndex = () => Math.floor(tot - (ang / TAU) * tot) % tot
 
@@ -55,7 +57,7 @@ const sectors = [
   function rotate() {
     const sector = sectors[getIndex()]
     ctx.canvas.style.transform = `rotate(${ang - PI / 2}rad)`
-    spinEl.textContent = !angVel ? 'SPIN' : sector.label
+    spinEl.textContent = (!angVel && spinnable) ? 'SPIN' : sector.label
     spinEl.style.background = sector.color
   }
 
@@ -70,6 +72,9 @@ const sectors = [
         if(spinEl.textContent != "SPIN \n AGAIN"){
             document.getElementById("result-wheel").style.display = "block";
             document.getElementById("result-wheel").click();
+            spinnable = false;
+        } else {
+
         }
     }
     ang += angVel // Update angle
@@ -88,7 +93,7 @@ const sectors = [
     engine() // Start engine
     spinEl.addEventListener('click', () => {
 
-      if (!angVel) {
+      if (!angVel && spinnable) {
         //win 0.46
         //spin again 0.
         angVel = rand(0,1) > 0.25 ? 0.46 : 0.496
